@@ -306,7 +306,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="checkAddon.groovy" FOLDED="true" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1318809383249">
+<node TEXT="checkAddon.groovy" FOLDED="true" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1318922448380">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -314,23 +314,36 @@
   </head>
   <body>
     <p>
-      The child node contains the script body.
+      Adds all nodes, attributes and notes to the current map that are standard for Freeplane add-ons.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      So to create a new add-on do this:
+    </p>
+    <p>
+      &#160;- File-&gt;New
+    </p>
+    <p>
+      &#160;- Tools-&gt;Scripts-&gt;Dev Tools-&gt;Check Add-on
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
 <attribute NAME="menuTitleKey" VALUE="addons.checkAddOn"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
-<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 <node TEXT="// @ExecutionModes({on_single_node=&quot;main_menu_scripting/devtools[addons.insertBinary]&quot;})&#xa;// Copyright (C) 2011 Volker Boerchers&#xa;//&#xa;// This program is free software: you can redistribute it and/or modify&#xa;// it under the terms of the GNU General Public License as published by&#xa;// the Free Software Foundation, either version 2 of the License, or&#xa;// (at your option) any later version.&#xa;import javax.swing.JFileChooser&#xa;&#xa;def chooser = new JFileChooser(fileSelectionMode:JFileChooser.FILES_ONLY)&#xa;if (chooser.showOpenDialog() == JFileChooser.APPROVE_OPTION) {&#xa;        File file = chooser.selectedFile&#xa;        node.binary = file.bytes&#xa;}" FOLDED="true" ID="ID_662398758" CREATED="1313186593194" MODIFIED="1318808325214"/>
 </node>
-<node TEXT="insertBinary.groovy" FOLDED="true" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1318807657334">
+<node TEXT="insertBinary.groovy" FOLDED="true" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1318922054716">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -338,10 +351,11 @@
   </head>
   <body>
     <p>
-      The child node contains the script body.
+      Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
 <attribute NAME="menuTitleKey" VALUE="addons.insertBinary"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
@@ -377,9 +391,8 @@
   </body>
 </html></richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1318793824928">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1318920715044">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
-<attribute NAME="addons.${name}.dummyProperty" VALUE="true"/>
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -487,6 +500,42 @@
     </p>
   </body>
 </html></richcontent>
+<node TEXT="freeplane.dsld" FOLDED="true" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1318921800288">
+<richcontent TYPE="NOTE">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Unpacked to &lt;userdir&gt;/scripts/freeplane.dsld
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      In Eclipse,
+    </p>
+    <p>
+      1. install the Groovy plugin, see http://groovy.codehaus.org/Eclipse+Plugin
+    </p>
+    <p>
+      2. create a new Groovy project for editing your scripts
+    </p>
+    <p>
+      3. check out the Freeplane sources and create Java projects for them, see http://freeplane.sourceforge.net/wiki/index.php/Bazaar_howto
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="UEsDBAoAAAAAANRGUj8AAAAAAAAAAAAAAAAIABwAc2NyaXB0cy9VVAkAA68inU7rIp1OdXgLAA&#xa;EE6AMAAAToAwAAUEsDBBQAAAAIAM5GUj+yj3ElhQEAAJUFAAAWABwAc2NyaXB0cy9mcmVlcGxh&#xa;bmUuZHNsZFVUCQADpCKdTqQinU51eAsAAQToAwAABOgDAAC1ksFOwzAMhu97Ct8KEsoDIHFhEg&#xa;IJDSQGF8QhtG5mlMZR4o5NiHcnadkA0cGYRg5Nm/7+7D/2AbrSciRnbspAXg4OD5UuS/QCLyNI&#xa;yweeU4UBTqA4C4jeaofFaPXPY5AlON3gMRRlcQSy9PmVg1H1Sq68bQ05FbsUKoUtluq6e47ZSW&#xa;BrMRSDSMcV/p06yVGDPMvGpFwbiCUHVK2QVZdsbtMehykt/UygtDeeHTqJ6vZiyryJNJPG9ol+&#xa;Lel8LR0kCS5kS9J0LR1uI7uazHa3vh6JfnxOdcSx1THmxibIdY8mjO8j06DMuFplmhRH3Wleu7&#xa;T4I9rroJt4DPdUJciTnmuVAEbdSEizXTx8KCsukyKgtMFFkBlCnjF4Jpl1X4bm6IAq4ACutRao&#xa;TgqBhCSrH+37YH01Mv1u5FsN+yk2txm43rLwtYri7ybufjJx9fiEpezJxFzbFv/JBdWTFLabla&#xa;6uwd71JV907CHYRruf4rKV3nn2kQ+0q1Z3kTyGZ4rJ0uvoDVBLAQIeAwoAAAAAANRGUj8AAAAA&#xa;AAAAAAAAAAAIABgAAAAAAAAAEADtQQAAAABzY3JpcHRzL1VUBQADryKdTnV4CwABBOgDAAAE6A&#xa;MAAFBLAQIeAxQAAAAIAM5GUj+yj3ElhQEAAJUFAAAWABgAAAAAAAEAAACkgUIAAABzY3JpcHRz&#xa;L2ZyZWVwbGFuZS5kc2xkVVQFAAOkIp1OdXgLAAEE6AMAAAToAwAAUEsFBgAAAAACAAIAqgAAAB&#xa;cCAAAAAA==" ID="ID_886349110" CREATED="1318920980012" MODIFIED="1318921012688"/>
+</node>
 </node>
 </node>
 </map>
