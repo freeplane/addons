@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318974533548" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318982372986" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -131,9 +131,8 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
-<node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318341638679" HGAP="-310" VSHIFT="-60">
+</html></richcontent>
+<node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319007679620" HGAP="-390" VSHIFT="-60">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -148,7 +147,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="A sample theme add-on" ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1318341633487" BACKGROUND_COLOR="#ffff75">
+<node TEXT="A sample theme add-on that changes the link icons." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319007670926" BACKGROUND_COLOR="#ffff75">
 <font SIZE="16"/>
 </node>
 </node>
@@ -182,7 +181,7 @@
   </body>
 </html></richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1317235107086">
+<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1317235107086">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -194,6 +193,14 @@
     </p>
   </body>
 </html></richcontent>
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319007582221">
+<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute NAME="addons.${name}" VALUE="Old Icons Theme"/>
+</node>
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1319007847369">
+<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute NAME="addons.${name}" VALUE="Old Icons-Theme"/>
+</node>
 </node>
 <node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1318807873528" HGAP="50" VSHIFT="-100">
 <richcontent TYPE="NOTE">
