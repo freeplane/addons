@@ -9,6 +9,6 @@ import javax.swing.JFileChooser
 
 def chooser = new JFileChooser(fileSelectionMode:JFileChooser.FILES_ONLY)
 if (chooser.showOpenDialog() == JFileChooser.APPROVE_OPTION) {
-	File file = chooser.selectedFile
-	node.binary = file.bytes
+    File file = chooser.selectedFile
+    node.binary = file.bytes
 }
