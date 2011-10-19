@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318807920620" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318974533548" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -131,7 +131,8 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318341638679" HGAP="-310" VSHIFT="-60">
 <richcontent TYPE="NOTE">
 <html>

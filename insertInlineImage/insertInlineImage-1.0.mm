@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318807939887" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318968243580" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -110,12 +110,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -137,13 +131,14 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318793824917" HGAP="-20">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -168,7 +163,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -316,7 +311,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -341,7 +336,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -360,7 +355,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -389,7 +384,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -411,7 +406,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!
+      <!--<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
