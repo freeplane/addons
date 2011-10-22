@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1318982469482" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319246688760" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -137,7 +137,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -178,8 +178,7 @@
       The new functions are available under Tools -&gt; Development Tools
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <font SIZE="16"/>
 </node>
 </node>
@@ -188,7 +187,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -306,7 +305,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="checkAddOn.groovy" FOLDED="true" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319041161624">
+<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319041161624">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -340,7 +339,6 @@
 <attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
-<node TEXT="// @ExecutionModes({on_single_node=&quot;main_menu_scripting/devtools[addons.checkAddOn]&quot;})&#xa;// Copyright (C) 2011 Volker Boerchers&#xa;//&#xa;// This program is free software: you can redistribute it and/or modify&#xa;// it under the terms of the GNU General Public License as published by&#xa;// the Free Software Foundation, either version 2 of the License, or&#xa;// (at your option) any later version.&#xa;&#xa;&#xa;////////////////////////////////////////////////////////////////////////////////&#xa;// This script checks the current map for conformity to the add-on standards.&#xa;// Notes are overridden without further notice. So either never run this script&#xa;// or write comments into the node details&#xa;////////////////////////////////////////////////////////////////////////////////&#xa;&#xa;import org.freeplane.plugin.script.proxy.Proxy&#xa;&#xa;File mapFile = node.map.file&#xa;String backup = mapFile.path + &apos;.bak&apos;&#xa;new File(mapFile.path + &apos;.bak&apos;).bytes = mapFile.bytes&#xa;&#xa;def LEFT = true&#xa;def RIGHT = false&#xa;&#xa;def createMissingAttributes(Proxy.Node node, List&lt;String&gt; attributes) {&#xa;attributes.each {&#xa;if (node.attributes.findFirst(it) == -1) {&#xa;node[it] = &quot;&quot;&#xa;logger.info(&quot;created attribute &apos;$it&apos; in &apos;${node.plainText}&apos;&quot;)&#xa;}&#xa;}&#xa;}&#xa;&#xa;Proxy.Node findOrCreate(Proxy.Node parent, String name, boolean isLeft) {&#xa;def node = parent.children.find{ it.plainText == name }&#xa;if (node == null) {&#xa;node = parent.createChild(name)&#xa;logger.info(&quot;created node &quot; + name)&#xa;}&#xa;if (node.left != isLeft)&#xa;node.left = isLeft&#xa;return node&#xa;}&#xa;&#xa;String withBody(String body) {&#xa;return &apos;&apos;&apos;&lt;html&gt;&#xa;  &lt;head&gt;&#xa;&lt;style type=&quot;text/css&quot;&gt;&#xa;  &lt;!--&#xa;p { margin-top: 0 }&#xa;body { font-size: 12pt; font-family: SansSerif }&#xa;  --&gt;&#xa;&lt;/style&gt;&#xa;  &lt;/head&gt;&#xa;  &lt;body&gt;&#xa;&apos;&apos;&apos; + body + &apos;&apos;&apos;&#xa;  &lt;/body&gt;&#xa;&lt;/html&gt;&#xa;&apos;&apos;&apos;&#xa;}&#xa;&#xa;//&#xa;// ============ root ============&#xa;//&#xa;def root = node.map.root&#xa;root.note = withBody &apos;&apos;&apos;&#xa;&lt;p&gt;&#xa;  The basic properties of this add-on. They can be used in script names&#xa;      and other attributes, e.g. &quot;${name}.groovy&quot;.&#xa;&lt;/p&gt;&#xa;&lt;ul&gt;&#xa;  &lt;li&gt;&#xa;name: The name of the add-on, normally a technically one (no spaces,&#xa;        no special characters except _.-).&#xa;  &lt;/li&gt;&#xa;  &lt;li&gt;&#xa;version&#xa;  &lt;/li&gt;&#xa;  &lt;li&gt;&#xa;freeplane-version-from: The oldest compatible Freeplane version. The&#xa;add-on will not be installed if the Freeplane version is too old.&#xa;  &lt;/li&gt;&#xa;  &lt;li&gt;&#xa;freeplane-version-to: Normally empty: The newest compatible Freeplane&#xa;version. The add-on will not be installed if the Freeplane version is&#xa;too new.&#xa;  &lt;/li&gt;&#xa;&lt;/ul&gt;&#xa;  &lt;/body&gt;&#xa;&lt;/html&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;createMissingAttributes(root, [&#xa;&apos;name&apos;,&#xa;&apos;version&apos;,&#xa;&apos;freeplaneVersionFrom&apos;,&#xa;&apos;freeplaneVersionTo&apos;&#xa;])&#xa;&#xa;//&#xa;// ============ description ============&#xa;//&#xa;findOrCreate(root, &apos;description&apos;, RIGHT).note = withBody &apos;&apos;&apos;&#xa;&lt;p&gt;&#xa;  Description would be awkward to edit as an attribute.&#xa;&lt;/p&gt;&#xa;&lt;p&gt;&#xa;  So you have to put the add-on description as a child of the &lt;i&gt;&apos;description&apos;&lt;/i&gt;&amp;#160;node.&#xa;&lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ preferences.xml ============&#xa;//&#xa;findOrCreate(root, &apos;preferences.xml&apos;, LEFT).note = withBody &apos;&apos;&apos;&#xa;&lt;p&gt;&#xa;  &lt;font color=&quot;#000000&quot; face=&quot;SansSerif, sans-serif&quot;&gt;The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&amp;gt;Preferences-&amp;gt;Add-ons). &lt;/font&gt;&#xa;&lt;/p&gt;&#xa;&lt;p&gt;&#xa;  &lt;font color=&quot;#000000&quot; face=&quot;SansSerif, sans-serif&quot;&gt;Every property in the configuration should receive a default value in &lt;i&gt;default.properties&lt;/i&gt;&amp;#160;node.&lt;/font&gt;&#xa;&lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ default.properties ============&#xa;//&#xa;findOrCreate(root, &apos;default.properties&apos;, LEFT).note = withBody &apos;&apos;&apos;&#xa;    &lt;p&gt;&#xa;  These properties play together with the preferences: Each property defined in the preferences should have a default value in the attributes of this node.&#xa;    &lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ translations ============&#xa;//&#xa;findOrCreate(root, &apos;translations&apos;, LEFT).note = withBody &apos;&apos;&apos;&#xa;    &lt;p&gt;&#xa;      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least &apos;addons.${name}&apos; for the add-on&apos;s name.&#xa;    &lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ deinstall ============&#xa;//&#xa;findOrCreate(root, &apos;deinstall&apos;, LEFT).note = withBody &apos;&apos;&apos;&#xa;    &lt;p&gt;&#xa;      List of files and/or directories to remove on deinstall&#xa;    &lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ scripts ============&#xa;//&#xa;findOrCreate(root, &apos;scripts&apos;, RIGHT).note = withBody &apos;&apos;&apos;&#xa;    &lt;p&gt;&#xa;      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). Its properties have to be configured via attributes:&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      * menuLocation: &amp;lt;locationkey&amp;gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- Defines where the menu location.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;-&amp;#160;See mindmapmodemenu.xml for how the menu locations look like.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- http://freeplane.bzr.sf.net/bzr/freeplane/freeplane_program/trunk/annotate/head%3A/freeplane/resources/xml/mindmapmodemenu.xml&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- This attribute is mandatory&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      * menuTitleKey: &amp;lt;key&amp;gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- The menu item title will be looked up under the translation key &amp;lt;key&amp;gt; - don&apos;t forget to define its translation.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- This attribute is mandatory&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      * executionMode: &amp;lt;mode&amp;gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- The execution mode as described in the Freeplane wiki (http://freeplane.sourceforge.net/wiki/index.php/Scripting)&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- ON_SINGLE_NODE: Execute the script once. The &lt;i&gt;node&lt;/i&gt;&amp;#160;variable is set to the selected node.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- ON_SELECTED_NODE: Execute the script n times for n selected nodes, once for each node.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- This attribute is mandatory&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      * keyboardShortcut: &amp;lt;shortcut&amp;gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- Optional: keyboard combination / accelerator for this script, e.g. control alt I&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- Use lowercase letters for modifiers and uppercase for letters. Use no + signs.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- The available key names are listed at http://download.oracle.com/javase/1.4.2/docs/api/java/awt/event/KeyEvent.html#VK_0&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;In the list only entries with a &apos;VK_&apos; prefix count. Omit the prefix in the shortcut definition.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      * Permissions&amp;#160;that the script(s) require, each either false or true:&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- execute_scripts_without_asking&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- execute_scripts_without_file_restriction: permission to read files&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- execute_scripts_without_write_restriction: permission to create/change/delete files&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- execute_scripts_without_exec_restriction: permission to execute other programs&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;&amp;#160;- execute_scripts_without_network_restriction: permission to access the network&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;Notes:&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;- The set of permissions is fixed.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;- Don&apos;t change the attribute names, don&apos;t omit one.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;- Set the values either to true or to false&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;&amp;#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.&#xa;    &lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;//&#xa;// ============ zips ============&#xa;//&#xa;findOrCreate(root, &apos;zips&apos;, RIGHT).note = withBody &apos;&apos;&apos;&#xa;    &lt;p&gt;&#xa;      An add-on may contain any number of nodes containing zip files.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;- The immediate child nodes contain a description of the zip. The child nodes of these nodes contain the actual zip files.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;- Any zip file will be extracted in the &amp;lt;installationbase&amp;gt;. Currently, &amp;lt;installationbase&amp;gt; is always Freeplane&apos;s &amp;lt;userhome&amp;gt;, e.g. ~/.freeplane/1.2.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;- The files will be processed in the sequence as seen in the map.&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;    &lt;/p&gt;&#xa;    &lt;p&gt;&#xa;      &amp;#160;- Zip files must be uploaded into the map via the script &lt;i&gt;Tools-&amp;gt;Scripts-&amp;gt;Insert Binary&lt;/i&gt;&amp;#160;since they have to be (base64) encoded as simple strings.&#xa;    &lt;/p&gt;&#xa;&apos;&apos;&apos;&#xa;&#xa;ui.informationMessage(&apos;added nodes, attributes and notes if necessary.\nBackup file is &apos; + backup)" FOLDED="true" ID="ID_1005502974" CREATED="1313186593194" MODIFIED="1319041257360"/>
 </node>
 <node TEXT="insertBinary.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1318966763739">
 <richcontent TYPE="NOTE">
@@ -364,7 +362,6 @@
 <attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
-<node TEXT="// @ExecutionModes({on_single_node=&quot;main_menu_scripting/devtools[addons.insertBinary]&quot;})&#xa;// Copyright (C) 2009-2011 Dave (Dke211, initial author), Volker Boerchers (adaptation for Freeplane)&#xa;//&#xa;// This program is free software: you can redistribute it and/or modify&#xa;// it under the terms of the GNU General Public License as published by&#xa;// the Free Software Foundation, either version 2 of the License, or&#xa;// (at your option) any later version.&#xa;import javax.swing.JFileChooser&#xa;&#xa;def chooser = new JFileChooser(fileSelectionMode:JFileChooser.FILES_ONLY)&#xa;if (chooser.showOpenDialog() == JFileChooser.APPROVE_OPTION) {&#xa;File file = chooser.selectedFile&#xa;node.binary = file.bytes&#xa;}" FOLDED="true" ID="ID_662398758" CREATED="1313186593194" MODIFIED="1318966784416"/>
 </node>
 </node>
 <node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1318809657822" VSHIFT="-30">
@@ -372,7 +369,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -395,7 +392,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -414,7 +411,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -447,7 +444,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -507,9 +504,8 @@
       &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
-</html>
-</richcontent>
-<node TEXT="scripts" FOLDED="true" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100">
+</html></richcontent>
+<node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -542,7 +538,6 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="UEsDBAoAAAAAANRGUj8AAAAAAAAAAAAAAAAIABwAc2NyaXB0cy9VVAkAA68inU7rIp1OdXgLAA&#xa;EE6AMAAAToAwAAUEsDBBQAAAAIAM5GUj+yj3ElhQEAAJUFAAAWABwAc2NyaXB0cy9mcmVlcGxh&#xa;bmUuZHNsZFVUCQADpCKdTqQinU51eAsAAQToAwAABOgDAAC1ksFOwzAMhu97Ct8KEsoDIHFhEg&#xa;IJDSQGF8QhtG5mlMZR4o5NiHcnadkA0cGYRg5Nm/7+7D/2AbrSciRnbspAXg4OD5UuS/QCLyNI&#xa;yweeU4UBTqA4C4jeaofFaPXPY5AlON3gMRRlcQSy9PmVg1H1Sq68bQ05FbsUKoUtluq6e47ZSW&#xa;BrMRSDSMcV/p06yVGDPMvGpFwbiCUHVK2QVZdsbtMehykt/UygtDeeHTqJ6vZiyryJNJPG9ol+&#xa;Lel8LR0kCS5kS9J0LR1uI7uazHa3vh6JfnxOdcSx1THmxibIdY8mjO8j06DMuFplmhRH3Wleu7&#xa;T4I9rroJt4DPdUJciTnmuVAEbdSEizXTx8KCsukyKgtMFFkBlCnjF4Jpl1X4bm6IAq4ACutRao&#xa;TgqBhCSrH+37YH01Mv1u5FsN+yk2txm43rLwtYri7ybufjJx9fiEpezJxFzbFv/JBdWTFLabla&#xa;6uwd71JV907CHYRruf4rKV3nn2kQ+0q1Z3kTyGZ4rJ0uvoDVBLAQIeAwoAAAAAANRGUj8AAAAA&#xa;AAAAAAAAAAAIABgAAAAAAAAAEADtQQAAAABzY3JpcHRzL1VUBQADryKdTnV4CwABBOgDAAAE6A&#xa;MAAFBLAQIeAxQAAAAIAM5GUj+yj3ElhQEAAJUFAAAWABgAAAAAAAEAAACkgUIAAABzY3JpcHRz&#xa;L2ZyZWVwbGFuZS5kc2xkVVQFAAOkIp1OdXgLAAEE6AMAAAToAwAAUEsFBgAAAAACAAIAqgAAAB&#xa;cCAAAAAA==" ID="ID_886349110" CREATED="1318920980012" MODIFIED="1318921012688"/>
 </node>
 </node>
 </node>

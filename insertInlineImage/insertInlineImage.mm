@@ -131,14 +131,13 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318793824917" HGAP="-20">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -163,7 +162,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -281,7 +280,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="${name}.groovy" FOLDED="true" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1318130932338">
+<node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1318130932338">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -303,7 +302,6 @@
 <attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
-<node TEXT="// @ExecutionModes({ON_SINGLE_NODE})&#xa;import groovy.swing.SwingBuilder&#xa;import java.awt.FlowLayout as FL&#xa;import javax.swing.BoxLayout as BXL&#xa;import javax.swing.ImageIcon&#xa;import javax.swing.JFileChooser&#xa;import javax.swing.JTextField&#xa;import org.freeplane.core.resources.ResourceController&#xa;&#xa;def ImageIcon getIcon(String path) {&#xa;    new ImageIcon(ResourceController.getResourceController().getResource(path))&#xa;}&#xa;&#xa;def builder = new SwingBuilder()&#xa;def dialog = builder.dialog(title:&apos;Insert Image&apos;, id:&apos;insertImage&apos;, modal:true,&#xa;               locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {&#xa;    panel() {&#xa;        JTextField urlField&#xa;        boxLayout(axis:BXL.Y_AXIS)&#xa;        panel(alignmentX:0f) {&#xa;            flowLayout(alignment:FL.LEFT)&#xa;            label(&apos;URL&apos;)&#xa;            urlField = textField(id:&apos;url&apos;, columns:30)&#xa;            button(action:action(closure:{&#xa;                def chooser = fileChooser(fileSelectionMode:JFileChooser.FILES_ONLY)&#xa;                if (chooser.showOpenDialog() == JFileChooser.APPROVE_OPTION)&#xa;                    urlField.text = chooser.selectedFile.toURL()&#xa;                }), icon:getIcon(&quot;/images/fileopen.png&quot;))&#xa;        }&#xa;        panel(alignmentX:0f) {&#xa;            flowLayout(alignment:FL.LEFT)&#xa;            label(&apos;Width:&apos;)&#xa;            textField(id:&apos;width&apos;, columns:3)&#xa;            glue()&#xa;            label(&apos;Height:&apos;)&#xa;            textField(id:&apos;height&apos;, columns:3)&#xa;        }&#xa;        panel(alignmentX:0f) {&#xa;            flowLayout(alignment:FL.LEFT)&#xa;            label(&apos;Target:&apos;)&#xa;            buttonGroup().with { group -&gt;&#xa;                radioButton(id:&apos;text&apos;, text:&apos;Node Text&apos;, selected:true, buttonGroup:group)&#xa;                radioButton(id:&apos;details&apos;, text:&apos;Node Details&apos;, buttonGroup:group)&#xa;            }&#xa;        }&#xa;        panel(alignmentX:0f) {&#xa;            flowLayout(alignment:FL.RIGHT)&#xa;            button(action:action(name:&apos;OK&apos;, defaultButton:true, mnemonic:&apos;O&apos;,&#xa;                                 enabled:bind(source:urlField, sourceProperty:&apos;text&apos;,&#xa;                                              converter:{ it ? true : false }),&#xa;                                 closure:{variables.ok = true; dispose()}))&#xa;            button(action:action(name:&apos;Cancel&apos;, mnemonic:&apos;C&apos;, closure:{dispose()}))&#xa;        }&#xa;    }&#xa;}&#xa;&#xa;def String insertTag(String text, String htmlTag) {&#xa;    if (text == null)&#xa;        text = &quot;&quot;&#xa;    if ( ! text.startsWith(&quot;&lt;html&gt;&quot;))&#xa;        text = &quot;&lt;html&gt;&lt;head/&gt;&lt;body&gt;${text}&lt;/body&gt;&lt;/html&gt;&quot;&#xa;    return text.replace(&quot;&lt;/body&gt;&quot;, htmlTag + &quot;&lt;/body&gt;&quot;)&#xa;}&#xa;&#xa;def String imageTag(url, width, height) {&#xa;    def attribs = [ &quot;src=&apos;${url}&apos;&quot; ]&#xa;    if (width)&#xa;        attribs &lt;&lt; &quot;width=&apos;${width}&apos;&quot;&#xa;    if (height)&#xa;        attribs &lt;&lt; &quot;height=&apos;${height}&apos;&quot;&#xa;    &quot;&lt;img ${attribs.join(&apos; &apos;)} /&gt;&quot;&#xa;}&#xa;&#xa;ui.addEscapeActionToDialog(dialog)&#xa;dialog.show()&#xa;def vars = builder.variables&#xa;if (vars.ok) {&#xa;    def imageTag = imageTag(vars.url.text, vars.width.text, vars.height.text)&#xa;    if (vars.details.selected)&#xa;        node.details = insertTag(node.detailsText, imageTag)&#xa;    else&#xa;        node.text = insertTag(node.text, imageTag)&#xa;}" FOLDED="true" ID="ID_662398758" CREATED="1313186593194" MODIFIED="1318132055025"/>
 </node>
 </node>
 <node TEXT="preferences.xml" FOLDED="true" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1318793824923">
@@ -311,7 +309,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -336,7 +334,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -355,7 +353,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -384,7 +382,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -406,7 +404,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!
+      <!--<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
