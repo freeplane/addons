@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319246688760" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319315752032" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -104,7 +104,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="1.0"/>
+<attribute NAME="version" VALUE="v0.9"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.9"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -132,12 +132,12 @@
     </ul>
   </body>
 </html></richcontent>
-<node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318982616725" HGAP="140" VSHIFT="40">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319322743134">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -153,7 +153,7 @@
     </p>
   </body>
 </html></richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319041829641" BACKGROUND_COLOR="#ffff75" HGAP="-740" VSHIFT="-83">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319322912801" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152">
 <richcontent TYPE="NODE">
 <html>
   <head>
@@ -165,7 +165,10 @@
     </p>
     <ul>
       <li>
-        checkAddOn.groovy: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on
+        checkAddOn.groovy: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on.
+      </li>
+      <li>
+        releaseAddOn.groovy: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around.
       </li>
       <li>
         insertBinary: Asks for a file to insert as text of the current node&#160;(BASE64 encoded).
@@ -187,7 +190,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -340,7 +343,45 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="insertBinary.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1318966763739">
+<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225">
+<richcontent TYPE="NOTE">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      This script has to be invoked when a valid add-on package is the current map! It's perfectly valid if this map does not contain the source code of scripts or the encoded binary of a zip file. Both will be inserted by this scripts.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Scripts are expected in a subdirectory 'scripts' of the parent directory of the current map.
+    </p>
+    <p>
+      Zips are generated from directories or files residing in a subdirectory 'zips' of the parent directory of the current map.
+    </p>
+  </body>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute NAME="menuTitleKey" VALUE="addons.releaseAddOn"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+</node>
+<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1318966763739">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -369,7 +410,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -392,7 +433,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -411,7 +452,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -439,12 +480,12 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319040981868" HGAP="50" VSHIFT="-100">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319336913576" HGAP="50" VSHIFT="-100">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -457,13 +498,14 @@
     </p>
   </body>
 </html></richcontent>
-<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="270"/>
+<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="277"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/insertBinary.groovy "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/checkAddOn.groovy "/>
+<attribute NAME="delete" VALUE="${installationbase}/scripts/releaseAddOn.groovy "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1319062498258" HGAP="90" VSHIFT="-230">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1319323200959" HGAP="90" VSHIFT="-270">
 <richcontent TYPE="NOTE">
 <html>
   <head>

@@ -74,7 +74,9 @@ root.note = withBody '''
         no special characters except _.-).
       </li>
       <li>
-        version
+        version: Since it's difficult to protect numbers like 1.0 from
+        Freeplane's number parser it's advised to prepend a 'v' to the number,
+        e.g. 'v1.0'.
       </li>
       <li>
         freeplane-version-from: The oldest compatible Freeplane version. The
