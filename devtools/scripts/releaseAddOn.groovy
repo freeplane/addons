@@ -22,10 +22,16 @@ import org.freeplane.plugin.script.proxy.Proxy
 // script bindings
 errors = []
 
+// support for 
+def expand(String string) {
+	// expands strings like "${name}.groovy"
+	string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = node.map.root.attributes.map[key]; v ? v : match})
+}
+
 def updateScripts() {
-	def addOnDir = node.map.file.parent
+	def scriptsDir = new File(node.map.file.parent, 'scripts')
 	c.find{ it.plainText.matches('.*\\.groovy') }.each {
-		File scriptFile = new File(addOnDir, it.plainText)
+		File scriptFile = new File(scriptsDir, expand(it.plainText))
 		if (!scriptFile.exists()) {
 			logger.warn("cannot update scriptfile $scriptFile doesn't exist")
 		} else {
@@ -38,15 +44,15 @@ def updateScripts() {
 }
 
 def updateZips() {
-	def addOnDir = node.map.file.parent
 	Proxy.Node zipsNode = c.find{ it.plainText.matches('zips') }[0]
 	if (!zipsNode) {
 		errors << "The root node has no 'zips' child. Please create it or better run 'Check Add-on'"
 		return
 	}
+	def zipsDir = new File(node.map.file.parent, 'zips')
 	zipsNode.children.each {
-		String dirToZipString = it.plainText
-		File dirToZip = new File(addOnDir, dirToZipString)
+		String dirToZipString = expand(it.plainText)
+		File dirToZip = new File(zipsDir, dirToZipString)
 		if (!dirToZip.exists()) {
 			logger.warn("cannot update zip file: directory $dirToZip doesn't exist")
 		} else {
