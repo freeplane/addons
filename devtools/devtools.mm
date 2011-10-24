@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319315752032" BACKGROUND_COLOR="#3ad37d">
+<node TEXT="Developer Tools" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319401469663" BACKGROUND_COLOR="#3ad37d">
 <font ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
@@ -105,7 +105,7 @@
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
 <attribute NAME="version" VALUE="v0.9"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="1.2.9"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
 <html>
@@ -137,7 +137,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -190,7 +190,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -410,7 +410,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -433,7 +433,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -452,7 +452,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -465,18 +465,20 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1318980807986">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319418854434">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
-<attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
 <attribute NAME="addons.checkAddOn" VALUE="Check Add-on"/>
+<attribute NAME="addons.releaseAddOn" VALUE="Create add-on package"/>
+<attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1319040881006">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1319418797230">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
-<attribute NAME="addons.insertBinary" VALUE="Bin&#xe4;rdatei einf&#xfc;gen"/>
 <attribute NAME="addons.checkAddOn" VALUE="Pr&#xfc;fe Add-on"/>
+<attribute NAME="addons.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
+<attribute NAME="addons.insertBinary" VALUE="Bin&#xe4;rdatei einf&#xfc;gen"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
@@ -485,7 +487,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
