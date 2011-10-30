@@ -28,7 +28,9 @@ def expand(String string) {
 	string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = node.map.root.attributes.map[key]; v ? v : match})
 }
 
-def updateScripts() {
+// returns the count of scripts added
+int updateScripts() {
+	int count = 0
 	def scriptsDir = new File(node.map.file.parent, 'scripts')
 	c.find{ it.plainText.matches('.*\\.groovy') }.each {
 		File scriptFile = new File(scriptsDir, expand(it.plainText))
@@ -38,12 +40,16 @@ def updateScripts() {
 			if (it.isLeaf())
 				it.createChild()
 			it.children.first().text = scriptFile.text
+			count++
 		}
 		it.folded = true
 	}
+	return count
 }
 
-def updateZips() {
+// returns the count of scripts added
+int updateZips() {
+	int count = 0
 	Proxy.Node zipsNode = c.find{ it.plainText.matches('zips') }[0]
 	if (!zipsNode) {
 		errors << "The root node has no 'zips' child. Please create it or better run 'Check Add-on'"
@@ -59,9 +65,11 @@ def updateZips() {
 			if (it.isLeaf())
 				it.createChild()
 			it.children.first().binary = getZipBytes(dirToZip)
+			count++
 		}
 		it.folded = true
 	}
+	return count
 }
 
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
@@ -91,14 +99,20 @@ byte[] getZipBytes(File topDir) {
 // copy the file of the current map, open the copied file, update some fields and finally save the map
 //
 def File mapFile = node.map.file
+if (!mapFile) {
+	ui.errorMessage("This map isn't saved yet - can't continue.")
+	return
+}
 def version = node.map.root['version']
 def releaseMapFile = new File(mapFile.path.replace(".mm", "") + "-${version}.mm")
 releaseMapFile.bytes = mapFile.bytes
 def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
 
+int countScripts = 0
+int countZips = 0
 try {
-	updateScripts()
-	updateZips()
+	countScripts = updateScripts()
+	countZips = updateZips()
 } catch (Exception e) {
 	errors << e.message
 	e.printStackTrace()
@@ -109,4 +123,4 @@ try {
 if (errors)
 	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
 else
-	ui.informationMessage("Success!")
+	ui.informationMessage("Successfully created add-on\nwith $countScripts script(s) and $countZips zip file(s).")

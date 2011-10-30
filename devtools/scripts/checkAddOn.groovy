@@ -13,11 +13,28 @@
 // or write comments into the node details
 ////////////////////////////////////////////////////////////////////////////////
 
+import javax.swing.JOptionPane
+
 import org.freeplane.plugin.script.proxy.Proxy
 
+messages = []
+
+def addMessage(String message) {
+	messages << message
+	logger.info(message)
+}
+
 def File mapFile = node.map.file
-def String backup = mapFile.path + '.bak'
-new File(mapFile.path + '.bak').bytes = mapFile.bytes
+if (mapFile) {
+	try {
+		def String backup = mapFile.path + '.bak'
+		new File(mapFile.path + '.bak').bytes = mapFile.bytes
+		addMessage("Created backup file " + backup)
+	}
+	catch (Exception e) {
+		addMessage("Couldn't create backup file due to " + e.message)
+	}
+}
 
 def LEFT = true
 def RIGHT = false
@@ -26,7 +43,7 @@ def createMissingAttributes(Proxy.Node node, List<String> attributes) {
     attributes.each {
         if (node.attributes.findFirst(it) == -1) {
             node[it] = ""
-            logger.info("created attribute '$it' in '${node.plainText}'")
+            addMessage("Created attribute '$it' in '${node.plainText}'")
         }
     }
 }
@@ -35,7 +52,7 @@ Proxy.Node findOrCreate(Proxy.Node parent, String name, boolean isLeft) {
     def node = parent.children.find{ it.plainText == name }
     if (node == null) {
         node = parent.createChild(name)
-        logger.info("created node " + name)
+        addMessage("Created node " + name)
     }
     if (node.left != isLeft)
         node.left = isLeft
@@ -59,10 +76,45 @@ String withBody(String body) {
 '''
 }
 
+// ======================================================================
+//                               MAIN
+// ======================================================================
+def root = node.map.root
+
+//
+// ============ name ============
+//
+String addOnNameOrig = root.plainText
+String addOnName = JOptionPane.showInputDialog(ui.frame, "Please enter the add-on name (e.g. 'My first add-on')!", addOnNameOrig)
+if (!addOnName) {
+	ui.errorMessage("Can't continue without a proper name")
+	return
+}
+else if (!addOnName.equals(addOnNameOrig)) {
+	root.text = addOnName
+	addMessage("Set add-on name to $addOnName")
+}
+String addOnTechName = root['name']
+if (!addOnTechName) {
+	addOnTechName = addOnName.
+		replaceAll('[\\W_]+(\\w)'){ match, letter -> letter.toString().toUpperCase() }.
+		replaceAll('\\W', '')
+		addOnTechName = addOnTechName.substring(0, 1).toLowerCase() +  addOnTechName.substring(1)
+	root['name'] = addOnTechName
+	addMessage("Set technical name to $addOnTechName")
+}
+
 //
 // ============ root ============
 //
-def root = node.map.root
+if (!root.style.backgroundColorCode || root.style.backgroundColorCode.toLowerCase() == '#ffffff') {
+	root.style.backgroundColorCode = '#97c7dc'
+	root.style.font.italic = true
+	root.style.font.bold = true
+	root.style.font.size = 16
+	addMessage("Set root node style")
+}
+
 root.note = withBody '''
     <p>
       The basic properties of this add-on. They can be used in script names
@@ -72,6 +124,9 @@ root.note = withBody '''
       <li>
         name: The name of the add-on, normally a technically one (no spaces,
         no special characters except _.-).
+      </li>
+      <li>
+        author: Author's name(s) and (optionally) email adresses.
       </li>
       <li>
         version: Since it's difficult to protect numbers like 1.0 from
@@ -95,6 +150,7 @@ root.note = withBody '''
 createMissingAttributes(root, [
     'name',
     'version',
+    'author',
     'freeplaneVersionFrom',
     'freeplaneVersionTo'
 ])
@@ -102,7 +158,7 @@ createMissingAttributes(root, [
 //
 // ============ description ============
 //
-findOrCreate(root, 'description', RIGHT).note = withBody '''
+findOrCreate(root, 'description', LEFT).note = withBody '''
     <p>
       Description would be awkward to edit as an attribute.
     </p>
@@ -110,6 +166,38 @@ findOrCreate(root, 'description', RIGHT).note = withBody '''
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
     </p>
 '''
+
+//
+// ============ license ============
+//
+def licenseNode = findOrCreate(root, 'license', LEFT)
+licenseNode.note = withBody '''
+    <p>
+      The add-ons's license that the user has to accept before she can install it.
+    </p>
+    <p>
+    </p>
+    <p>
+      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
+    </p>
+'''
+
+if (licenseNode.isLeaf()) {
+	licenseNode.createChild '''
+This add-on is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+'''
+	addMessage('''Missing license! - Added the default GNU v2+ license (like Freeplane).
+Change the license if needed.''')
+	licenseNode.folded = true
+}
 
 //
 // ============ preferences.xml ============
@@ -135,20 +223,29 @@ findOrCreate(root, 'default.properties', LEFT).note = withBody '''
 //
 // ============ translations ============
 //
-findOrCreate(root, 'translations', LEFT).note = withBody '''
+def translationsNode = findOrCreate(root, 'translations', LEFT)
+translationsNode.note = withBody '''
     <p>
       The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least 'addons.${name}' for the add-on's name.
     </p>
 '''
+if (translationsNode.isLeaf()) {
+	def en = translationsNode.createChild('en')
+	en['addons.${name}'] = addOnName
+}
 
 //
 // ============ deinstall ============
 //
-findOrCreate(root, 'deinstall', LEFT).note = withBody '''
+def deinstallNode = findOrCreate(root, 'deinstall', LEFT)
+deinstallNode.note = withBody '''
     <p>
       List of files and/or directories to remove on deinstall
     </p>
 '''
+if (deinstallNode.attributes.size() == 0) {
+	deinstallNode.attributes.add('delete', '${installationbase}/addons/${name}.script.xml')
+}
 
 //
 // ============ scripts ============
@@ -297,5 +394,5 @@ findOrCreate(root, 'zips', RIGHT).note = withBody '''
       &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
 '''
-
-ui.informationMessage('added nodes, attributes and notes if necessary.\nBackup file is ' + backup)
+def messagesString = messages.collect{ htmlUtils.htmlToPlain(it).replace('\n', '<br>') }.join('</li><li>')
+ui.informationMessage('<html><body><b>Please review this changes carefully:</b><ul><li>' + messagesString +'</li></ul></body></html>')
