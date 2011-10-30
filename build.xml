@@ -1,16 +1,19 @@
-<project name="addons" default="dist" basedir="..">
+<project name="addons" default="dist" basedir=".">
+    <property name="zip" value="addons.zip" />
 
     <target name="dist">
-        <zip destfile="addons.zip" compress="true">
-            <zipfileset dir="." prefix="freeplane-${ver}">
-                <include name="**/*-v[0-9]*.mm" />
+        <zip destfile="${zip}" compress="true">
+            <zipfileset dir=".">
+                <include name="**/*-v*.mm" />
             </zipfileset>
         </zip>
     </target>
 
     <target name="clean">
-        <delete quiet="true" includeemptydirs="true">
-                <include name="**/*-v[0-9]*.mm" />
+        <delete quiet="true">
+			<fileset dir="." includes="**/*-v*.mm">
+			    <include name="${zip}" />
+			</fileset>
         </delete>
     </target>
 
