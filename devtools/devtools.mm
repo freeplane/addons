@@ -1,7 +1,7 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319401469663" BACKGROUND_COLOR="#3ad37d">
-<font ITALIC="true"/>
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319926649020" BACKGROUND_COLOR="#97c7dc">
+<font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -104,12 +104,19 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9"/>
+<attribute NAME="version" VALUE="v0.9.2"/>
+<attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
 <html>
   <head>
+    <style type="text/css">
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
+        p { margin-top: 0 }
+      -->
+    </style>
     
   </head>
   <body>
@@ -121,7 +128,10 @@
         name: The name of the add-on, normally a technically one (no spaces, no special characters except _.-).
       </li>
       <li>
-        version
+        author: Author's name(s) and (optionally) email adresses.
+      </li>
+      <li>
+        version: Since it's difficult to protect numbers like 1.0 from Freeplane's number parser it's advised to prepend a 'v' to the number, e.g. 'v1.0'.
       </li>
       <li>
         freeplane-version-from: The oldest compatible Freeplane version. The add-on will not be installed if the Freeplane version is too old.
@@ -131,14 +141,15 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319322743134">
+</html>
+</richcontent>
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319926589227">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -152,7 +163,8 @@
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319322912801" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152">
 <richcontent TYPE="NODE">
 <html>
@@ -185,13 +197,13 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1318809671137" HGAP="50" VSHIFT="-10">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1319926589354" HGAP="50" VSHIFT="-10">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -307,8 +319,9 @@
       &#160;&#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
   </body>
-</html></richcontent>
-<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319041161624">
+</html>
+</richcontent>
+<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -339,7 +352,7 @@
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
-<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
@@ -405,13 +418,40 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1318809657822" VSHIFT="-30">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319926589245">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
+        p { margin-top: 0 }
+      -->
+    </style>
+    
+  </head>
+  <body>
+    <p>
+      The add-ons's license that the user has to accept before she can install it.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
+</node>
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1319926589267">
+<richcontent TYPE="NOTE">
+<html>
+  <head>
+    <style type="text/css">
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -425,16 +465,17 @@
       <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1318920715044">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1319926589282">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -445,15 +486,16 @@
       These properties play together with the preferences: Each property defined in the preferences should have a default value in the attributes of this node.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1319041005223">
+<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1319926589295">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -464,7 +506,8 @@
       The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least 'addons.${name}' for the add-on's name.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319418854434">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
@@ -482,13 +525,13 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319336913576" HGAP="50" VSHIFT="-100">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319926589319" HGAP="50" VSHIFT="-100">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
         p { margin-top: 0 }
       -->
     </style>
@@ -499,7 +542,8 @@
       List of files and/or directories to remove on deinstall
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="277"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/insertBinary.groovy "/>
@@ -507,10 +551,16 @@
 <attribute NAME="delete" VALUE="${installationbase}/scripts/releaseAddOn.groovy "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1319323200959" HGAP="90" VSHIFT="-270">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1319926589403" HGAP="90" VSHIFT="-270">
 <richcontent TYPE="NOTE">
 <html>
   <head>
+    <style type="text/css">
+      <!--
+        body { font-family: SansSerif; font-size: 12pt }
+        p { margin-top: 0 }
+      -->
+    </style>
     
   </head>
   <body>
@@ -548,7 +598,8 @@
       &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100">
 <richcontent TYPE="NOTE">
 <html>

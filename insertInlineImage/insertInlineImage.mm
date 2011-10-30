@@ -1,7 +1,7 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319401414743" BACKGROUND_COLOR="#3ad37d">
-<font ITALIC="true"/>
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319934960954" BACKGROUND_COLOR="#97c7dc">
+<font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -104,7 +104,8 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="insertInlineImage"/>
-<attribute NAME="version" VALUE="v0.9"/>
+<attribute NAME="version" VALUE="v0.9.2"/>
+<attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -131,13 +132,14 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
-<node TEXT="description" POSITION="right" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1318793824917" HGAP="-20">
+</html>
+</richcontent>
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319814883080">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -162,7 +164,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -280,7 +282,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1318130932338">
+<node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319496552334">
 <richcontent TYPE="NOTE">
 <html>
   <head>
@@ -288,7 +290,13 @@
   </head>
   <body>
     <p>
-      The child node contains the script body.
+      This script may open a file chooser. Due to some suboptimal file chooser implementations this might lead to a &quot;test write access&quot;. To avoid problems in this case <b>file write access</b>&#160;is granted but not actually needed.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      This script can be used to insert URLs like http://somehost.com/path/test.png. This will lead to a download of the image so <b>network access</b>&#160;could be necessary as well (but it doesn't seem so currently).
     </p>
   </body>
 </html></richcontent>
@@ -299,17 +307,37 @@
 <attribute NAME="keyboardShortcut" VALUE="control shift I"/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
-<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319815092962">
+<richcontent TYPE="NOTE">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      The add-ons's license that the user has to accept before she can install it.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML
+    </p>
+  </body>
+</html></richcontent>
+<node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
 <node TEXT="preferences.xml" FOLDED="true" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1318793824923">
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -327,14 +355,13 @@
 </html></richcontent>
 <node TEXT="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xa;&lt;preferences_structure&gt;&#xa;    &lt;tabbed_pane&gt;&#xa;        &lt;tab name=&quot;addons&quot;&gt;&#xa;            &lt;separator name=&quot;addons.insertInlineImage&quot;&gt;&#xa;                &lt;boolean name=&quot;addons.insertInlineImage.dummyProperty&quot; /&gt;&#xa;            &lt;/separator&gt;&#xa;        &lt;/tab&gt;&#xa;    &lt;/tabbed_pane&gt;&#xa;&lt;/preferences_structure&gt;" ID="ID_1478855073" CREATED="1313344144224" MODIFIED="1316796531118"/>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1318793824928">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1319475985262">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
-<attribute NAME="addons.${name}.dummyProperty" VALUE="true"/>
 <richcontent TYPE="NOTE">
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -353,7 +380,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -366,15 +393,15 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1316902698079">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319485185475">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Insert Inline Image"/>
-<attribute NAME="addons.${name}.dummyProperty" VALUE="Some boolean dummy property"/>
+<attribute NAME="addons.${name}.url.invalid" VALUE="Invalid URL"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1316902706896">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1319485179345">
+<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="343"/>
 <attribute NAME="addons.${name}" VALUE="Inline-Grafik einf&#xfc;gen"/>
-<attribute NAME="addons.${name}.dummyProperty" VALUE="Eine boolsche Testvariable"/>
+<attribute NAME="addons.${name}.url.invalid" VALUE="Ung&#xfc;ltige URL"/>
 </node>
 </node>
 <node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1318807816536" HGAP="50" VSHIFT="-100">
@@ -382,7 +409,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
@@ -404,7 +431,7 @@
 <html>
   <head>
     <style type="text/css">
-      <!--<!<!<!<!<!<!
+      <!--<!<!<!<!<!<!<!<!<!<!<!<!
         body { font-size: 12pt; font-family: SansSerif }
         p { margin-top: 0 }
       -->
