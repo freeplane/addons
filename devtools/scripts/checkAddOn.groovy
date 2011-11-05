@@ -62,12 +62,7 @@ Proxy.Node findOrCreate(Proxy.Node parent, String name, boolean isLeft) {
 String withBody(String body) {
     return '''<html>
   <head>
-    <style type="text/css">
-      <!--
-        p { margin-top: 0 }
-        body { font-size: 12pt; font-family: SansSerif }
-      -->
-    </style>
+
   </head>
   <body>
 ''' + body + '''
