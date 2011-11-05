@@ -138,12 +138,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -163,12 +157,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -336,12 +324,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -360,12 +342,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -379,12 +355,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -408,12 +378,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -430,12 +394,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--<!<!<!<!<!<!<!<!<!<!<!<!
-        body { font-size: 12pt; font-family: SansSerif }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>

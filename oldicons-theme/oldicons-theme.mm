@@ -141,12 +141,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--
-        body { font-family: SansSerif; font-size: 12pt }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -167,12 +161,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--
-        body { font-family: SansSerif; font-size: 12pt }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -194,12 +182,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--
-        body { font-family: SansSerif; font-size: 12pt }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -272,12 +254,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--
-        body { font-family: SansSerif; font-size: 12pt }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
@@ -397,12 +373,6 @@
 <richcontent TYPE="NOTE">
 <html>
   <head>
-    <style type="text/css">
-      <!--
-        body { font-family: SansSerif; font-size: 12pt }
-        p { margin-top: 0 }
-      -->
-    </style>
     
   </head>
   <body>
