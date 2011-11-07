@@ -108,7 +108,7 @@ if (!version) {
 	ui.errorMessage("This add-on has no version yet - can't continue.")
 	return
 }
-def releaseMapFile = new File(mapFile.path.replace(".mm", "") + "-${version}.mm")
+def releaseMapFile = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm")
 releaseMapFile.bytes = mapFile.bytes
 def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
 
