@@ -1,8 +1,9 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1319935326197" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1320709454327" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle" max_node_width="600" min_node_width="1">
+
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
@@ -104,11 +105,12 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="oldicons"/>
-<attribute NAME="version" VALUE="v0.9.1"/>
+<attribute NAME="version" VALUE="v0.9.2"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -137,8 +139,8 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319935259586">
-<richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319935259586"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -157,8 +159,8 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1319935227516">
-<richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1319935227516"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -178,8 +180,8 @@
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1256937052" CREATED="1319935227533" MODIFIED="1319935227535"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1319935227564">
-<richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1319935227564"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -198,6 +200,7 @@
 <node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1319935244784">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -210,8 +213,8 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1319935244242">
-<richcontent TYPE="NOTE">
+<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1319935244242"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -232,8 +235,8 @@
 <attribute NAME="addons.${name}" VALUE="Old Icons-Theme"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319935243240" HGAP="50" VSHIFT="-100">
-<richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1319935243240" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -250,8 +253,8 @@
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/LinkLocal.png "/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/Link.png "/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1319935227624" HGAP="30" VSHIFT="-30">
-<richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1319935227624" HGAP="30" VSHIFT="-30"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
@@ -369,8 +372,8 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1319935227638" HGAP="70" VSHIFT="-90">
-<richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1319935227638" HGAP="70" VSHIFT="-90"><richcontent TYPE="NOTE">
+
 <html>
   <head>
     
