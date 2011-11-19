@@ -1,8 +1,8 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1320709394503" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321675207286" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/insertInlineImage">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
-<hook NAME="MapStyle" max_node_width="600" min_node_width="1">
+<hook NAME="MapStyle">
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -105,7 +105,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="insertInlineImage"/>
-<attribute NAME="version" VALUE="v0.9.3"/>
+<attribute NAME="version" VALUE="v0.9.4"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -117,6 +117,9 @@
   </head>
   <body>
     <p>
+      The homepage of this add-on should be set as the link of the root node.
+    </p>
+    <p>
       The basic properties of this add-on. They can be used in script names and other attributes, e.g. &quot;${name}.groovy&quot;.
     </p>
     <ul>
@@ -124,7 +127,10 @@
         name: The name of the add-on, normally a technically one (no spaces, no special characters except _.-).
       </li>
       <li>
-        version
+        author: Author's name(s) and (optionally) email adresses.
+      </li>
+      <li>
+        version: Since it's difficult to protect numbers like 1.0 from Freeplane's number parser it's advised to prepend a 'v' to the number, e.g. 'v1.0'.
       </li>
       <li>
         freeplane-version-from: The oldest compatible Freeplane version. The add-on will not be installed if the Freeplane version is too old.
@@ -135,8 +141,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319814883080"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1321675207328"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -151,12 +158,47 @@
     </p>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="This script asks for an URL and inserts an HTML &lt;img&gt; tag at the end of the node&apos;s text. If the node is not already an HTML node it will be converted." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1318793790594" BACKGROUND_COLOR="#ffff75" HGAP="-500" VSHIFT="-73">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1321570736076" BACKGROUND_COLOR="#ffff75" HGAP="-500" VSHIFT="-73"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      This script asks for an URL and inserts an HTML <font face="Courier New">img</font>&#160;tag at the end of the node's text. If the node is not already an HTML node it will be converted.
+    </p>
+  </body>
+</html>
+</richcontent>
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1318793824951" HGAP="40" VSHIFT="-40"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321675207332"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Change log of this add-on: append one node for each noteworthy version and put the details for each version into a child node.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="v0.9" ID="ID_679770157" CREATED="1321674749784" MODIFIED="1321674755767">
+<node TEXT="initial version" ID="ID_1804184819" CREATED="1321674758481" MODIFIED="1321674762219"/>
+</node>
+<node TEXT="v0.9.4" ID="ID_1191427697" CREATED="1321572503553" MODIFIED="1321572536574">
+<node TEXT="adjusted to new add-on format" ID="ID_1401343116" CREATED="1321572540042" MODIFIED="1321572575564"/>
+<node TEXT="fixed display problems with img tag in the description" ID="ID_123909775" CREATED="1321674769271" MODIFIED="1321674802952"/>
+</node>
+</node>
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1321675207372" HGAP="40" VSHIFT="-40"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -213,6 +255,9 @@
     </p>
     <p>
       &#160;&#160;&#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
+    </p>
+    <p>
+      &#160;&#160;&#160;- In doubt use ON_SINGLE_NODE.
     </p>
     <p>
       &#160;&#160;&#160;- This attribute is mandatory
@@ -273,6 +318,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319496552334"><richcontent TYPE="NOTE">
 
@@ -305,7 +351,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319815092962"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1321675207338"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -319,14 +365,15 @@
       
     </p>
     <p>
-      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML
+      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1318793824923"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1321675207341"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -341,9 +388,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1319475985262">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1321675207345">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -357,9 +405,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1318793824933"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1321675207348"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -371,6 +420,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319485185475">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -383,7 +433,7 @@
 <attribute NAME="addons.${name}.url.invalid" VALUE="Ung&#xfc;ltige URL"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1318807816536" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1321675532025" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -395,12 +445,13 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="270"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/${name}.groovy "/>
+<attribute NAME="delete" VALUE="${installationbase}/scripts/${name}.groovy"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1318793824959" HGAP="70" VSHIFT="-110"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1321675207379" HGAP="70" VSHIFT="-110"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -414,7 +465,13 @@
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain a description of the zip. The child nodes of these nodes contain the actual zip files.
+      &#160;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The child nodes of these nodes contain the actual zip files.
     </p>
     <p>
       
@@ -436,6 +493,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
