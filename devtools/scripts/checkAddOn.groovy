@@ -1,3 +1,7 @@
+import javax.swing.JOptionPane;
+
+import javax.swing.JOptionPane;
+
 // @ExecutionModes({on_single_node="main_menu_scripting/devtools[addons.checkAddOn]"})
 // Copyright (C) 2011 Volker Boerchers
 //
@@ -15,9 +19,14 @@
 
 import javax.swing.JOptionPane
 
+import org.freeplane.core.ui.components.UITools;
+import org.freeplane.core.util.TextUtils;
+import org.freeplane.features.mode.Controller;
 import org.freeplane.plugin.script.proxy.Proxy
 
 messages = []
+// a List<String>
+filesToDeinstall = []
 
 def addMessage(String message) {
 	messages << message
@@ -41,9 +50,11 @@ def RIGHT = false
 
 def createMissingAttributes(Proxy.Node node, List<String> attributes) {
     attributes.each {
-        if (node.attributes.findFirst(it) == -1) {
-            node[it] = ""
-            addMessage("Created attribute '$it' in '${node.plainText}'")
+    	def name = (it instanceof List) ? it[0] : it
+		def value = (it instanceof List) ? it[1] : ""
+        if (node.attributes.findFirst(name) == -1) {
+			node[name] = value
+            addMessage("Created attribute '$name' = '$value' in '${node.plainText}'")
         }
     }
 }
@@ -98,6 +109,10 @@ if (!addOnTechName) {
 	root['name'] = addOnTechName
 	addMessage("Set technical name to $addOnTechName")
 }
+else if (!addOnTechName.charAt(0).isLowerCase()) {
+	ui.errorMessage("'name' attribute '$addOnTechName' (the technical add-on name) does not start with an lower case letter")
+	return
+}
 
 //
 // ============ root ============
@@ -111,6 +126,9 @@ if (!root.style.backgroundColorCode || root.style.backgroundColorCode.toLowerCas
 }
 
 root.note = withBody '''
+    <p>
+      The homepage of this add-on should be set as the link of the root node.
+    </p>
     <p>
       The basic properties of this add-on. They can be used in script names
       and other attributes, e.g. "${name}.groovy".
@@ -159,6 +177,15 @@ findOrCreate(root, 'description', LEFT).note = withBody '''
     </p>
     <p>
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
+    </p>
+'''
+
+//
+// ============ changes ============
+//
+findOrCreate(root, 'changes', LEFT).note = withBody '''
+    <p>
+      Change log of this add-on: append one node for each noteworthy version and put the details for each version into a child node.
     </p>
 '''
 
@@ -245,7 +272,8 @@ if (deinstallNode.attributes.size() == 0) {
 //
 // ============ scripts ============
 //
-findOrCreate(root, 'scripts', RIGHT).note = withBody '''
+def scriptsNode = findOrCreate(root, 'scripts', RIGHT)
+scriptsNode.note = withBody '''
     <p>
       An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). Its properties have to be configured via attributes:
     </p>
@@ -293,6 +321,9 @@ findOrCreate(root, 'scripts', RIGHT).note = withBody '''
     </p>
     <p>
       &#160;&#160;&#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
+    </p>
+    <p>
+      &#160;&#160;&#160;- In doubt use ON_SINGLE_NODE.
     </p>
     <p>
       &#160;&#160;&#160;- This attribute is mandatory
@@ -351,10 +382,27 @@ findOrCreate(root, 'scripts', RIGHT).note = withBody '''
     </p>
 '''
 
+scriptsNode.children.each {
+	createMissingAttributes(it, [
+		'menuTitleKey'
+		, ['menuLocation', 'main_menu_scripting']
+		, ['executionMode', 'on_single_node']
+		, 'keyboardShortcut'
+		, ['execute_scripts_without_asking', 'true']
+		, ['execute_scripts_without_file_restriction', 'true']
+		, ['execute_scripts_without_write_restriction', 'false']
+		, ['execute_scripts_without_exec_restriction', 'false']
+		, ['execute_scripts_without_network_restriction', 'false']
+	])
+}
+
+filesToDeinstall.addAll(scriptsNode.children.collect { "scripts/${it.plainText}" })
+
 //
 // ============ zips ============
 //
-findOrCreate(root, 'zips', RIGHT).note = withBody '''
+def zipsNode = findOrCreate(root, 'zips', RIGHT)
+zipsNode.note = withBody '''
     <p>
       An add-on may contain any number of nodes containing zip files.
     </p>
@@ -389,5 +437,27 @@ findOrCreate(root, 'zips', RIGHT).note = withBody '''
       &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
 '''
+def zipsDir = new File(node.map.file.parent, 'zips')
+if (zipsDir.exists()) {
+	zipsDir.eachFileRecurse() { file ->
+		if (file.isFile())
+			filesToDeinstall << file.path.substring(zipsDir.path.length() + 1)
+	}
+}
+
+filesToDeinstall = filesToDeinstall.collect { '${installationbase}/' + it.replace('\\', '/') }
+def actual = deinstallNode.attributes.values.collect{ it.trim() }
+// ${name} might occur in current deinstallation rules and/or in the list of scripts
+actual += actual*.replace('${name}', node.map.root['name'])
+def missing = filesToDeinstall - actual
+if (missing) {
+	def message = '<html><body><b>Add these files to the deinstallation rules?:</b><ul><li>' +
+		missing.join('</li><li>') +'</li></ul></body></html>'
+	final int selection = ui.showConfirmDialog(null, message, "Deinstallation Rules", JOptionPane.YES_NO_OPTION)
+	if (selection == JOptionPane.YES_OPTION) {
+		missing.each { deinstallNode.attributes.add('delete', it) }
+	}
+}
+
 def messagesString = messages.collect{ htmlUtils.htmlToPlain(it).replace('\n', '<br>') }.join('</li><li>')
 ui.informationMessage('<html><body><b>Please review this changes carefully:</b><ul><li>' + messagesString +'</li></ul></body></html>')
