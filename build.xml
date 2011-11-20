@@ -2,6 +2,7 @@
     <property name="zip" value="addons.zip" />
 
     <target name="dist">
+        <delete quiet="true" file="${zip}" />
         <zip destfile="${zip}" compress="true">
             <zipfileset dir=".">
                 <include name="**/*-v*.mm" />
