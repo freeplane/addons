@@ -17,11 +17,10 @@ import javax.swing.JOptionPane;
 // or write comments into the node details
 ////////////////////////////////////////////////////////////////////////////////
 
+import groovy.io.FileType
+
 import javax.swing.JOptionPane
 
-import org.freeplane.core.ui.components.UITools;
-import org.freeplane.core.util.TextUtils;
-import org.freeplane.features.mode.Controller;
 import org.freeplane.plugin.script.proxy.Proxy
 
 messages = []
@@ -437,11 +436,12 @@ zipsNode.note = withBody '''
       &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
 '''
-def zipsDir = new File(node.map.file.parent, 'zips')
-if (zipsDir.exists()) {
-	zipsDir.eachFileRecurse() { file ->
-		if (file.isFile())
+if (node.map.isSaved()) {
+	def zipsDir = new File(node.map.file.parent, 'zips')
+	if (zipsDir.exists()) {
+		zipsDir.eachFileRecurse(FileType.FILES) { file ->
 			filesToDeinstall << file.path.substring(zipsDir.path.length() + 1)
+		}
 	}
 }
 
