@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321572973339" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321898279755" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -105,7 +105,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.5"/>
+<attribute NAME="version" VALUE="v0.9.6"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -381,7 +381,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1318966763739"><richcontent TYPE="NOTE">
+<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -401,12 +401,12 @@
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
-<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321575200507"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321575200507"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -419,12 +419,18 @@
   </body>
 </html>
 </richcontent>
+<node TEXT="v0.9" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
+<node TEXT="initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1321573003254"/>
+</node>
 <node TEXT="v0.9.4" ID="ID_1191427697" CREATED="1321572503553" MODIFIED="1321572536574">
 <node TEXT="adjusted to new add-on format" ID="ID_1401343116" CREATED="1321572540042" MODIFIED="1321572575564"/>
 <node TEXT="checkAddon.groovy: add script attributes and deinstallation rules; check case of add-on name" ID="ID_609744697" CREATED="1321674084210" MODIFIED="1321674491159"/>
 </node>
-<node TEXT="v0.9" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
-<node TEXT="initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1321573003254"/>
+<node TEXT="v0.9.5" ID="ID_1275139979" CREATED="1321898313486" MODIFIED="1321898321925">
+<node TEXT="make checkAddOn.groovy work for maps that are not saved" ID="ID_1259871081" CREATED="1321898323014" MODIFIED="1321898323014"/>
+</node>
+<node TEXT="v0.9.6" ID="ID_1469699162" CREATED="1321898340249" MODIFIED="1321898344125">
+<node TEXT="add missing file/write permission for insertBinary.groovy" ID="ID_1936917850" CREATED="1321898345129" MODIFIED="1321898374198"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319926589245"><richcontent TYPE="NOTE">
