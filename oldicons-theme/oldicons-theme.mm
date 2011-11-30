@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321674887237" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322640643725" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -104,8 +104,8 @@
 </map_styles>
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
-<attribute NAME="name" VALUE="oldicons"/>
-<attribute NAME="version" VALUE="v0.9.3"/>
+<attribute NAME="name" VALUE="oldicons-theme"/>
+<attribute NAME="version" VALUE="v0.9.4"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -141,7 +141,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1321674887244"><richcontent TYPE="NOTE">
 
@@ -158,9 +157,8 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="A sample theme add-on that changes the link icons." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319935283939" BACKGROUND_COLOR="#ffff75" HGAP="-560" VSHIFT="-40">
+<node TEXT="A theme add-on that changes the link icons to the pre-release 1.2 ones." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1322503178551" BACKGROUND_COLOR="#ffff75" HGAP="-560" VSHIFT="-40">
 <font SIZE="16"/>
 </node>
 </node>
@@ -176,13 +174,15 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="v0.9" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
+<node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1321573003254"/>
 </node>
-<node TEXT="v0.9.3" ID="ID_1482015760" CREATED="1321572503553" MODIFIED="1321674591923">
+<node TEXT="v0.9.3" FOLDED="true" ID="ID_1482015760" CREATED="1321572503553" MODIFIED="1321674591923">
 <node TEXT="add homepage" ID="ID_827522570" CREATED="1321572540042" MODIFIED="1321674603174"/>
+</node>
+<node TEXT="v0.9.4" FOLDED="true" ID="ID_688684983" CREATED="1321572503553" MODIFIED="1322503192321">
+<node TEXT="renamed oldicons to oldicons-theme" ID="ID_318063295" CREATED="1321572540042" MODIFIED="1322503207282"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1321674887254"><richcontent TYPE="NOTE">
@@ -203,7 +203,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1256937052" CREATED="1319935227533" MODIFIED="1319935227535"/>
 </node>
@@ -222,7 +221,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1321674887261">
@@ -239,7 +237,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1321674887269"><richcontent TYPE="NOTE">
@@ -254,7 +251,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319007582221">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -277,7 +273,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="270"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
@@ -404,7 +399,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1321674887291" HGAP="70" VSHIFT="-90"><richcontent TYPE="NOTE">
@@ -449,7 +443,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="resources" ID="ID_912624188" CREATED="1318640103972" MODIFIED="1319246860581"/>
 </node>
