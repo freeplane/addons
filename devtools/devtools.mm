@@ -155,7 +155,7 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1319322912801" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1322642596119" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -163,7 +163,7 @@
   </head>
   <body>
     <p>
-      This add-on collects some utilities that script and/or add-on developers will find useful:
+      This add-on collects some utilities that script and/or add-on developers will find useful.
     </p>
     <ul>
       <li>
@@ -184,6 +184,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <font SIZE="16"/>
 </node>
