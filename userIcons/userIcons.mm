@@ -158,7 +158,7 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_367579173" CREATED="1321990340729" MODIFIED="1321997201443" HGAP="-584" VSHIFT="-49"><richcontent TYPE="NODE">
+<node ID="ID_367579173" CREATED="1321990340729" MODIFIED="1321999291091" HGAP="-584" VSHIFT="-49"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -166,7 +166,7 @@
   </head>
   <body>
     <p>
-      This is a simple add-on which adds standard Freplane icons
+      This is a simple add-on which adds standard Freeplane icons
     </p>
     <p>
       under <i>User icons</i>&#160;in bigger size (24 px) and adds other icons (computer, more office icons...)
