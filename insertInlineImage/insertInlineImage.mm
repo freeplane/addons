@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321675207286" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/insertInlineImage">
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322788800328" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/insertInlineImage">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -105,8 +105,8 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="insertInlineImage"/>
-<attribute NAME="version" VALUE="v0.9.4"/>
-<attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
+<attribute NAME="version" VALUE="v0.9.5"/>
+<attribute NAME="author" VALUE="Volker B&#xf6;rchers, Rickenbroc"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -143,7 +143,7 @@
 </html>
 
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1321675207328"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322788800379"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -160,7 +160,7 @@
 </html>
 
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1321570736076" BACKGROUND_COLOR="#ffff75" HGAP="-500" VSHIFT="-73"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1322788327320" BACKGROUND_COLOR="#ffff75" HGAP="-430" VSHIFT="-94"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -170,13 +170,19 @@
     <p>
       This script asks for an URL and inserts an HTML <font face="Courier New">img</font>&#160;tag at the end of the node's text. If the node is not already an HTML node it will be converted.
     </p>
+    <p>
+      
+    </p>
+    <p>
+      The image can be made a link, either to the image source URL or to a custom URL.
+    </p>
   </body>
 </html>
 </richcontent>
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321675207332"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1322788800401"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -197,8 +203,11 @@
 <node TEXT="adjusted to new add-on format" ID="ID_1401343116" CREATED="1321572540042" MODIFIED="1321572575564"/>
 <node TEXT="fixed display problems with img tag in the description" ID="ID_123909775" CREATED="1321674769271" MODIFIED="1321674802952"/>
 </node>
+<node TEXT="v0.9.5" ID="ID_723938532" CREATED="1322589652141" MODIFIED="1322589658967">
+<node TEXT="by rickenbrok&#xa;- determine original image size for file URLs.&#xa;- optionally insert hrefs to image source or custom URLs&#xa;- added icon and screenshot" ID="ID_1747834540" CREATED="1322589660144" MODIFIED="1322788982365"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1321675207372" HGAP="40" VSHIFT="-40"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322788800499" HGAP="60" VSHIFT="40"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -351,7 +360,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1321675207338"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1322788800409"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -373,7 +382,7 @@
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1321675207341"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322788800424"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -391,7 +400,7 @@
 
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1321675207345">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322788800432">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -408,7 +417,7 @@
 
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1321675207348"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322788800441"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -433,7 +442,7 @@
 <attribute NAME="addons.${name}.url.invalid" VALUE="Ung&#xfc;ltige URL"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1321675532025" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322788803674" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -450,8 +459,10 @@
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="270"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/${name}.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/insertInlineImage.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/insertInlineImage-icon.png"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1321675207379" HGAP="70" VSHIFT="-110"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1322788800534" HGAP="60" VSHIFT="-30"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -495,6 +506,43 @@
 </html>
 
 </richcontent>
+</node>
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322788800555" HGAP="50" VSHIFT="-240"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
+    </p>
+    <p>
+      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following images should be present:
+    </p>
+    <ul>
+      <li>
+        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+      </li>
+      <li>
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+      </li>
+    </ul>
+    <p>
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
+<node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
 </node>
 </node>
 </map>
