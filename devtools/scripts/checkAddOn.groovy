@@ -1,7 +1,3 @@
-import javax.swing.JOptionPane;
-
-import javax.swing.JOptionPane;
-
 // @ExecutionModes({on_single_node="main_menu_scripting/devtools[addons.checkAddOn]"})
 // Copyright (C) 2011 Volker Boerchers
 //
@@ -445,6 +441,45 @@ if (node.map.isSaved()) {
 	}
 }
 
+//
+// ============ images ============
+//
+def imagesNode = findOrCreate(root, 'images', RIGHT)
+imagesNode.note = withBody '''
+    <p>
+      An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
+    </p>
+    <p>
+      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following images should be present:
+    </p>
+    <ul>
+      <li>
+        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+      </li>
+      <li>
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+      </li>
+    </ul>
+    <p>
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+    </p>
+'''
+filesToDeinstall.addAll(
+    imagesNode.children.collect {
+        def image = it.plainText.replace('${name}', node.map.root['name'])
+        "resources/images/${image}"
+    }
+)
+
+//
+// ============ deinstallation rules ============
+//
 filesToDeinstall = filesToDeinstall.collect { '${installationbase}/' + it.replace('\\', '/') }
 def actual = deinstallNode.attributes.values.collect{ it.trim() }
 // ${name} might occur in current deinstallation rules and/or in the list of scripts
@@ -459,5 +494,8 @@ if (missing) {
 	}
 }
 
+//
+// ============ inform about the outcome ============
+//
 def messagesString = messages.collect{ htmlUtils.htmlToPlain(it).replace('\n', '<br>') }.join('</li><li>')
 ui.informationMessage('<html><body><b>Please review this changes carefully:</b><ul><li>' + messagesString +'</li></ul></body></html>')

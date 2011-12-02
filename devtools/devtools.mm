@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322773214306" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322789290464" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -105,7 +105,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.6"/>
+<attribute NAME="version" VALUE="v0.9.7"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -138,7 +138,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319926589227"><richcontent TYPE="NOTE">
 
@@ -407,7 +406,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321575200507"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321575200507"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -432,6 +431,9 @@
 </node>
 <node TEXT="v0.9.6" ID="ID_1469699162" CREATED="1321898340249" MODIFIED="1321898344125">
 <node TEXT="add missing file/write permission for insertBinary.groovy" ID="ID_1936917850" CREATED="1321898345129" MODIFIED="1321898374198"/>
+</node>
+<node TEXT="v0.9.7" ID="ID_459911057" CREATED="1322789801914" MODIFIED="1322789807290">
+<node TEXT="- add support for images&#xa;- include icon and screenshot" ID="ID_1859362741" CREATED="1322789808449" MODIFIED="1322789839018"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319926589245"><richcontent TYPE="NOTE">
@@ -538,7 +540,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1319926589403" HGAP="90" VSHIFT="-270"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1322790092330" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -616,6 +618,42 @@
 </html>
 </richcontent>
 </node>
+</node>
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322790095950" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
+    </p>
+    <p>
+      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following images should be present:
+    </p>
+    <ul>
+      <li>
+        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+      </li>
+      <li>
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+      </li>
+    </ul>
+    <p>
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
+<node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
 </node>
 </node>
 </map>

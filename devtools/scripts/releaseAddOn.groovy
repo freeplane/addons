@@ -47,7 +47,7 @@ int updateScripts() {
 	return count
 }
 
-// returns the count of scripts added
+// returns the count of zips added
 int updateZips() {
 	int count = 0
 	Proxy.Node zipsNode = c.find{ it.plainText.matches('zips') }[0]
@@ -70,6 +70,31 @@ int updateZips() {
 		it.folded = true
 	}
 	return count
+}
+
+// returns the count of images added
+int updateImages() {
+    int count = 0
+    Proxy.Node imagesNode = c.find{ it.plainText.matches('images') }[0]
+    if (!imagesNode) {
+        errors << "The root node has no 'images' child. Please create it or better run 'Check Add-on'"
+        return
+    }
+    def imagesDir = new File(node.map.file.parent, 'images')
+    imagesNode.children.each {
+        String filename = expand(it.plainText)
+        File image = new File(imagesDir, filename)
+        if (!image.exists()) {
+            logger.warn("cannot update image: '$image' doesn't exist")
+        } else {
+            if (it.isLeaf())
+                it.createChild()
+            it.children.first().binary = image.bytes
+            count++
+        }
+        it.folded = true
+    }
+    return count
 }
 
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
@@ -114,9 +139,11 @@ def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
 
 int countScripts = 0
 int countZips = 0
+int countImages = 0
 try {
 	countScripts = updateScripts()
 	countZips = updateZips()
+	countImages = updateImages()
 } catch (Exception e) {
 	errors << e.message
 	e.printStackTrace()
@@ -127,4 +154,4 @@ try {
 if (errors)
 	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
 else
-	ui.informationMessage("Successfully created add-on\nwith $countScripts script(s) and $countZips zip file(s).")
+	ui.informationMessage("Successfully created add-on\nwith $countScripts script(s), $countZips zip file(s) and $countImages images(s).")
