@@ -1,4 +1,11 @@
 // @ExecutionModes({ON_SINGLE_NODE})
+// Copyright (C) 2011 Volker Boerchers, Rickenbroc
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+
 import groovy.swing.SwingBuilder
 
 import java.awt.FlowLayout as FL
@@ -10,6 +17,7 @@ import javax.swing.JTextField
 import javax.swing.SwingUtilities
 
 import org.freeplane.core.resources.ResourceController
+import org.freeplane.features.link.LinkController;
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.url.UrlManager
 
@@ -48,7 +56,7 @@ def dialog = builder.dialog(title:'Insert Image', id:'insertImage', modal:true,
                             iProportion = iWidth / iHeight
                             widthField.text  = (iHeight * iProportion).toInteger()
                             heightField.text = (iWidth / iProportion).toInteger()
-                        } catch(IOException e) {
+                        } catch(Exception e) {
                             logger.warn("invalid image file", e)
                         }
                     }), icon:getIcon("/images/fileopen.png"))
@@ -110,37 +118,27 @@ def String insertTag(String text, String htmlTag) {
     return text.replace("</body>", htmlTag + "</body>")
 }
 
-def String imageTag(url, width, height) {
+def String imageTag(String url, String width, String height) {
     def attribs = ["src='${url}'"]
-    if (width)
+    if (width && Integer.parseInt(width) > 1)
         attribs << "width='${width}'"
-    if (height)
+    if (height && Integer.parseInt(height) > 1)
         attribs << "height='${height}'"
     def imageURL = ""
-    if (System.properties['os.name'].toLowerCase().contains('windows')) {
-        if (imagePath.selected) {
-            imageURL = url
-            String linkType = config.getProperty('links')
-            if ('relative'.equals(linkType)) {
-                imageURL = findRelativePath(getMap().getFile().toURI().toString(), url)
-            }
-            imageURL = imageURL.replaceAll(" ", "%20")
+    if (imagePath.selected) {
+        imageURL = url
+        String linkType = config.getProperty('links')
+        if ('relative'.equals(linkType)) {
+            imageURL = findRelativePath(node.map.file, url)
         }
-        if (customUrl.selected) {
-            imageURL = customUrlField.text.replaceAll(" ","%20")
-        }
-    } else {
-        if (imagePath.selected) {
-            imageURL = url
-            String linkType = config.getProperty('links')
-            if ('relative'.equals(linkType)) {
-                imageURL = findRelativePath(getMap().getFile().toURI().toString(), url)
-            }
-        }
-        if (customUrl.selected) {
-            imageURL = customUrlField.text
-        }
+        imageURL = imageURL
     }
+    else if (customUrl.selected) {
+        imageURL = customUrlField.text
+    }
+    if (imageURL && System.properties['os.name'].toLowerCase().contains('windows'))
+        imageURL = imageURL.replaceAll(" ", "%20")
+
     def imageLink = ""
     if (noLink.selected) {
         "<img ${attribs.join(' ')} />"
@@ -178,21 +176,26 @@ if (vars.ok) {
         }
     }
 }
-String findRelativePath(String base, String path)
+String findRelativePath(File baseFile, String path)
 {
+    if (baseFile == null) {
+        logger.warn('to map has to be saved to use relative paths')
+        return path
+    }
+    // TODO: check if this works:
+    //    return LinkController.toRelativeURI(baseFile, path)
+    String base = baseFile.toURI().toString()
     String[] basePaths = base.split("/");
     String[] otherPaths = path.split("/");
     int n = 0;
-    for(; n < basePaths.length && n < otherPaths.length; n ++)
-    {
+    for (; n < basePaths.length && n < otherPaths.length; n ++) {
         if( basePaths[n].equals(otherPaths[n]) == false )
             break;
     }
     StringBuffer tmp = new StringBuffer("");
-    for(int m = n; m < basePaths.length - 1; m ++)
+    for (int m = n; m < basePaths.length - 1; m ++)
         tmp.append("../");
-    for(int m = n; m < otherPaths.length; m ++)
-    {
+    for (int m = n; m < otherPaths.length; m ++) {
         tmp.append(otherPaths[m]);
         tmp.append("/");
     }
