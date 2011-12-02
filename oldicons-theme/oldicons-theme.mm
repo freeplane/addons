@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322640643725" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322789063941" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -105,7 +105,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="oldicons-theme"/>
-<attribute NAME="version" VALUE="v0.9.4"/>
+<attribute NAME="version" VALUE="v0.9.5"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -142,7 +142,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1321674887244"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322727983788"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -162,7 +162,7 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_12962257" CREATED="1321573037453" MODIFIED="1321674887249"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_12962257" CREATED="1321573037453" MODIFIED="1322727983793"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -184,8 +184,11 @@
 <node TEXT="v0.9.4" FOLDED="true" ID="ID_688684983" CREATED="1321572503553" MODIFIED="1322503192321">
 <node TEXT="renamed oldicons to oldicons-theme" ID="ID_318063295" CREATED="1321572540042" MODIFIED="1322503207282"/>
 </node>
+<node TEXT="v0.9.5" FOLDED="true" ID="ID_1518019183" CREATED="1322789071876" MODIFIED="1322789076500">
+<node TEXT="added icon and screenshot" ID="ID_1747834540" CREATED="1322589660144" MODIFIED="1322789098692"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1321674887254"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1322727983798"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -206,7 +209,7 @@
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1256937052" CREATED="1319935227533" MODIFIED="1319935227535"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1321674887258"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322727983804"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -223,7 +226,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1321674887261">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322727983808">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -239,7 +242,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1321674887269"><richcontent TYPE="NOTE">
+<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322727983813"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -261,7 +264,7 @@
 <attribute NAME="addons.${name}" VALUE="Old Icons-Theme"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1321674887272" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322728938890" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -278,8 +281,10 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/LinkLocal.png "/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/Link.png "/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/oldicons-theme.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/oldicons-theme-icon.png"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1321674887285" HGAP="30" VSHIFT="-30"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1322727983842" HGAP="30" VSHIFT="-30"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -401,7 +406,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1321674887291" HGAP="70" VSHIFT="-90"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322728021252" HGAP="70" VSHIFT="-30"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -445,6 +450,42 @@
 </html>
 </richcontent>
 <node TEXT="resources" ID="ID_912624188" CREATED="1318640103972" MODIFIED="1319246860581"/>
+</node>
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322728462052" HGAP="50" VSHIFT="-110"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
+    </p>
+    <p>
+      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following images should be present:
+    </p>
+    <ul>
+      <li>
+        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+      </li>
+      <li>
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+      </li>
+    </ul>
+    <p>
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
+<node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
 </node>
 </node>
 </map>
