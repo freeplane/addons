@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322789063941" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
+<node TEXT="Old Icons Theme" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322963234959" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/oldicons-theme">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -141,8 +141,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322727983788"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322963235003"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -157,12 +158,13 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="A theme add-on that changes the link icons to the pre-release 1.2 ones." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1322503178551" BACKGROUND_COLOR="#ffff75" HGAP="-560" VSHIFT="-40">
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_12962257" CREATED="1321573037453" MODIFIED="1322727983793"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_12962257" CREATED="1321573037453" MODIFIED="1322963235011"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -174,6 +176,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1321573003254"/>
@@ -188,7 +191,7 @@
 <node TEXT="added icon and screenshot" ID="ID_1747834540" CREATED="1322589660144" MODIFIED="1322789098692"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1322727983798"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_941198105" CREATED="1319935227442" MODIFIED="1322963235021"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -206,10 +209,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1256937052" CREATED="1319935227533" MODIFIED="1319935227535"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322727983804"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322963235033"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -224,9 +228,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322727983808">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322963235042">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -240,9 +245,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322727983813"><richcontent TYPE="NOTE">
+<node TEXT="translations" FOLDED="true" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322963235050"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -254,6 +260,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319007582221">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -264,7 +271,7 @@
 <attribute NAME="addons.${name}" VALUE="Old Icons-Theme"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322728938890" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322963237143" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -276,6 +283,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="270"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
@@ -283,8 +291,9 @@
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/Link.png "/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/oldicons-theme.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/oldicons-theme-icon.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/oldicons-theme-screenshot-1.png"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1322727983842" HGAP="30" VSHIFT="-30"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_1474140949" CREATED="1316303875303" MODIFIED="1322963235088" HGAP="30" VSHIFT="-30"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -404,9 +413,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322728021252" HGAP="70" VSHIFT="-30"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322963235112" HGAP="70" VSHIFT="-30"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -448,10 +458,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="resources" ID="ID_912624188" CREATED="1318640103972" MODIFIED="1319246860581"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322728462052" HGAP="50" VSHIFT="-110"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322963235128" HGAP="50" VSHIFT="-110"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -483,9 +494,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
+<node TEXT="${name}-screenshot-1.png" ID="ID_1150955427" CREATED="1322728032545" MODIFIED="1322954458469"/>
 </node>
 </node>
 </map>

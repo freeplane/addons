@@ -204,6 +204,9 @@
 <node TEXT="v0.9.5" ID="ID_723938532" CREATED="1322589652141" MODIFIED="1322589658967">
 <node TEXT="by rickenbrok&#xa;- determine original image size for file URLs.&#xa;- optionally insert hrefs to image source or custom URLs&#xa;- added icon and screenshot" ID="ID_1747834540" CREATED="1322589660144" MODIFIED="1322788982365"/>
 </node>
+<node TEXT="v0.9.6" ID="ID_518319016" CREATED="1322963289075" MODIFIED="1322963293982">
+<node TEXT="Included rickenbroc&apos;s fix for non-local urls&#xa;Accept file names without protocol" ID="ID_1389922760" CREATED="1322963325127" MODIFIED="1322963340557"/>
+</node>
 </node>
 <node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322954484679" HGAP="60" VSHIFT="40"><richcontent TYPE="NOTE">
 
