@@ -164,8 +164,11 @@ ui.addEscapeActionToDialog(dialog)
 dialog.show()
 def vars = builder.variables
 if (vars.ok) {
-    def imageTag = imageTag(vars.url.text, vars.width.text, vars.height.text)
-    if (!toUrl(vars.url.text))
+    def urlString = vars.url.text
+    if (!urlString.matches('\\w+:.*'))
+        urlString = "file:$urlString"
+    def imageTag = imageTag(urlString, vars.width.text, vars.height.text)
+    if (!toUrl(urlString))
         ui.errorMessage(textUtils.getText('addons.insertInlineImage.url.invalid'))
     else {
         SwingUtilities.invokeLater {
@@ -176,10 +179,15 @@ if (vars.ok) {
         }
     }
 }
-String findRelativePath(File baseFile, String path)
-{
+
+String findRelativePath(File baseFile, String path) {
     if (baseFile == null) {
         logger.warn('to map has to be saved to use relative paths')
+        return path
+    }
+    // we took care to ensure that path contains a protocol
+    if (!path.startsWith('file:')) {
+        // relative paths are only applicable for local files (file protocol)
         return path
     }
     // TODO: check if this works:
