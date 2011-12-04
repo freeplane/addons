@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322789290464" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1322959238168" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
 
@@ -105,7 +105,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.7"/>
+<attribute NAME="version" VALUE="v0.9.8"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -116,6 +116,9 @@
     
   </head>
   <body>
+    <p>
+      The homepage of this add-on should be set as the link of the root node.
+    </p>
     <p>
       The basic properties of this add-on. They can be used in script names and other attributes, e.g. &quot;${name}.groovy&quot;.
     </p>
@@ -139,7 +142,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1319926589227"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322954528309"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -188,7 +191,7 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1319926589354" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322954528395" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -245,6 +248,9 @@
     </p>
     <p>
       &#160;&#160;&#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
+    </p>
+    <p>
+      &#160;&#160;&#160;- In doubt use ON_SINGLE_NODE.
     </p>
     <p>
       &#160;&#160;&#160;- This attribute is mandatory
@@ -406,7 +412,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1321575200507"><richcontent TYPE="NOTE">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1322954528331"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -436,7 +442,7 @@
 <node TEXT="- add support for images&#xa;- include icon and screenshot" ID="ID_1859362741" CREATED="1322789808449" MODIFIED="1322789839018"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1319926589245"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1322954528344"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -457,7 +463,7 @@
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1319926589267"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322954528354"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -465,16 +471,16 @@
   </head>
   <body>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
+      <font face="SansSerif, sans-serif" color="#000000">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
     </p>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
+      <font face="SansSerif, sans-serif" color="#000000">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
     </p>
   </body>
 </html>
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1319926589282">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322954528364">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -490,7 +496,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1319926589295"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322954528373"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -520,7 +526,7 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1321673805350" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322954532986" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -539,8 +545,11 @@
 <attribute NAME="delete" VALUE="${installationbase}/scripts/checkAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-screenshot-1.png"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1322790092330" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1322954528408" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -619,7 +628,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322790095950" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322954528420" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -654,6 +663,7 @@
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
+<node TEXT="${name}-screenshot-1.png" ID="ID_1150955427" CREATED="1322728032545" MODIFIED="1322954458469"/>
 </node>
 </node>
 </map>
