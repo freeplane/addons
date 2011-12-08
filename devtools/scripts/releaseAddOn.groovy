@@ -113,7 +113,9 @@ byte[] getZipBytes(File topDir) {
 		entry.time = file.lastModified()
 		zipOutput.putNextEntry(entry)
 		if (file.isFile()) {
-			zipOutput << new FileInputStream(file)
+            def fileInputStream = new FileInputStream(file)
+            zipOutput << fileInputStream
+            fileInputStream.close()
 		}
 	}
 	zipOutput.close()
@@ -130,11 +132,17 @@ if (!mapFile) {
 }
 def version = node.map.root['version']
 if (!version) {
-	ui.errorMessage("This add-on has no version yet - can't continue.")
+	ui.errorMessage("Missing version attribute - can't continue.")
 	return
 }
 def releaseMapFile = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm")
 releaseMapFile.bytes = mapFile.bytes
+ui.informationMessage("""Please answer
+
+  ${textUtils.getText("no")}
+
+in the following dialog. (We aren't ready to install yet.)
+(Yes, this needs to be fixed...)""")
 def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
 
 int countScripts = 0
@@ -148,10 +156,14 @@ try {
 	errors << e.message
 	e.printStackTrace()
 } finally {
-	// avoid questions on close of the map
 	node.map.save(false)
 }
-if (errors)
+if (errors) {
 	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
-else
-	ui.informationMessage("Successfully created add-on\nwith $countScripts script(s), $countZips zip file(s) and $countImages images(s).")
+}
+else {
+	ui.informationMessage("""Successfully created add-on
+with $countScripts script(s), $countZips zip file(s) and $countImages images(s).
+
+Please visit the new map ${releaseMapFile.name} and save it.""")
+}
