@@ -107,14 +107,14 @@
 <node TEXT="b.html" POSITION="right" ID="ID_1611405813" CREATED="1323189967862" MODIFIED="1323190064909" LINK="b/tt.html"/>
 <node TEXT="c.html" POSITION="right" ID="ID_1140016056" CREATED="1323189969096" MODIFIED="1323190068876" LINK="c/tt.html"/>
 <node TEXT="d.html" POSITION="right" ID="ID_778474213" CREATED="1323189970412" MODIFIED="1323190075840" LINK="d/tt.html"/>
-<node TEXT="image" POSITION="right" ID="ID_1655262636" CREATED="1323280432040" MODIFIED="1323280510494">
+<node TEXT="image" POSITION="right" ID="ID_1655262636" CREATED="1323280432040" MODIFIED="1323451929652" HGAP="90" VSHIFT="70">
 <hook URI="img/image.png" SIZE="0.8955224" NAME="ExternalObject"/>
 </node>
 <node TEXT="a" POSITION="left" ID="ID_1610065305" CREATED="1323189964670" MODIFIED="1323189990517" LINK="a/tt"/>
 <node TEXT="b" POSITION="left" ID="ID_1730188677" CREATED="1323189967862" MODIFIED="1323190001031" LINK="b/tt"/>
 <node TEXT="c" POSITION="left" ID="ID_331522132" CREATED="1323189969096" MODIFIED="1323190009984" LINK="c/tt"/>
 <node TEXT="d" POSITION="left" ID="ID_184659120" CREATED="1323189970412" MODIFIED="1323190020929" LINK="d/tt"/>
-<node POSITION="left" ID="ID_1444189461" CREATED="1323364841463" MODIFIED="1323365119662"><richcontent TYPE="NODE">
+<node POSITION="left" ID="ID_1444189461" CREATED="1323364841463" MODIFIED="1323452779308" HGAP="80" VSHIFT="40"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -128,6 +128,41 @@
       
     </p>
     and a <a href="a/tt.html">href</a>.
+  </body>
+</html>
+</richcontent>
+<richcontent TYPE="DETAILS">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    Details with an inline image
+
+    <p>
+      <img height="20" width="158" src="img/image.png"/>
+      
+    </p>
+    and another <a href="b/tt.html">href</a>.
+  </body>
+</html>
+
+</richcontent>
+<richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    A note with an inline image
+
+    <p>
+      <img height="20" width="158" src="img/image.png"/>
+      
+    </p>
+    and yet another <a href="c/tt.html">href</a>.
   </body>
 </html>
 

@@ -10,6 +10,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.net.URI
 import java.text.MessageFormat
+import java.util.regex.Matcher
 import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
@@ -142,6 +143,33 @@ public File getUriAsFile(File mapDir, URI uri) {
 private createFileToPathInZipMap(MapModel newMap, String dependenciesDir) {
     File mapDir = node.map.file.parentFile
     Pattern links = Pattern.compile('(href|src)=["\']([^"\']+)["\']')
+    // closure, re-usable for text, details and notes
+    def handleHtmlText = { String text, Map<File, String> map ->
+        if (!text)
+            return text
+        Matcher m = links.matcher(text)
+        // optimize for the regular case: no StringBuffer et al if there is no need for it
+        if (m.find()) {
+            StringBuffer buffer = new StringBuffer();
+            for (;;) {
+                def ref = m.group(2)
+                def xpath = getMappedPath(ref, map, mapDir, dependenciesDir)
+                if (xpath) {
+                    logger.info("patching inline reference ${m.group(0)}")
+                    m.appendReplacement(buffer, "${m.group(1)}='${xpath}'")
+                }
+                else {
+                    m.appendReplacement(buffer, m.group(0))
+                }    
+                // Groovy has no do..while loop
+                if (! m.find())
+                    break
+            }
+            m.appendTail(buffer)
+            return buffer.toString()
+        }
+        return text
+    }
     def fileToPathInZipMap = new MapProxy(newMap, null).root.findAll().inject([:]){ map, node ->
         def path
         // == link
@@ -162,30 +190,13 @@ private createFileToPathInZipMap(MapModel newMap, String dependenciesDir) {
                     attributes.set(i, new URI(path))
             }
         }
-        if (htmlUtils.isHtmlNode(node.text)) {
-            def m = links.matcher(node.text)
-            // optimize for the regular case: no StringBuffer et al if there is no need for it
-            if (m.find()) {
-                StringBuffer buffer = new StringBuffer();
-                for (;;) {
-                    def ref = m.group(2)
-                    path = getMappedPath(ref, map, mapDir, dependenciesDir)
-                    if (path) {
-                        logger.info("patching inline reference ${m.group(0)}")
-                        m.appendReplacement(buffer, "${m.group(1)}='${path}'")
-                    }
-                    else {
-                        m.appendReplacement(buffer, m.group(0))
-                    }    
-                    // Groovy has no do..while loop
-                    if (! m.find())
-                        break
-                }
-                m.appendTail(buffer)
-                def result = buffer.toString()
-                node.text = result
-            }
-        }
+        if (htmlUtils.isHtmlNode(node.text))
+            node.text = handleHtmlText(node.text, map)
+        if (node.detailsText)
+            node.details = handleHtmlText(node.detailsText, map)
+        if (node.note) // not noteText due to bug in first 1.2 beta
+            node.noteText = handleHtmlText(node.noteText, map)
+
         return map
     }
     return fileToPathInZipMap
