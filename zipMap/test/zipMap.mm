@@ -114,5 +114,24 @@
 <node TEXT="b" POSITION="left" ID="ID_1730188677" CREATED="1323189967862" MODIFIED="1323190001031" LINK="b/tt"/>
 <node TEXT="c" POSITION="left" ID="ID_331522132" CREATED="1323189969096" MODIFIED="1323190009984" LINK="c/tt"/>
 <node TEXT="d" POSITION="left" ID="ID_184659120" CREATED="1323189970412" MODIFIED="1323190020929" LINK="d/tt"/>
+<node POSITION="left" ID="ID_1444189461" CREATED="1323364841463" MODIFIED="1323365119662"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    A node with inline image
+
+    <p>
+      <img height="20" width="158" src="img/image.png"/>
+      
+    </p>
+    and a <a href="a/tt.html">href</a>.
+  </body>
+</html>
+
+</richcontent>
+</node>
 </node>
 </map>

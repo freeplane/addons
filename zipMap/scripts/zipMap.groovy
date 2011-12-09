@@ -10,6 +10,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.net.URI
 import java.text.MessageFormat
+import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
@@ -83,7 +84,7 @@ private String getPathInZip(File file, String dependenciesDir, Map<File, String>
     def path = "${dependenciesDir}/${file.name}"
     if (file.isDirectory())
         path += '/'
-    // TODO: include the parent's name in the path for duplicates
+    // TODO: include the parent's name in the path for duplicates to make them more readable
     while (contains(fileToPathInZipMap.values(), path)) {
         // if multiple file with the same name (but different directories) are referenced append something to the path
         path = path.replaceFirst('(\\.\\w+)?$', '1$1')
@@ -92,6 +93,7 @@ private String getPathInZip(File file, String dependenciesDir, Map<File, String>
     return path
 }
 
+// the inline version did not work - Groovy bug?
 def boolean contains(Collection collection, String path) {
     return collection.contains(path)
 }
@@ -114,7 +116,7 @@ private boolean confirmOverwrite(File file) {
 private File askForZipFile(File zipFile) {
     def zipFileFilter = new ExampleFileFilter('zip')
     def chooser = new JFileChooser(fileSelectionMode:JFileChooser.FILES_ONLY, fileFilter:zipFileFilter, selectedFile:zipFile)
-    if (chooser.showOpenDialog() == JFileChooser.APPROVE_OPTION) {
+    if (chooser.showSaveDialog() == JFileChooser.APPROVE_OPTION) {
         if (!chooser.selectedFile.exists() || confirmOverwrite(chooser.selectedFile))
             return chooser.selectedFile
     }
@@ -139,6 +141,7 @@ public File getUriAsFile(File mapDir, URI uri) {
 
 private createFileToPathInZipMap(MapModel newMap, String dependenciesDir) {
     File mapDir = node.map.file.parentFile
+    Pattern links = Pattern.compile('(href|src)=["\']([^"\']+)["\']')
     def fileToPathInZipMap = new MapProxy(newMap, null).root.findAll().inject([:]){ map, node ->
         def path
         // == link
@@ -157,6 +160,30 @@ private createFileToPathInZipMap(MapModel newMap, String dependenciesDir) {
                 path = getMappedPath(value, map, mapDir, dependenciesDir)
                 if (path)
                     attributes.set(i, new URI(path))
+            }
+        }
+        if (htmlUtils.isHtmlNode(node.text)) {
+            def m = links.matcher(node.text)
+            // optimize for the regular case: no StringBuffer et al if there is no need for it
+            if (m.find()) {
+                StringBuffer buffer = new StringBuffer();
+                for (;;) {
+                    def ref = m.group(2)
+                    path = getMappedPath(ref, map, mapDir, dependenciesDir)
+                    if (path) {
+                        logger.info("patching inline reference ${m.group(0)}")
+                        m.appendReplacement(buffer, "${m.group(1)}='${path}'")
+                    }
+                    else {
+                        m.appendReplacement(buffer, m.group(0))
+                    }    
+                    // Groovy has no do..while loop
+                    if (! m.find())
+                        break
+                }
+                m.appendTail(buffer)
+                def result = buffer.toString()
+                node.text = result
             }
         }
         return map
