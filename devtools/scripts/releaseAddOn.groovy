@@ -32,10 +32,15 @@ def expand(String string) {
 int updateScripts() {
 	int count = 0
 	def scriptsDir = new File(node.map.file.parent, 'scripts')
-	c.find{ it.plainText.matches('.*\\.groovy') }.each {
+    def scriptsNode = node.map.root.children.find{ it.plainText == 'scripts' }
+    if (!scriptsNode) {
+        errors << 'Can not find scripts node'
+        return 0
+    }
+	scriptsNode.find{ it.plainText.matches('.*\\.groovy') }.each {
 		File scriptFile = new File(scriptsDir, expand(it.plainText))
 		if (!scriptFile.exists()) {
-			logger.warn("cannot update scriptfile $scriptFile doesn't exist")
+			errors << "Can not update scriptfile $scriptFile doesn't exist"
 		} else {
 			if (it.isLeaf())
 				it.createChild()
@@ -60,7 +65,7 @@ int updateZips() {
 		String dirToZipString = expand(it.plainText)
 		File dirToZip = new File(zipsDir, dirToZipString)
 		if (!dirToZip.exists()) {
-			logger.warn("cannot update zip file: directory $dirToZip doesn't exist")
+			errors << "Can not update zip file: directory $dirToZip doesn't exist"
 		} else {
 			if (it.isLeaf())
 				it.createChild()
@@ -85,7 +90,7 @@ int updateImages() {
         String filename = expand(it.plainText)
         File image = new File(imagesDir, filename)
         if (!image.exists()) {
-            logger.warn("cannot update image: '$image' doesn't exist")
+            errors << "Can not update image: '$image' doesn't exist"
         } else {
             if (it.isLeaf())
                 it.createChild()
@@ -102,6 +107,7 @@ byte[] getZipBytes(File topDir) {
 	def byteArrayOutputStream = new ByteArrayOutputStream()
 	ZipOutputStream zipOutput = new ZipOutputStream(byteArrayOutputStream);
 
+    int filesAdded = 0
 	int topDirLength = topDir.parent.length() + 1
 	topDir.eachFileRecurse { file ->
 		def relative = file.absolutePath.substring(topDirLength).replace('\\', '/')
@@ -117,9 +123,16 @@ byte[] getZipBytes(File topDir) {
             zipOutput << fileInputStream
             fileInputStream.close()
 		}
+        ++filesAdded
 	}
-	zipOutput.close()
-	return byteArrayOutputStream.toByteArray()
+    if (filesAdded) {
+        zipOutput.close()
+        return byteArrayOutputStream.toByteArray()
+    }
+    else {
+        errors << "Directory to zip is empty: $topDir"
+        return new byte[0]
+    }
 }
 
 //
@@ -141,8 +154,8 @@ ui.informationMessage("""Please answer
 
   ${textUtils.getText("no")}
 
-in the following dialog. (We aren't ready to install yet.)
-(Yes, this needs to be fixed...)""")
+if you are asked if you want to install.
+- We aren't ready to install yet.""")
 def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
 
 int countScripts = 0
