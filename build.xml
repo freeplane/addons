@@ -6,16 +6,17 @@
         <zip destfile="${zip}" compress="true">
             <zipfileset dir=".">
                 <include name="**/*-v*.mm" />
+                <include name="*/images/*.png" />
             </zipfileset>
         </zip>
     </target>
 
     <target name="clean">
         <delete quiet="true">
-			<fileset dir="." includes="**/*-v*.mm">
-			    <include name="${zip}" />
-			</fileset>
-        </delete>
+	    <fileset dir="." includes="**/*-v*.mm">
+	      <include name="${zip}" />
+	    </fileset>
+	</delete>
     </target>
 
 </project>
