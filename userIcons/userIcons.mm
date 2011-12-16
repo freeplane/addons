@@ -1,8 +1,9 @@
-<map version="0.9.0">
+<map version="0.9.0" dialect="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="UserIcons" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1321996161892" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="User Icons" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1323909670251" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
+    <properties show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -101,9 +102,9 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="9"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="12"/>
 <attribute NAME="name" VALUE="userIcons"/>
-<attribute NAME="version" VALUE="v1.0"/>
+<attribute NAME="version" VALUE="v1.1"/>
 <attribute NAME="author" VALUE="Predrag Cuklin"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -140,7 +141,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_307063571" CREATED="1321990126860" MODIFIED="1321996161910">
+<node TEXT="description" POSITION="left" ID="ID_307063571" CREATED="1321990126860" MODIFIED="1323909670265">
 <edge COLOR="#ff0000" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -158,29 +159,9 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_367579173" CREATED="1321990340729" MODIFIED="1321999291091" HGAP="-584" VSHIFT="-49"><richcontent TYPE="NODE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      This is a simple add-on which adds standard Freeplane icons
-    </p>
-    <p>
-      under <i>User icons</i>&#160;in bigger size (24 px) and adds other icons (computer, more office icons...)
-    </p>
-    <p>
-      Enjoy!
-    </p>
-  </body>
-</html>
-
-</richcontent>
+<node TEXT="This add-on provides 32x32 versions of the standard Freeplane icons and a lot more (computer, office...)..&#xa;Enjoy!" ID="ID_367579173" CREATED="1321990340729" MODIFIED="1323936928767" HGAP="-514" VSHIFT="-49"/>
 </node>
-</node>
-<node TEXT="changes" POSITION="left" ID="ID_717274311" CREATED="1321990126869" MODIFIED="1321996161913">
+<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_717274311" CREATED="1321990126869" MODIFIED="1323909670269">
 <edge COLOR="#0000ff" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -195,8 +176,11 @@
   </body>
 </html>
 </richcontent>
+<node TEXT="v1.1" ID="ID_1864607169" CREATED="1323909271763" MODIFIED="1323909276667">
+<node TEXT="Add icons for the add-on itself" ID="ID_1180854469" CREATED="1323909278057" MODIFIED="1323909293398"/>
 </node>
-<node TEXT="license" POSITION="left" ID="ID_1869371382" CREATED="1321990126874" MODIFIED="1321996161914">
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_1869371382" CREATED="1321990126874" MODIFIED="1323909670272">
 <edge COLOR="#00ff00" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -219,7 +203,7 @@
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_22008150" CREATED="1321990126880" MODIFIED="1321990126881"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1575261706" CREATED="1321990126907" MODIFIED="1321996161917">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1575261706" CREATED="1321990126907" MODIFIED="1323909670284">
 <edge COLOR="#ff00ff" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -238,7 +222,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_318765213" CREATED="1321990126913" MODIFIED="1321996161918">
+<node TEXT="default.properties" POSITION="left" ID="ID_318765213" CREATED="1321990126913" MODIFIED="1323909670288">
 <edge COLOR="#00ffff" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -254,7 +238,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_484742138" CREATED="1321990126917" MODIFIED="1321996161920">
+<node TEXT="translations" POSITION="left" ID="ID_484742138" CREATED="1321990126917" MODIFIED="1323909670291">
 <edge COLOR="#ffff00" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -272,8 +256,11 @@
 <node TEXT="en" ID="ID_410480201" CREATED="1321990126920" MODIFIED="1321990126936">
 <attribute NAME="addons.${name}" VALUE="UserIcons"/>
 </node>
+<node TEXT="de" ID="ID_808132231" CREATED="1321990126920" MODIFIED="1323910170504">
+<attribute NAME="addons.${name}" VALUE="Benutzer Icons"/>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_418529065" CREATED="1321990126937" MODIFIED="1321996161922">
+</node>
+<node TEXT="deinstall" POSITION="left" ID="ID_418529065" CREATED="1321990126937" MODIFIED="1323909933353">
 <edge COLOR="#7c0000" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -288,150 +275,145 @@
   </body>
 </html>
 </richcontent>
+<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="522"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/BOOKMARK.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/button_cancel.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/button_ok-1.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/clanbomber.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/CLOSED.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/HELP.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/IDEA.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/INFO.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/messagebox_warning.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/stop-sign.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Sings/YES.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/BELL.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/broken-line.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/GO.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/GOHOME.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/KNOTIFY.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/KORN.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/LAUNCH.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/PASSWORD.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/PENCIL.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/PREPARE.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/STOP.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/WIZARD.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscallaneous/XMAG.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/0%.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/100%.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/25%.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/50%.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/75%.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-0.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-1.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-2.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-3.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-4.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-5.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-6.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-7.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-8.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/FULL-9.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smiley/ksmiletris.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smiley/smiley-angry.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smiley/smiley-neutral.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smiley/smiley-oh.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smiley/smily_bad.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/userIcons.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/userIcons-icon.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-black.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-yellow.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-orange.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-green.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-pink.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-blue.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/females.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/male1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/males.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/female1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/group.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/fema.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/Family.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/FEMA.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/FEMALE1.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/FEMALE2.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/FEMALES.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/GROUP.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/MALE1.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/MALE2.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/MALES.PNG"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/male2.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/05People/female2.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PC.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/UPS.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/3floppy_unmount.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/photo.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/CDROM.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/mouse-capplet.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/scanner.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/multimedia.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/UniteCentrale.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/iPod.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/Film.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/phone.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/lcd_monitor.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PC1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/pda_blue.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/printer2.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/keyboard.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/Harddisk.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/USB.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/laptop.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/i_mac.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/BlueTooth.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Windows.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Ubuntu.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/network.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Java.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/time.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/calendar.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/remember.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/hourglass.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/down.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/back.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/up.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/forward.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smileys/smiley-angry.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smileys/smily_bad.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smileys/smiley-oh.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smileys/smiley-neutral.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/04Smileys/ksmiletris.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/yes.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/messagebox_warning.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/idea.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/bookmark.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/button_cancel.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/help.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/button_ok-1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/stop-sign.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/clanbomber.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/info.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/01Signs/closed.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penV.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/list.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penJ.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penG.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/desktop_new.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/kaddressbook.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/attach.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/BlocNote.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penB.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/edit.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penO.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/penguin.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/freemind_butterfly.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/freeplane.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/LICQ.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/PENGUIN.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/CALENDAR.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/hourglass.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/REMEMBER.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/07Time/TIME.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/ATTACH.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/BlocNote.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/desktop_new.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/EDIT.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/kaddressbook.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/LIST.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penB.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penG.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penJ.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penO.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/08Office/penV.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/documents.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/FOLDER.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_blue.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_green.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_html.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/06Nature/licq.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/stop.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/wizard.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/prepare.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/pencil.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/go.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/xmag.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/broken-line.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/knotify.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/korn.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/gohome.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/launch.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/bell.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/02Miscellaneous/password.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-3.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-4.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-7.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/25%.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/100%.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-5.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-6.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/50%.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-0.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-2.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-8.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/full-9.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/0%.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/03Numbers/75%.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/txt.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_image.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_open.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_pink.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_sound.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_txt.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_video.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_yellow.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/HTML.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/IMAGE.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/IMAGE3.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/KMAIL.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/Mail.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/OOo2-calc-doc_32.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/OOo2-writer-doc_32.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/SOUND.PNG"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/kmail.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/trashcan_full.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/TXT.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/vectorgfx.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/html.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_txt.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/image.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/wordprocessing.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-black.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-blue.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-green.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-orange.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-pink.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/flag-yellow.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/10Flags/FLAG.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/BACK.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/DOWN.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/FORWARD.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/11Arrows/UP.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/3floppy_unmount.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/CDROM.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/cdrom_mount.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/EcranLcd.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/Film.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/Harddisk.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/iPod.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/iTunes.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/I_MAC.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/kcmsystem.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/KEYBOARD.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/LAPTOP.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/lcd_monitor.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/mouse-capplet.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/multimedia.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PC.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PC1.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PC_BOX2.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PDA_BLUE.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PHONE.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PHOTO.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/PRINTER2.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/RAID.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/realplayer.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/SCANNER.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/SERVER.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/UniteCentrale.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/UPS.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Hardware/USB.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/BlueTooth.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Java.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/NETWORK.PNG"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Ubuntu.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/12Computer/Software/Windows.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/vectorgfx.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_open.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_video.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_pink.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/sound.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_html.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/documents.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/image3.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/OOo2-writer-doc_32.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/Mail.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_yellow.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/OOo2-calc-doc_32.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_green.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_blue.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/icons/FreeplaneIcons32px/09Docs&amp;Folders/folder_sound.png"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_806216367" CREATED="1321990126948" MODIFIED="1321996161926">
+<node TEXT="scripts" POSITION="right" ID="ID_806216367" CREATED="1321990126948" MODIFIED="1323909670328">
 <edge COLOR="#00007c" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -555,7 +537,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_844539520" CREATED="1321990126965" MODIFIED="1321996161931">
+<node TEXT="zips" POSITION="right" ID="ID_844539520" CREATED="1321990126965" MODIFIED="1323909670340">
 <edge COLOR="#007c00" WIDTH="3"/>
 <richcontent TYPE="NOTE">
 
@@ -601,6 +583,44 @@
 </html>
 </richcontent>
 <node TEXT="icons" ID="ID_189620950" CREATED="1321990214057" MODIFIED="1321990217717"/>
+</node>
+<node TEXT="images" POSITION="right" ID="ID_606573550" CREATED="1323909208917" MODIFIED="1323909670348">
+<edge COLOR="#007c7c" WIDTH="3"/>
+<richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
+    </p>
+    <p>
+      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      The following images should be present:
+    </p>
+    <ul>
+      <li>
+        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+      </li>
+      <li>
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+      </li>
+    </ul>
+    <p>
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+    </p>
+  </body>
+</html>
+</richcontent>
+<node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
+<node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
 </node>
 </node>
 </map>
