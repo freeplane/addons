@@ -1,6 +1,6 @@
 <map version="0.9.0" dialect="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1323993459576" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1324023332161" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -142,8 +142,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1322954528309"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1324023332169"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -158,8 +159,9 @@
     </p>
   </body>
 </html>
+
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1322642596119" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1323993716588" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -171,16 +173,19 @@
     </p>
     <ul>
       <li>
-        checkAddOn.groovy: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on.
+        <i>Build add-on</i>: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on.
       </li>
       <li>
-        releaseAddOn.groovy: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around.
+        <i>Package add-on for release</i>: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around.
       </li>
       <li>
-        insertBinary: Asks for a file to insert as text of the current node&#160;(BASE64 encoded).
+        <i>Generate add-on documentation</i>: Creates a snippet for the Freeplane add-ons wiki page.
       </li>
       <li>
-        freeplane.dsld: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
+        <i>Insert binary</i>: Asks for a file to insert as text of the current node&#160;(BASE64 encoded).
+      </li>
+      <li>
+        <i>freeplane.dsld</i>: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
       </li>
     </ul>
     <p>
@@ -188,11 +193,12 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1322954528395" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1324023332261" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -312,6 +318,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 
@@ -437,7 +444,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1322954528331"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1324023332173"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -449,6 +456,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="v0.9" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
@@ -469,8 +477,11 @@
 <node TEXT="v0.9.9" ID="ID_365307397" CREATED="1323905754834" MODIFIED="1323905760317">
 <node TEXT="Better error messages in case of missing scripts and zips to include.&#xa;Only look for scripts below the scripts node." ID="ID_1413959921" CREATED="1323905761794" MODIFIED="1323905861431"/>
 </node>
+<node TEXT="v0.9.10" ID="ID_448176076" CREATED="1323993722548" MODIFIED="1323993729415">
+<node TEXT="" ID="ID_257904891" CREATED="1323993730513" MODIFIED="1323993730513"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1322954528344"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1324023332177"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -488,10 +499,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1322954528354"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1324023332180"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -506,9 +518,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1322954528364">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1324023332191">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -522,9 +535,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1322954528373"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1324023332194"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -536,6 +550,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1323993414730">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -556,7 +571,7 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1322954532986" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1324023339609" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -568,6 +583,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="277"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -578,8 +594,9 @@
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-screenshot-1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/scripts/addOnDoc.groovy"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1322954528408" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1324023332271" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -621,6 +638,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100"><richcontent TYPE="NOTE">
 
@@ -658,7 +676,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1322954528420" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1324023332276" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -690,6 +708,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
