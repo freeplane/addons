@@ -11,16 +11,11 @@
 // This script generates the wiki documentation for the add-on currently opened
 //////////////////////////////////////////////////////////////////////////////////
 
-import java.util.regex.Pattern
+import java.awt.TextArea;
+
+import groovy.swing.SwingBuilder
 
 import org.freeplane.plugin.script.proxy.Proxy
-
-messages = []
-
-def addMessage(String message) {
-	messages << message
-	logger.info(message)
-}
 
 private Proxy.Node findNode(Proxy.Node parent, String name) {
     return parent.children.find{ it.plainText == name }
@@ -54,17 +49,27 @@ private String authorsToHtml(String authors) {
 // ======================================================================
 def root = node.map.root
 def title = root.plainText
-def name = authorsToHtml(root.attributes.getFirst('name'))
-def version = authorsToHtml(root.attributes.getFirst('version'))
+def name = root.attributes.getFirst('name')
+def version = root.attributes.getFirst('version')
 def authors = authorsToHtml(root.attributes.getFirst('author'))
 def descriptionNode = findNode(root, 'description').children.first()
 
 def description = descriptionNode.text.replaceAll('</?(html|body|head|p)>', '').replaceAll('\\s+\n\\s+', '\n\n').trim()
 
-println """==http://freeplane.sourceforge.net/addons/${name}/images/${name}-icon.png $title==
+def doc = """==http://freeplane.sourceforge.net/addons/${name}/images/${name}-icon.png $title==
 '''by ${authors}'''
 
 ${description}
 
 [http://freeplane.sourceforge.net/addons/${name}/${name}-${version}.addon.mm Download ${version}]
 """
+
+println doc
+
+def s = new SwingBuilder()
+def dial = s.dialog(title:'Add-on documentation', modal:true,
+                    locationRelativeTo:ui.frame, owner:ui.frame, pack:true, show:true) {
+    panel() {
+        textArea(text: doc)
+    }
+}
