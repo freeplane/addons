@@ -1,6 +1,6 @@
 <map version="0.9.0" dialect="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1324023332161" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1324080933564" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -106,7 +106,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.10"/>
+<attribute NAME="version" VALUE="v0.9.11"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -142,7 +142,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1324023332169"><richcontent TYPE="NOTE">
 
@@ -159,7 +158,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1323993716588" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
@@ -193,7 +191,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <font SIZE="16"/>
 </node>
@@ -318,7 +315,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 
@@ -456,29 +452,31 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="v0.9" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
+<node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
 </node>
-<node TEXT="v0.9.4" ID="ID_1191427697" CREATED="1321572503553" MODIFIED="1321572536574">
+<node TEXT="v0.9.4" FOLDED="true" ID="ID_1191427697" CREATED="1321572503553" MODIFIED="1321572536574">
 <node TEXT="Adjusted to new add-on format" ID="ID_1401343116" CREATED="1321572540042" MODIFIED="1323905890585"/>
 <node TEXT="checkAddon.groovy: add script attributes and deinstallation rules; check case of add-on name" ID="ID_609744697" CREATED="1321674084210" MODIFIED="1321674491159"/>
 </node>
-<node TEXT="v0.9.5" ID="ID_1275139979" CREATED="1321898313486" MODIFIED="1321898321925">
+<node TEXT="v0.9.5" FOLDED="true" ID="ID_1275139979" CREATED="1321898313486" MODIFIED="1321898321925">
 <node TEXT="Make checkAddOn.groovy work for maps that are not saved" ID="ID_1259871081" CREATED="1321898323014" MODIFIED="1323905882699"/>
 </node>
-<node TEXT="v0.9.6" ID="ID_1469699162" CREATED="1321898340249" MODIFIED="1321898344125">
+<node TEXT="v0.9.6" FOLDED="true" ID="ID_1469699162" CREATED="1321898340249" MODIFIED="1321898344125">
 <node TEXT="Add missing file/write permission for insertBinary.groovy" ID="ID_1936917850" CREATED="1321898345129" MODIFIED="1323905879321"/>
 </node>
-<node TEXT="v0.9.7" ID="ID_459911057" CREATED="1322789801914" MODIFIED="1322789807290">
+<node TEXT="v0.9.7" FOLDED="true" ID="ID_459911057" CREATED="1322789801914" MODIFIED="1322789807290">
 <node TEXT="Add support for images.&#xa;Include icon and screenshot." ID="ID_1859362741" CREATED="1322789808449" MODIFIED="1323905874403"/>
 </node>
-<node TEXT="v0.9.9" ID="ID_365307397" CREATED="1323905754834" MODIFIED="1323905760317">
+<node TEXT="v0.9.9" FOLDED="true" ID="ID_365307397" CREATED="1323905754834" MODIFIED="1323905760317">
 <node TEXT="Better error messages in case of missing scripts and zips to include.&#xa;Only look for scripts below the scripts node." ID="ID_1413959921" CREATED="1323905761794" MODIFIED="1323905861431"/>
 </node>
-<node TEXT="v0.9.10" ID="ID_448176076" CREATED="1323993722548" MODIFIED="1323993729415">
-<node TEXT="" ID="ID_257904891" CREATED="1323993730513" MODIFIED="1323993730513"/>
+<node TEXT="v0.9.10" FOLDED="true" ID="ID_448176076" CREATED="1323993722548" MODIFIED="1323993729415">
+<node TEXT="New: addOnDoc.groovy" ID="ID_257904891" CREATED="1323993730513" MODIFIED="1324080708295"/>
+</node>
+<node TEXT="v0.9.10" ID="ID_1895024735" CREATED="1323993722548" MODIFIED="1323993729415">
+<node TEXT="releaseAddOn.groovy:&#xa;Creates the release map as model-only to cope with the map open hook that asks if the map should be installed.&#xa;The map is actually saved at the end." ID="ID_19963680" CREATED="1323993730513" MODIFIED="1324080918793"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1324023332177"><richcontent TYPE="NOTE">
@@ -499,7 +497,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
@@ -518,7 +515,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1324023332191">
@@ -535,7 +531,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1324023332194"><richcontent TYPE="NOTE">
@@ -550,7 +545,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1323993414730">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -583,7 +577,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="277"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -638,7 +631,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100"><richcontent TYPE="NOTE">
 
@@ -708,7 +700,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>

@@ -17,28 +17,37 @@ import java.io.File
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
+import javax.swing.JOptionPane
+
+import org.freeplane.core.util.LogUtils
+import org.freeplane.features.map.MapModel
+import org.freeplane.features.map.MapWriter.Mode
+import org.freeplane.features.mode.Controller
+import org.freeplane.features.mode.ModeController
+import org.freeplane.features.url.mindmapmode.MFileManager
+import org.freeplane.plugin.script.proxy.NodeProxy
 import org.freeplane.plugin.script.proxy.Proxy
 
 // script bindings
 errors = []
+dialogTitle = 'Create release package'
 
-// support for 
-def expand(String string) {
+def expand(Proxy.Node attributeNode, String string) {
 	// expands strings like "${name}.groovy"
-	string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = node.map.root.attributes.map[key]; v ? v : match})
+	string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = attributeNode.attributes.map[key]; v ? v : match})
 }
 
 // returns the count of scripts added
-int updateScripts() {
+int updateScripts(Proxy.Node root) {
 	int count = 0
-	def scriptsDir = new File(node.map.file.parent, 'scripts')
-    def scriptsNode = node.map.root.children.find{ it.plainText == 'scripts' }
+	def scriptsDir = new File(root.map.file.parent, 'scripts')
+    Proxy.Node scriptsNode = root.children.find{ it.plainText == 'scripts' }
     if (!scriptsNode) {
         errors << 'Can not find scripts node'
         return 0
     }
 	scriptsNode.find{ it.plainText.matches('.*\\.groovy') }.each {
-		File scriptFile = new File(scriptsDir, expand(it.plainText))
+		File scriptFile = new File(scriptsDir, expand(root, it.plainText))
 		if (!scriptFile.exists()) {
 			errors << "Can not update scriptfile $scriptFile doesn't exist"
 		} else {
@@ -53,16 +62,16 @@ int updateScripts() {
 }
 
 // returns the count of zips added
-int updateZips() {
+int updateZips(Proxy.Node root) {
 	int count = 0
-	Proxy.Node zipsNode = c.find{ it.plainText.matches('zips') }[0]
+	Proxy.Node zipsNode = root.find{ it.plainText.matches('zips') }[0]
 	if (!zipsNode) {
 		errors << "The root node has no 'zips' child. Please create it or better run 'Check Add-on'"
 		return
 	}
-	def zipsDir = new File(node.map.file.parent, 'zips')
+	def zipsDir = new File(root.map.file.parent, 'zips')
 	zipsNode.children.each {
-		String dirToZipString = expand(it.plainText)
+		String dirToZipString = expand(root, it.plainText)
 		File dirToZip = new File(zipsDir, dirToZipString)
 		if (!dirToZip.exists()) {
 			errors << "Can not update zip file: directory $dirToZip doesn't exist"
@@ -78,16 +87,16 @@ int updateZips() {
 }
 
 // returns the count of images added
-int updateImages() {
+int updateImages(Proxy.Node root) {
     int count = 0
-    Proxy.Node imagesNode = c.find{ it.plainText.matches('images') }[0]
+    Proxy.Node imagesNode = root.find{ it.plainText.matches('images') }[0]
     if (!imagesNode) {
         errors << "The root node has no 'images' child. Please create it or better run 'Check Add-on'"
         return
     }
-    def imagesDir = new File(node.map.file.parent, 'images')
+    def imagesDir = new File(root.map.file.parent, 'images')
     imagesNode.children.each {
-        String filename = expand(it.plainText)
+        String filename = expand(root, it.plainText)
         File image = new File(imagesDir, filename)
         if (!image.exists()) {
             errors << "Can not update image: '$image' doesn't exist"
@@ -135,8 +144,35 @@ byte[] getZipBytes(File topDir) {
     }
 }
 
+private byte[] getBytes(MapModel map) {
+    StringWriter stringWriter = new StringWriter(4*1024)
+    BufferedWriter out = new BufferedWriter(stringWriter)
+    Controller.getCurrentModeController().getMapController().getMapWriter()
+        .writeMapAsXml(map, out, Mode.FILE, true, false)
+    return stringWriter.buffer.toString().bytes
+}
+
+private boolean saveOrCancel() {
+    def question = "Do you want to save ${node.map.name} first?"
+    final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+    if (selection == JOptionPane.YES_OPTION)
+        node.map.save(false)
+    return (selection != JOptionPane.CANCEL_OPTION)
+}
+
+private MapModel createReleaseMap(Proxy.Node node) {
+    final ModeController modeController = Controller.getCurrentModeController();
+    final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController);
+    MapModel releaseMap = modeController.getMapController().newModel(null);
+    if (!fileManager.loadImpl(node.map.file.toURI().toURL(), releaseMap)) {
+        LogUtils.warn("can not load " + node.map.file)
+        return null
+    }
+    return releaseMap
+}
+
 //
-// copy the file of the current map, open the copied file, update some fields and finally save the map
+// ======================= MAIN =======================
 //
 def File mapFile = node.map.file
 if (!mapFile) {
@@ -148,35 +184,38 @@ if (!version) {
 	ui.errorMessage("Missing version attribute - can't continue.")
 	return
 }
+if (!node.map.isSaved() && !saveOrCancel())
+    return
+
 def releaseMapFile = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm")
-releaseMapFile.bytes = mapFile.bytes
-ui.informationMessage("""Please answer
+MapModel releaseMap = createReleaseMap(node)
+if (releaseMap == null)
+    return
 
-  ${textUtils.getText("no")}
-
-if you are asked if you want to install.
-- We aren't ready to install yet.""")
-def releaseMap = c.newMap(releaseMapFile.toURI().toURL())
-
-int countScripts = 0
-int countZips = 0
-int countImages = 0
+def counts = new Expando()
 try {
-	countScripts = updateScripts()
-	countZips = updateZips()
-	countImages = updateImages()
+    def releaseMapRoot = new NodeProxy(releaseMap.rootNode, null)
+	counts.scripts = updateScripts(releaseMapRoot)
+	counts.zips = updateZips(releaseMapRoot)
+	counts.images = updateImages(releaseMapRoot)
 } catch (Exception e) {
 	errors << e.message
 	e.printStackTrace()
 } finally {
-	node.map.save(false)
+	releaseMapFile.bytes = getBytes(releaseMap)
+    logger.info("created add-on package file " + releaseMapFile)
 }
 if (errors) {
 	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
 }
 else {
-	ui.informationMessage("""Successfully created add-on
-with $countScripts script(s), $countZips zip file(s) and $countImages images(s).
+    def question = """Successfully created add-on
+with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images} images(s).
 
-Please visit the new map ${releaseMapFile.name} and save it.""")
+Open the new add-on map ${releaseMapFile.name}?"""
+    final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    if (selection == JOptionPane.YES_OPTION) {
+        logger.info("hi, opening ${releaseMapFile.toURI().toURL()}")
+        c.newMap(releaseMapFile.toURI().toURL())
+    }
 }
