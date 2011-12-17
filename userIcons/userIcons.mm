@@ -159,7 +159,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="This add-on provides 32x32 versions of the standard Freeplane icons and a lot more (computer, office...)..&#xa;Enjoy!" ID="ID_367579173" CREATED="1321990340729" MODIFIED="1323936928767" HGAP="-514" VSHIFT="-49"/>
+<node TEXT="This add-on provides 32x32 versions of the standard Freeplane icons and a lot more (computer, office...).&#xa;Enjoy!" ID="ID_367579173" CREATED="1321990340729" MODIFIED="1323936928767" HGAP="-514" VSHIFT="-49"/>
 </node>
 <node TEXT="changes" FOLDED="true" POSITION="left" ID="ID_717274311" CREATED="1321990126869" MODIFIED="1323909670269">
 <edge COLOR="#0000ff" WIDTH="3"/>
