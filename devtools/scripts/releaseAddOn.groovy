@@ -215,7 +215,6 @@ with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images
 Open the new add-on map ${releaseMapFile.name}?"""
     final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
     if (selection == JOptionPane.YES_OPTION) {
-        logger.info("hi, opening ${releaseMapFile.toURI().toURL()}")
         c.newMap(releaseMapFile.toURI().toURL())
     }
 }
