@@ -163,11 +163,12 @@ private boolean saveOrCancel() {
 private MapModel createReleaseMap(Proxy.Node node) {
     final ModeController modeController = Controller.getCurrentModeController();
     final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController);
-    MapModel releaseMap = modeController.getMapController().newModel(null);
+    MapModel releaseMap = new MapModel();
     if (!fileManager.loadImpl(node.map.file.toURI().toURL(), releaseMap)) {
         LogUtils.warn("can not load " + node.map.file)
         return null
     }
+	modeController.getMapController().fireMapCreated(releaseMap);
     return releaseMap
 }
 
