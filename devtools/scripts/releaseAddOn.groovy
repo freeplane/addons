@@ -22,6 +22,7 @@ import javax.swing.JOptionPane
 import org.freeplane.core.util.LogUtils
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
+import org.freeplane.features.map.mindmapmode.MMapModel
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.mode.ModeController
 import org.freeplane.features.url.mindmapmode.MFileManager
@@ -43,7 +44,7 @@ int updateScripts(Proxy.Node root) {
 	def scriptsDir = new File(root.map.file.parent, 'scripts')
     Proxy.Node scriptsNode = root.children.find{ it.plainText == 'scripts' }
     if (!scriptsNode) {
-        errors << 'Can not find scripts node'
+        errors << "The root node ${root.plainText} has no 'scripts' child. Please create it or better run 'Check Add-on'"
         return 0
     }
 	scriptsNode.find{ it.plainText.matches('.*\\.groovy') }.each {
@@ -66,8 +67,8 @@ int updateZips(Proxy.Node root) {
 	int count = 0
 	Proxy.Node zipsNode = root.find{ it.plainText.matches('zips') }[0]
 	if (!zipsNode) {
-		errors << "The root node has no 'zips' child. Please create it or better run 'Check Add-on'"
-		return
+		errors << "The root node ${root.plainText} has no 'zips' child. Please create it or better run 'Check Add-on'"
+		return count
 	}
 	def zipsDir = new File(root.map.file.parent, 'zips')
 	zipsNode.children.each {
@@ -91,8 +92,8 @@ int updateImages(Proxy.Node root) {
     int count = 0
     Proxy.Node imagesNode = root.find{ it.plainText.matches('images') }[0]
     if (!imagesNode) {
-        errors << "The root node has no 'images' child. Please create it or better run 'Check Add-on'"
-        return
+        errors << "The root node ${root.plainText} has no 'images' child. Please create it or better run 'Check Add-on'"
+        return count
     }
     def imagesDir = new File(root.map.file.parent, 'images')
     imagesNode.children.each {
@@ -153,6 +154,10 @@ private byte[] getBytes(MapModel map) {
 }
 
 private boolean saveOrCancel() {
+    if (!isInteractive()) {
+        logger.warn("map isn't saved - won't save it in non-interactive mode")
+        return false
+    }        
     def question = "Do you want to save ${node.map.name} first?"
     final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
     if (selection == JOptionPane.YES_OPTION)
@@ -161,15 +166,19 @@ private boolean saveOrCancel() {
 }
 
 private MapModel createReleaseMap(Proxy.Node node) {
-    final ModeController modeController = Controller.getCurrentModeController();
-    final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController);
-    MapModel releaseMap = new MapModel();
+    final ModeController modeController = Controller.getCurrentModeController()
+    final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController)
+    MapModel releaseMap = new MMapModel()
     if (!fileManager.loadImpl(node.map.file.toURI().toURL(), releaseMap)) {
         LogUtils.warn("can not load " + node.map.file)
         return null
     }
-	modeController.getMapController().fireMapCreated(releaseMap);
+	modeController.getMapController().fireMapCreated(releaseMap)
     return releaseMap
+}
+
+private boolean isInteractive() {
+    return !Boolean.parseBoolean(System.getProperty("nonInteractive"))
 }
 
 //
@@ -193,7 +202,7 @@ MapModel releaseMap = createReleaseMap(node)
 if (releaseMap == null)
     return
 
-def counts = new Expando()
+def counts = [:]
 try {
     def releaseMapRoot = new NodeProxy(releaseMap.rootNode, null)
 	counts.scripts = updateScripts(releaseMapRoot)
@@ -208,14 +217,24 @@ try {
 }
 if (errors) {
 	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
+	logger.warn("Errors during release: " + errors.join("\n"))
 }
 else {
-    def question = """Successfully created add-on
+    logger.info("Successfully created $releaseMapFile with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images} images(s)")
+    if (isInteractive()) {
+        def question = """Successfully created add-on
 with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images} images(s).
 
 Open the new add-on map ${releaseMapFile.name}?"""
-    final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    if (selection == JOptionPane.YES_OPTION) {
-        c.newMap(releaseMapFile.toURI().toURL())
+        final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (selection == JOptionPane.YES_OPTION) {
+            try {
+                c.newMap(releaseMapFile.toURI().toURL())
+            }
+            catch (Exception e) {
+                // we'll expect an exception if the user chooses to install instead of opening the map
+                logger.warn(e)
+            }
+        }
     }
 }
