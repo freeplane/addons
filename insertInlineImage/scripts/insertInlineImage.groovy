@@ -164,7 +164,12 @@ def String insertTag(String text, String htmlTag) {
 }
 
 def String imageTag(String url, String width, String height) {
-    def attribs = ["src='${url}'"]
+    String linkType = config.getProperty('links')
+	def srcURL = url
+	if ('relative'.equals(linkType)) {
+		srcURL = findRelativePath(node.map.file, url)
+	}
+	def attribs = ["src='${srcURL}'"]
     if (width && Integer.parseInt(width) > 1)
 	attribs << "width='${width}'"
     if (height && Integer.parseInt(height) > 1)
@@ -172,11 +177,9 @@ def String imageTag(String url, String width, String height) {
     def imageURL = ""
     if (imagePath.selected) {
         imageURL = url
-        String linkType = config.getProperty('links')
         if ('relative'.equals(linkType)) {
             imageURL = findRelativePath(node.map.file, url)
         }
-        imageURL = imageURL
     }
     else if (customUrl.selected) {
         imageURL = customUrlField.text
