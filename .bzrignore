@@ -2,3 +2,5 @@
 *.bak
 addons.zip
 bin
+packAndGo/*.zip
+packAndGo/test/zipMap.zip

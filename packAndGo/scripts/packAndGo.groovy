@@ -1,5 +1,5 @@
-// @ExecutionModes({ON_SINGLE_NODE})
-// Copyright (C) 2011 Volker Boerchers
+// @ExecutionModes({on_single_node="/menu_bar/file"})
+// Copyright (C) 2011-2012 Volker Boerchers
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -34,16 +34,30 @@ import org.freeplane.plugin.script.proxy.Proxy
 private MapModel loadMap(URL url) {
     final ModeController modeController = Controller.getCurrentController().getModeController(MModeController.MODENAME)
     final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController)
-    MapModel newMap = modeController.getMapController().newModel(null);
+    MapModel newMap
     if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.2.12'))) {
+        newMap = modeController.getMapController().newModel(null);
         // ugly - no check possible
         fileManager.loadImpl(url, newMap)
     }
     else {
+        newMap = modeController.getMapController().newModel();
         if (!fileManager.loadImpl(url, newMap)) {
             return null
         }
+        return newMap
     }
+//    else if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.2.13'))) {
+//        if (!fileManager.loadImpl(url, newMap)) {
+//            return null
+//        }
+//    }
+//    else {
+//        final MMapIO mapIO = (MMapIO) Controller.getCurrentModeController().getExtension(MapIO.class);
+//        if (!mapIO.load(url, newMap)) {
+//            return null
+//        }
+//    }
     return newMap
 }
 
