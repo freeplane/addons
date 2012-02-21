@@ -13,7 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_script"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_script_test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_svg"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_translate"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_uispec4j"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/JOrtho_0.4_freeplane"/>
 	<classpathentry kind="output" path="bin"/>
