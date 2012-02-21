@@ -1,6 +1,6 @@
 <map version="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1329858701773" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1329859385980" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -107,7 +107,7 @@
 <attribute NAME="name" VALUE="packAndGo"/>
 <attribute NAME="version" VALUE="v0.1"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="v1.2.11"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <richcontent TYPE="NOTE">
 
