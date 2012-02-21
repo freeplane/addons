@@ -8,11 +8,14 @@
 
 import groovy.swing.SwingBuilder
 
+import java.awt.datatransfer.StringSelection
+
 import javax.swing.tree.DefaultMutableTreeNode
 
 import org.freeplane.core.ui.MenuBuilder
 import org.freeplane.core.util.LogUtils
 import org.freeplane.core.util.MenuUtils.MenuEntry
+import org.freeplane.features.clipboard.ClipboardController
 import org.freeplane.features.link.mindmapmode.SelectMenuItemDialog
 import org.freeplane.features.mode.Controller
 
@@ -33,11 +36,14 @@ if (menuEntry != null) {
     def displayMessage = """
 Menu item: $menuEntry
 Key: ${menuEntry.key}
+Command line option (copied to clipboard): -X${menuEntry.key}
 Path: ${menuPath}
 Shortcut: ${ui.keyStrokeToString(menuEntry.keyStroke)}
 """
+    // from 1.2.12 on you can use setClipboardContents(String)
+    ClipboardController.getController().setClipboardContents(new StringSelection("-X${menuEntry.key}".toString()));
+    c.statusInfo = "Copied command line option for '$menuEntry' to clipboard"
     LogUtils.info(displayMessage.replace('\n', ', '));
-    c.statusInfo = "Selected: menuItem '$menuEntry', key: '${menuEntry.key}'"
     def s = new SwingBuilder()
     def dialog = s.dialog(title:'Selected menu item', locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {
         panel() {
