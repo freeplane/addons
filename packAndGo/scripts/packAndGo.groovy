@@ -23,6 +23,7 @@ import org.freeplane.core.util.FreeplaneVersion
 import org.freeplane.core.util.LogUtils
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
+import org.freeplane.features.map.mindmapmode.MMapModel
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.mode.ModeController
 import org.freeplane.features.mode.mindmapmode.MModeController
@@ -41,11 +42,10 @@ private MapModel loadMap(URL url) {
         fileManager.loadImpl(url, newMap)
     }
     else {
-        newMap = modeController.getMapController().newModel();
+        newMap = new MMapModel();
         if (!fileManager.loadImpl(url, newMap)) {
             return null
         }
-        return newMap
     }
 //    else if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.2.13'))) {
 //        if (!fileManager.loadImpl(url, newMap)) {
@@ -154,13 +154,14 @@ public File getUriAsFile(File mapDir, URI uri) {
     }
 }
 
+// searches the map for file references that have to be mapped to a file in the zip
 private createFileToPathInZipMap(MapModel newMap, String dependenciesDir) {
     File mapDir = node.map.file.parentFile
-    Pattern links = Pattern.compile('(href|src)=["\']([^"\']+)["\']')
     // closure, re-usable for text, details and notes
     def handleHtmlText = { String text, Map<File, String> map ->
         if (!text)
             return text
+        Pattern links = Pattern.compile('(href|src)=["\']([^"\']+)["\']')
         Matcher m = links.matcher(text)
         // optimize for the regular case: no StringBuffer et al if there is no need for it
         if (m.find()) {

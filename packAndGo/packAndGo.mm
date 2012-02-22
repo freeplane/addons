@@ -1,6 +1,6 @@
 <map version="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1329859385980" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1329935651772" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -105,7 +105,7 @@
 </map_styles>
 </hook>
 <attribute NAME="name" VALUE="packAndGo"/>
-<attribute NAME="version" VALUE="v0.1"/>
+<attribute NAME="version" VALUE="v0.2"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -173,6 +173,12 @@
   </body>
 </html>
 </richcontent>
+<node TEXT="v0.1" ID="ID_204002014" CREATED="1329935618318" MODIFIED="1329935625842">
+<node TEXT="initial release" ID="ID_473183113" CREATED="1329935626944" MODIFIED="1329935630724"/>
+</node>
+<node TEXT="v0.2" ID="ID_1261076568" CREATED="1329935632579" MODIFIED="1329935638597">
+<node TEXT="bugfix" ID="ID_10431206" CREATED="1329935639687" MODIFIED="1329935643494"/>
+</node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1329845912901"><richcontent TYPE="NOTE">
 
