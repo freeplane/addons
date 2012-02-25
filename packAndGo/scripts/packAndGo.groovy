@@ -47,17 +47,6 @@ private MapModel loadMap(URL url) {
             return null
         }
     }
-//    else if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.2.13'))) {
-//        if (!fileManager.loadImpl(url, newMap)) {
-//            return null
-//        }
-//    }
-//    else {
-//        final MMapIO mapIO = (MMapIO) Controller.getCurrentModeController().getExtension(MapIO.class);
-//        if (!mapIO.load(url, newMap)) {
-//            return null
-//        }
-//    }
     return newMap
 }
 
@@ -225,9 +214,13 @@ private String getMappedPath(Object uriObject, Map<File, String> fileToPathInZip
     if (f != null && f.exists()) {
         def path = getPathInZip(f, dependenciesDir, fileToPathInZipMap)
         fileToPathInZipMap[f] = path
-        return path
+        return urlEncode(path)
     }
     return null
+}
+
+private urlEncode(String string) {
+    string.replace(' ', '%20')
 }
 
 private String getText(String key, Object... parameters) {

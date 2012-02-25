@@ -1,6 +1,7 @@
-<map version="0.9.0">
+<map version="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="test zipMap.groovy" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1323325905264"><hook NAME="MapStyle">
+    <properties show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -107,6 +108,7 @@
 <node TEXT="b.html" POSITION="right" ID="ID_1611405813" CREATED="1323189967862" MODIFIED="1323190064909" LINK="b/tt.html"/>
 <node TEXT="c.html" POSITION="right" ID="ID_1140016056" CREATED="1323189969096" MODIFIED="1323190068876" LINK="c/tt.html"/>
 <node TEXT="d.html" POSITION="right" ID="ID_778474213" CREATED="1323189970412" MODIFIED="1323190075840" LINK="d/tt.html"/>
+<node TEXT="e space.html" POSITION="right" ID="ID_438846915" CREATED="1330034334277" MODIFIED="1330034444331" LINK="files/e%20space.html"/>
 <node TEXT="image" POSITION="right" ID="ID_1655262636" CREATED="1323280432040" MODIFIED="1323451929652" HGAP="90" VSHIFT="70">
 <hook URI="img/image.png" SIZE="0.8955224" NAME="ExternalObject"/>
 </node>
@@ -147,7 +149,6 @@
     and another <a href="b/tt.html">href</a>.
   </body>
 </html>
-
 </richcontent>
 <richcontent TYPE="NOTE">
 
@@ -165,7 +166,6 @@
     and yet another <a href="c/tt.html">href</a>.
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
