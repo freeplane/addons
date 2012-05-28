@@ -6,8 +6,12 @@
 // the Free Software Foundation, either version 2 of the License, or
 // (at your option) any later version.
 import groovy.json.JsonSlurper
+import groovy.swing.SwingBuilder
+
+import java.awt.FlowLayout as FL
 import javax.swing.JOptionPane
 
+import org.freeplane.core.resources.ResourceController
 import org.freeplane.core.util.LogUtils;
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.mode.mindmapmode.MModeController
@@ -153,22 +157,78 @@ private class NodeTranslator {
 //
 // MAIN
 //
-def queryLocale(String sourceOrTarget, String initialValue) {
-    return JOptionPane.showInputDialog(ui.frame, "<html>Please enter the <em>"
-            + sourceOrTarget + "</em> language code (like 'de' or 'zh-CN'),\n"
-            + " for language codes see http://en.wikipedia.org/wiki/ISO_3166-1\n"
-            + " and http://mymemory.translated.net/", initialValue)
+def loadLocaleList() {
+    try {
+        def path = '/translations/locales.txt'
+        def stream = ResourceController.class.getResourceAsStream(path)
+        if (!stream) {
+            LogUtils.severe("cannot load $path, using default instead")
+            return ("ar,ca,cs,da,de,el,es,et,fr,gl,hr,hu,id,it,ja,ko,lt,nb,nl,nn,pl,pt_BR," +
+            "pt_PT,ru,sk,sl,sr,sv,tr,uk_UA,zh_CN,zh_TW,en").split(",")
+        }
+        def result = Arrays.asList(new String(stream.bytes).split())
+        return new TreeSet(result).toArray()
+    }
+    catch (Exception e) {
+        LogUtils.severe("could not load locale list for $path", e)
+        return null
+    }
+}
+
+def createText(locale) {
+    "${locale} - ${textUtils.getText('OptionPanel.'+locale)}"
+}
+
+def queryLocales() {
+    def allLocales = loadLocaleList().collect{ locale ->
+        createText(locale)
+    }
+    def defaultLocale = Locale.getDefault().language
+    def defaultSourceLocale = (defaultLocale == 'en') ? '' : createText('en')
+    def s = new SwingBuilder()
+    def vars = s.variables
+    def dialog = s.dialog(title:'Choose languages', modal:true,
+                    locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {
+        panel() {
+            gridLayout(rows: 4, columns: 1, vgap: 10)
+            panel(alignmentX:0f) {
+                label(text:"For language codes see http://mymemory.translated.net/")
+            }
+            panel(alignmentX:0f) {
+                label(text:'Source language:')
+                flowLayout(alignment:FL.LEFT)
+                comboBox(id:"sourceLocale", editable: true, items:allLocales, selectedItem:defaultSourceLocale)
+            }
+            panel(alignmentX:0f) {
+                label(text:'Target language:')
+                flowLayout(alignment:FL.LEFT)
+                comboBox(id:"targetLocale", editable: true, items:allLocales, selectedItem:createText(defaultLocale))
+            }
+            panel(alignmentX:0f) {
+                flowLayout(alignment:FL.RIGHT)
+                button(action: action(name: 'OK', mnemonic: 'O', closure: {vars.ok = true; dispose()}))
+                button(action: action(name: 'Cancel', mnemonic: 'C', closure: {dispose()}))
+            }
+        }
+    }
+    ui.addEscapeActionToDialog(dialog)
+    dialog.visible = true
+    if (vars.ok) {
+        if (!vars.sourceLocale.selectedItem || !vars.targetLocale.selectedItem) {
+            ui.informationMessage('Source and target language must both be set.')
+            return null
+        }
+        return [vars.sourceLocale.selectedItem.replaceFirst('\\s.*', ''),
+            vars.targetLocale.selectedItem.replaceFirst('\\s.*', '')]
+    }
+    return null
 }
 
 def run(Proxy.Node node) {
-    autoDetect = ""
-    String sourceLocale = queryLocale("source", autoDetect)
-    if (sourceLocale == null)
-        return
-    String targetLocale = queryLocale("target", Locale.getDefault().language)
     try {
-        if (sourceLocale && targetLocale) {
-            def nodeTranslator = new NodeTranslator(sourceLocale, targetLocale)
+        def locales = queryLocales()
+        if (locales) {
+            def nodeTranslator = new NodeTranslator(locales[0], locales[1])
             nodeTranslator.runTranslation(node)
         }
     }

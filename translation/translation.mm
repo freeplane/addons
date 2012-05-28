@@ -1,6 +1,6 @@
 <map version="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Translation" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1338214113493" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Translation" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1338248426535" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -106,7 +106,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="133" VALUE_WIDTH="133"/>
 <attribute NAME="name" VALUE="translation"/>
-<attribute NAME="version" VALUE="v0.3"/>
+<attribute NAME="version" VALUE="v0.4"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.2"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -190,11 +190,14 @@
 <node TEXT="v0.1" FOLDED="true" ID="ID_797728174" CREATED="1338165901525" MODIFIED="1338165907791">
 <node TEXT="initial version" ID="ID_626909039" CREATED="1338165908750" MODIFIED="1338165911920"/>
 </node>
-<node TEXT="v0.2" ID="ID_200004924" CREATED="1338207286305" MODIFIED="1338207291861">
+<node TEXT="v0.2" FOLDED="true" ID="ID_200004924" CREATED="1338207286305" MODIFIED="1338207291861">
 <node TEXT="fix permissions" ID="ID_1011237479" CREATED="1338207293069" MODIFIED="1338207297048"/>
 </node>
 <node TEXT="v0.3" ID="ID_1522590683" CREATED="1338214057402" MODIFIED="1338214060468">
 <node TEXT="catch/ignore exception in the JSON parser" ID="ID_1414671615" CREATED="1338214061479" MODIFIED="1338214101871"/>
+</node>
+<node TEXT="v0.4" ID="ID_1965727147" CREATED="1338248430700" MODIFIED="1338248433409">
+<node TEXT="better language selection dialog for Translate" ID="ID_964734255" CREATED="1338248434906" MODIFIED="1338248460396"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_426753656" CREATED="1338165657092" MODIFIED="1338166009205"><richcontent TYPE="NOTE">
