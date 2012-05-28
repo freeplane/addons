@@ -1,6 +1,6 @@
 <map version="freeplane 1.2.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Translation" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1338166384882" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Translation" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1338214113493" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -106,7 +106,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="133" VALUE_WIDTH="133"/>
 <attribute NAME="name" VALUE="translation"/>
-<attribute NAME="version" VALUE="v0.1"/>
+<attribute NAME="version" VALUE="v0.3"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.2"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -142,7 +142,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_502791782" CREATED="1338165657075" MODIFIED="1338166009197"><richcontent TYPE="NOTE">
 
@@ -159,9 +158,21 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="Utilities for automatic translation of maps and language resources that use the mymemory translation service. Of most interest for Freeplane translators." ID="ID_1842556694" CREATED="1338165793044" MODIFIED="1338165876029"/>
+<node ID="ID_1842556694" CREATED="1338165793044" MODIFIED="1338209004719"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Utilities for automatic translation of maps and language resources that use the <a name="http://mymemory.translated.net/">mymemory translation service</a>. Of most interest for Freeplane translators. Note that translation might take quite a long time due to multiple network accesses.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 </node>
 <node TEXT="changes" POSITION="left" ID="ID_875357858" CREATED="1338165657084" MODIFIED="1338166009201"><richcontent TYPE="NOTE">
 
@@ -175,10 +186,15 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="v0.1" ID="ID_797728174" CREATED="1338165901525" MODIFIED="1338165907791">
+<node TEXT="v0.1" FOLDED="true" ID="ID_797728174" CREATED="1338165901525" MODIFIED="1338165907791">
 <node TEXT="initial version" ID="ID_626909039" CREATED="1338165908750" MODIFIED="1338165911920"/>
+</node>
+<node TEXT="v0.2" ID="ID_200004924" CREATED="1338207286305" MODIFIED="1338207291861">
+<node TEXT="fix permissions" ID="ID_1011237479" CREATED="1338207293069" MODIFIED="1338207297048"/>
+</node>
+<node TEXT="v0.3" ID="ID_1522590683" CREATED="1338214057402" MODIFIED="1338214060468">
+<node TEXT="catch/ignore exception in the JSON parser" ID="ID_1414671615" CREATED="1338214061479" MODIFIED="1338214101871"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_426753656" CREATED="1338165657092" MODIFIED="1338166009205"><richcontent TYPE="NOTE">
@@ -199,7 +215,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1929820989" CREATED="1338165657103" MODIFIED="1338165657104"/>
 </node>
@@ -218,7 +233,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1308109598" CREATED="1338165657142" MODIFIED="1338166009213"><richcontent TYPE="NOTE">
@@ -233,7 +247,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="translations" POSITION="left" ID="ID_232027212" CREATED="1338165657151" MODIFIED="1338166009217"><richcontent TYPE="NOTE">
@@ -248,7 +261,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="en" ID="ID_1216436581" CREATED="1338165657157" MODIFIED="1338166379834">
 <attribute_layout NAME_WIDTH="283" VALUE_WIDTH="283"/>
@@ -275,7 +287,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/checkFreeplaneTranslation.groovy"/>
@@ -401,9 +412,8 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="checkFreeplaneTranslations.groovy" ID="ID_1575886858" CREATED="1338165974143" MODIFIED="1338166598782">
+<node TEXT="checkFreeplaneTranslations.groovy" ID="ID_1575886858" CREATED="1338165974143" MODIFIED="1338207243595">
 <attribute_layout NAME_WIDTH="271" VALUE_WIDTH="283"/>
 <attribute NAME="menuTitleKey" VALUE="addons.translation.checkFreeplaneTranslations"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/translation"/>
@@ -411,11 +421,11 @@
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
-<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
-<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="true"/>
 </node>
-<node TEXT="translate.groovy" ID="ID_747491375" CREATED="1338165991087" MODIFIED="1338166614825">
+<node TEXT="translate.groovy" ID="ID_747491375" CREATED="1338165991087" MODIFIED="1338207249706">
 <attribute_layout NAME_WIDTH="275" VALUE_WIDTH="280"/>
 <attribute NAME="menuTitleKey" VALUE="addons.translation.translate"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/translation"/>
@@ -423,9 +433,9 @@
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
 <attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
-<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
-<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="true"/>
 </node>
 </node>
 <node TEXT="zips" POSITION="right" ID="ID_736971804" CREATED="1338165657190" MODIFIED="1338166009477"><richcontent TYPE="NOTE">
@@ -470,7 +480,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="images" POSITION="right" ID="ID_1303425496" CREATED="1338165657201" MODIFIED="1338166009484"><richcontent TYPE="NOTE">
@@ -505,7 +514,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="${name}.png" ID="ID_770359730" CREATED="1338167438116" MODIFIED="1338167464326"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>

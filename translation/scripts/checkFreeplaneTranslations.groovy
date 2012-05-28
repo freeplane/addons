@@ -54,7 +54,14 @@ private class Translator {
             connection.connect();
             rd  = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             def jsonSlurper = new JsonSlurper()
-            def result = jsonSlurper.parse(rd)
+            def result
+            try {
+                result = jsonSlurper.parse(rd)
+            }
+            catch (Exception e) {
+                LogUtils.warn("cannot parse JSON result for $serverAddress", e)
+                return text
+            }
             //            println "1. translate($text) = $result"
             //            println "2. translate($text) = ${result.responseData.translatedText}."
             if (result.responseStatus != 200) {
