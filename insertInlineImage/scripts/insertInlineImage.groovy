@@ -9,29 +9,29 @@
 import groovy.swing.SwingBuilder
 
 import java.awt.FlowLayout as FL
+import java.awt.Graphics2D
+import java.awt.Image
+import java.awt.RenderingHints
+import java.awt.Toolkit
+import java.awt.datatransfer.Clipboard
+import java.awt.datatransfer.DataFlavor
+import java.awt.image.BufferedImage
+import java.io.File;
+import java.util.Date
 
+import javax.imageio.ImageIO
 import javax.swing.BoxLayout as BXL
 import javax.swing.ImageIcon
 import javax.swing.JFileChooser
 import javax.swing.JTextField
 import javax.swing.SwingUtilities
+import javax.swing.filechooser.FileFilter;
 
 import org.freeplane.core.resources.ResourceController
-import org.freeplane.features.link.LinkController;
+import org.freeplane.core.util.FileUtils;
+import org.freeplane.features.link.LinkController
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.url.UrlManager
-
-import java.awt.*;
-
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.io.*;
-import javax.imageio.*;
-import java.awt.image.*;
-import javax.swing.JFileChooser
-import javax.swing.filechooser.FileNameExtensionFilter
-import java.util.Date
-import java.util.logging.Logger;
 
 def ImageIcon getIcon(String path) {
     new ImageIcon(ResourceController.getResourceController().getResource(path))
@@ -81,9 +81,7 @@ locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {
 							image = getBufferedImage(image);	//convert into something it understands
 						}
 						JFileChooser save=new JFileChooser(node.map.file); //default directory = where the map is
-						FileNameExtensionFilter filter = new FileNameExtensionFilter(
-						"PNG Images", "png");
-						save.setFileFilter(filter);
+						save.setFileFilter(fileFilter());
 						save.setDialogTitle("Save clipboard image as")
 						Date date = new Date() //ms from the creation for appending the image name and make it unique
 						def mapName = node.map.name //name of the map
@@ -102,7 +100,7 @@ locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {
 						}
 					}
 				} catch(Exception e) {
-					Logger.warn("Invalid image generation from clipboard", e)
+					logger.warn("Invalid image generation from clipboard", e)
 				}
 			}))	
 		}				
@@ -178,7 +176,7 @@ def String imageTag(String url, String width, String height) {
     if (imagePath.selected) {
         imageURL = url
         if ('relative'.equals(linkType)) {
-            imageURL = findRelativePath(node.map.file, url)
+            imageURL = findRelativeURI(node.map.file, url)
         }
     }
     else if (customUrl.selected) {
@@ -235,39 +233,19 @@ if (vars.ok) {
     }
 }
 
-String findRelativePath(File baseFile, String path) {
-    if (baseFile == null) {
+String findRelativeURI(File mapFile, String uri) {
+    if (mapFile == null) {
         logger.warn('to map has to be saved to use relative paths')
-        return path
+        return uri
     }
     // we took care to ensure that path contains a protocol
-    if (!path.startsWith('file:')) {
+    if (!uri.startsWith('file:')) {
         // relative paths are only applicable for local files (file protocol)
-        return path
+        return uri
     }
-    // TODO: check if this works:
-    //    return LinkController.toRelativeURI(baseFile, path)
-    String base = baseFile.toURI().toString()
-    String[] basePaths = base.split("/");
-    String[] otherPaths = path.split("/");
-    int n = 0;
-    for (; n < basePaths.length && n < otherPaths.length; n ++) {
-        if( basePaths[n].equals(otherPaths[n]) == false )
-		break;
-    }
-    StringBuffer tmp = new StringBuffer("");
-    for (int m = n; m < basePaths.length - 1; m ++)
-	tmp.append("../");
-    for (int m = n; m < otherPaths.length; m ++) {
-        tmp.append(otherPaths[m]);
-        tmp.append("/");
-    }
-    result = tmp.toString();
-    if(result.endsWith("/")) {
-        result = result.substring(0, result.length() - 1)
-    }
-    return result.toString();
+    return LinkController.toRelativeURI(mapFile, new File(new URI(uri).path)).toString()
 }
+
 public static BufferedImage getBufferedImage(Image image){ //workaround for macOSX clipboard images
     if( image == null ) return null;
     def w = image.getWidth();
@@ -278,4 +256,19 @@ public static BufferedImage getBufferedImage(Image image){ //workaround for macO
     graph2D.drawImage(image, 0, 0, w, h, null); //drawing the image on the bufferedImage graphic
     graph2D.dispose();
     return bufferedImg;
+}
+
+private FileFilter fileFilter() {
+	return new FileFilter() {
+		@Override
+		public String getDescription() {
+			return "PNG Images";
+		}
+
+		@Override
+		public boolean accept(File f) {
+			String extension = FileUtils.getExtension(f);
+			return extension.equals("png");
+		}
+    }
 }
