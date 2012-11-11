@@ -3,6 +3,19 @@
 	<name>addon_scripts</name>
 	<comment></comment>
 	<projects>
+		<project>freeplane</project>
+		<project>freeplane_framework</project>
+		<project>freeplane_plugin_bugreport</project>
+		<project>freeplane_plugin_formula</project>
+		<project>freeplane_plugin_help</project>
+		<project>freeplane_plugin_latex</project>
+		<project>freeplane_plugin_script</project>
+		<project>freeplane_plugin_script_test</project>
+		<project>freeplane_plugin_svg</project>
+		<project>freeplane_plugin_uispec4j</project>
+		<project>freeplane_scripts</project>
+		<project>freeplane_uitest</project>
+		<project>JOrtho_0.4_freeplane</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
