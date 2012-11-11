@@ -1,6 +1,6 @@
-<map version="freeplane 1.2.0">
+<map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1329859404506" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1352597070272" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -8,6 +8,13 @@
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
+<stylenode LOCALIZED_TEXT="default"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.note"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.floating">
+<edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
+</stylenode>
 <stylenode LOCALIZED_TEXT="default" COLOR="#000000" STYLE="fork">
 <font NAME="SansSerif" SIZE="12" BOLD="false" ITALIC="false"/>
 </stylenode>
@@ -106,7 +113,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.12"/>
+<attribute NAME="version" VALUE="v0.9.13"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -508,8 +515,12 @@
 <node TEXT="New: menuItemInfo.groovy" ID="ID_602327673" CREATED="1324456050561" MODIFIED="1324456062822"/>
 <node TEXT="fixes for 1.2.12" ID="ID_300339965" CREATED="1326327818385" MODIFIED="1326327851864"/>
 </node>
-<node TEXT="v0.9.12" ID="ID_873759803" CREATED="1329859491954" MODIFIED="1329859496891">
+<node TEXT="v0.9.12" FOLDED="true" ID="ID_873759803" CREATED="1329859491954" MODIFIED="1329859496891">
 <node TEXT="menuItem.groovy: copy string to clipboard" ID="ID_1806951604" CREATED="1329859497943" MODIFIED="1329859535329"/>
+</node>
+<node TEXT="v0.9.13" ID="ID_350232820" CREATED="1339775688441" MODIFIED="1339775696495">
+<node TEXT="update for new special translation key &apos;addons.${name}.description&apos;" ID="ID_589172556" CREATED="1339775731009" MODIFIED="1339775774955"/>
+<node TEXT="checkAddOn.groovy checks the name of the script too" ID="ID_1103423593" CREATED="1352597072965" MODIFIED="1352597097582"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1325814653745"><richcontent TYPE="NOTE">

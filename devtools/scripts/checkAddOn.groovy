@@ -24,20 +24,20 @@ messages = []
 filesToDeinstall = []
 
 def addMessage(String message) {
-	messages << message
-	logger.info(message)
+    messages << message
+    logger.info(message)
 }
 
 def File mapFile = node.map.file
 if (mapFile) {
-	try {
-		def String backup = mapFile.path + '.bak'
-		new File(mapFile.path + '.bak').bytes = mapFile.bytes
-		addMessage("Created backup file " + backup)
-	}
-	catch (Exception e) {
-		addMessage("Couldn't create backup file due to " + e.message)
-	}
+    try {
+        def String backup = mapFile.path + '.bak'
+        new File(mapFile.path + '.bak').bytes = mapFile.bytes
+        addMessage("Created backup file " + backup)
+    }
+    catch (Exception e) {
+        addMessage("Couldn't create backup file due to " + e.message)
+    }
 }
 
 def LEFT = true
@@ -45,10 +45,10 @@ def RIGHT = false
 
 def createMissingAttributes(Proxy.Node node, List<String> attributes) {
     attributes.each {
-    	def name = (it instanceof List) ? it[0] : it
-		def value = (it instanceof List) ? it[1] : ""
+        def name = (it instanceof List) ? it[0] : it
+        def value = (it instanceof List) ? it[1] : ""
         if (node.attributes.findFirst(name) == -1) {
-			node[name] = value
+            node[name] = value
             addMessage("Created attribute '$name' = '$value' in '${node.plainText}'")
         }
     }
@@ -88,36 +88,36 @@ def root = node.map.root
 String addOnNameOrig = root.plainText
 String addOnName = JOptionPane.showInputDialog(ui.frame, "Please enter the add-on name (e.g. 'My first add-on')!", addOnNameOrig)
 if (!addOnName) {
-	ui.errorMessage("Can't continue without a proper name")
-	return
+    ui.errorMessage("Can't continue without a proper name")
+    return
 }
 else if (!addOnName.equals(addOnNameOrig)) {
-	root.text = addOnName
-	addMessage("Set add-on name to $addOnName")
+    root.text = addOnName
+    addMessage("Set add-on name to $addOnName")
 }
 String addOnTechName = root['name']
 if (!addOnTechName) {
-	addOnTechName = addOnName.
-		replaceAll('[\\W_]+(\\w)'){ match, letter -> letter.toString().toUpperCase() }.
-		replaceAll('\\W', '')
-		addOnTechName = addOnTechName.substring(0, 1).toLowerCase() +  addOnTechName.substring(1)
-	root['name'] = addOnTechName
-	addMessage("Set technical name to $addOnTechName")
+    addOnTechName = addOnName.
+        replaceAll('[\\W_]+(\\w)'){ match, letter -> letter.toString().toUpperCase() }.
+        replaceAll('\\W', '')
+        addOnTechName = addOnTechName.substring(0, 1).toLowerCase() +  addOnTechName.substring(1)
+    root['name'] = addOnTechName
+    addMessage("Set technical name to $addOnTechName")
 }
 else if (!addOnTechName.charAt(0).isLowerCase()) {
-	ui.errorMessage("'name' attribute '$addOnTechName' (the technical add-on name) does not start with an lower case letter")
-	return
+    ui.errorMessage("'name' attribute '$addOnTechName' (the technical add-on name) does not start with an lower case letter")
+    return
 }
 
 //
 // ============ root ============
 //
 if (!root.style.backgroundColorCode || root.style.backgroundColorCode.toLowerCase() == '#ffffff') {
-	root.style.backgroundColorCode = '#97c7dc'
-	root.style.font.italic = true
-	root.style.font.bold = true
-	root.style.font.size = 16
-	addMessage("Set root node style")
+    root.style.backgroundColorCode = '#97c7dc'
+    root.style.font.italic = true
+    root.style.font.bold = true
+    root.style.font.size = 16
+    addMessage("Set root node style")
 }
 
 root.note = withBody '''
@@ -173,6 +173,9 @@ findOrCreate(root, 'description', LEFT).note = withBody '''
     <p>
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
     </p>
+    <p>
+      To translate the description you have to define a translation for the key 'addons.${name}.description'.
+    </p>
 '''
 
 //
@@ -200,7 +203,7 @@ licenseNode.note = withBody '''
 '''
 
 if (licenseNode.isLeaf()) {
-	licenseNode.createChild '''
+    licenseNode.createChild '''
 This add-on is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
@@ -211,9 +214,9 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 '''
-	addMessage('''Missing license! - Added the default GNU v2+ license (like Freeplane).
+    addMessage('''Missing license! - Added the default GNU v2+ license (like Freeplane).
 Change the license if needed.''')
-	licenseNode.folded = true
+    licenseNode.folded = true
 }
 
 //
@@ -243,12 +246,20 @@ findOrCreate(root, 'default.properties', LEFT).note = withBody '''
 def translationsNode = findOrCreate(root, 'translations', LEFT)
 translationsNode.note = withBody '''
     <p>
-      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least 'addons.${name}' for the add-on's name.
+      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least
     </p>
+    <ul>
+      <li>
+        'addons.${name}' for the add-on's name
+      </li>
+      <li>
+        'addons.${name}.description' for the description, e.g. in the add-on overview dialog (not necessary for English)
+      </li>
+    </ul>
 '''
 if (translationsNode.isLeaf()) {
-	def en = translationsNode.createChild('en')
-	en['addons.${name}'] = addOnName
+    def en = translationsNode.createChild('en')
+    en['addons.${name}'] = addOnName
 }
 
 //
@@ -261,7 +272,7 @@ deinstallNode.note = withBody '''
     </p>
 '''
 if (deinstallNode.attributes.size() == 0) {
-	deinstallNode.attributes.add('delete', '${installationbase}/addons/${name}.script.xml')
+    deinstallNode.attributes.add('delete', '${installationbase}/addons/${name}.script.xml')
 }
 
 //
@@ -270,7 +281,7 @@ if (deinstallNode.attributes.size() == 0) {
 def scriptsNode = findOrCreate(root, 'scripts', RIGHT)
 scriptsNode.note = withBody '''
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). Its properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name has to end with .groovy and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
     </p>
@@ -377,18 +388,24 @@ scriptsNode.note = withBody '''
     </p>
 '''
 
+def scriptsNodesWithErrors = scriptsNode.children.findAll{ !it.plainText.matches('^\\w+.groovy') }*.plainText
+if (scriptsNodesWithErrors) {
+    ui.errorMessage("Error: script(s) ${scriptsNodesWithErrors} don't end with '.groovy' or contain illegal characters.")
+    return
+}
+
 scriptsNode.children.each {
-	createMissingAttributes(it, [
-		'menuTitleKey'
-		, ['menuLocation', 'main_menu_scripting']
-		, ['executionMode', 'on_single_node']
-		, 'keyboardShortcut'
-		, ['execute_scripts_without_asking', 'true']
-		, ['execute_scripts_without_file_restriction', 'true']
-		, ['execute_scripts_without_write_restriction', 'false']
-		, ['execute_scripts_without_exec_restriction', 'false']
-		, ['execute_scripts_without_network_restriction', 'false']
-	])
+    createMissingAttributes(it, [
+        'menuTitleKey'
+        , ['menuLocation', 'main_menu_scripting']
+        , ['executionMode', 'on_single_node']
+        , 'keyboardShortcut'
+        , ['execute_scripts_without_asking', 'true']
+        , ['execute_scripts_without_file_restriction', 'true']
+        , ['execute_scripts_without_write_restriction', 'false']
+        , ['execute_scripts_without_exec_restriction', 'false']
+        , ['execute_scripts_without_network_restriction', 'false']
+    ])
 }
 
 filesToDeinstall.addAll(scriptsNode.children.collect { "scripts/${it.plainText}" })
@@ -433,12 +450,12 @@ zipsNode.note = withBody '''
     </p>
 '''
 if (node.map.isSaved()) {
-	def zipsDir = new File(node.map.file.parent, 'zips')
-	if (zipsDir.exists()) {
-		zipsDir.eachFileRecurse(FileType.FILES) { file ->
-			filesToDeinstall << file.path.substring(zipsDir.path.length() + 1)
-		}
-	}
+    def zipsDir = new File(node.map.file.parent, 'zips')
+    if (zipsDir.exists()) {
+        zipsDir.eachFileRecurse(FileType.FILES) { file ->
+            filesToDeinstall << file.path.substring(zipsDir.path.length() + 1)
+        }
+    }
 }
 
 //
@@ -486,12 +503,12 @@ def actual = deinstallNode.attributes.values.collect{ it.trim() }
 actual += actual*.replace('${name}', node.map.root['name'])
 def missing = filesToDeinstall - actual
 if (missing) {
-	def message = '<html><body><b>Add these files to the deinstallation rules?:</b><ul><li>' +
-		missing.join('</li><li>') +'</li></ul></body></html>'
-	final int selection = ui.showConfirmDialog(null, message, "Deinstallation Rules", JOptionPane.YES_NO_OPTION)
-	if (selection == JOptionPane.YES_OPTION) {
-		missing.each { deinstallNode.attributes.add('delete', it) }
-	}
+    def message = '<html><body><b>Add these files to the deinstallation rules?:</b><ul><li>' +
+        missing.join('</li><li>') +'</li></ul></body></html>'
+    final int selection = ui.showConfirmDialog(null, message, "Deinstallation Rules", JOptionPane.YES_NO_OPTION)
+    if (selection == JOptionPane.YES_OPTION) {
+        missing.each { deinstallNode.attributes.add('delete', it) }
+    }
 }
 
 //
