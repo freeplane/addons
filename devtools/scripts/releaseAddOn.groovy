@@ -19,6 +19,7 @@ import java.util.zip.ZipOutputStream
 
 import javax.swing.JOptionPane
 
+import groovy.json.StringEscapeUtils
 import org.freeplane.core.util.LogUtils
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
@@ -110,6 +111,22 @@ int updateImages(Proxy.Node root) {
         it.folded = true
     }
     return count
+}
+
+void encodeTranslations(Proxy.Node root) {
+    def nodeName = 'translations'
+    Proxy.Node translationsNode = root.find{ it.plainText.matches(nodeName) }[0]
+    if (!translationsNode) {
+        errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
+        return
+    }
+    translationsNode.children.each { localeNode ->
+        localeNode.attributes.map.each { k,v ->
+            if (v) {
+                localeNode.attributes.set(k, StringEscapeUtils.escapeJava(v))
+            }
+        }
+    }
 }
 
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
@@ -208,6 +225,7 @@ try {
 	counts.scripts = updateScripts(releaseMapRoot)
 	counts.zips = updateZips(releaseMapRoot)
 	counts.images = updateImages(releaseMapRoot)
+	encodeTranslations(releaseMapRoot)
 } catch (Exception e) {
 	errors << e.message
 	e.printStackTrace()
