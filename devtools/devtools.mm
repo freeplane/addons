@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1352597070272" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1388064755515" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -113,10 +113,11 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.13"/>
+<attribute NAME="version" VALUE="v0.9.15"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
+<attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">
 
 <html>
@@ -146,11 +147,15 @@
       <li>
         freeplane-version-to: Normally empty: The newest compatible Freeplane version. The add-on will not be installed if the Freeplane version is too new.
       </li>
+      <li>
+        updateUrl: URL of the file containing information (version, download url) on the latest version of this add-on. By default: &quot;${homepage}/version.properties&quot;
+      </li>
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1325814653734"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1388064588597"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -163,10 +168,14 @@
     <p>
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
     </p>
+    <p>
+      To translate the description you have to define a translation for the key 'addons.${name}.description'.
+    </p>
   </body>
 </html>
+
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1324456229658" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1387981044219" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -197,7 +206,7 @@
       </li>
     </ul>
     <p>
-      The new functions are available under Tools -&gt; Development Tools
+      The functions are available under Tools -&gt; Development Tools
     </p>
   </body>
 </html>
@@ -205,7 +214,7 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1325814653795" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1388064588698" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -213,7 +222,7 @@
   </head>
   <body>
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). Its properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
       
@@ -325,6 +334,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 
@@ -474,7 +484,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1325814653739"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1388064588606"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -486,6 +496,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
@@ -518,12 +529,21 @@
 <node TEXT="v0.9.12" FOLDED="true" ID="ID_873759803" CREATED="1329859491954" MODIFIED="1329859496891">
 <node TEXT="menuItem.groovy: copy string to clipboard" ID="ID_1806951604" CREATED="1329859497943" MODIFIED="1329859535329"/>
 </node>
-<node TEXT="v0.9.13" ID="ID_350232820" CREATED="1339775688441" MODIFIED="1339775696495">
+<node TEXT="v0.9.13" FOLDED="true" ID="ID_350232820" CREATED="1339775688441" MODIFIED="1339775696495">
 <node TEXT="update for new special translation key &apos;addons.${name}.description&apos;" ID="ID_589172556" CREATED="1339775731009" MODIFIED="1339775774955"/>
 <node TEXT="checkAddOn.groovy checks the name of the script too" ID="ID_1103423593" CREATED="1352597072965" MODIFIED="1352597097582"/>
 </node>
+<node TEXT="v0.9.14" FOLDED="true" ID="ID_1988499160" CREATED="1378242261572" MODIFIED="1378242270008">
+<node TEXT="update for multiple scripting languages" ID="ID_1961614140" CREATED="1378242272415" MODIFIED="1378242296802"/>
+<node TEXT="support for updateUrl" ID="ID_563212535" CREATED="1378242297556" MODIFIED="1378242306047"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1325814653745"><richcontent TYPE="NOTE">
+<node TEXT="v0.9.15" ID="ID_1734128243" CREATED="1387980967186" MODIFIED="1387980974039">
+<node TEXT="adjusted to new scripts location in Freeplane 1.3.x_beta" ID="ID_1916559200" CREATED="1387980975131" MODIFIED="1387981000240"/>
+<node TEXT="update check and release scripts for installation of libs" ID="ID_1872235344" CREATED="1388064513550" MODIFIED="1388064575193"/>
+<node TEXT="checkAddOn.groovy does a lot more checks and automation than before" ID="ID_661774465" CREATED="1388064473068" MODIFIED="1388064504819"/>
+</node>
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1388064588616"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -541,10 +561,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1325814653754"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1388064588629"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -559,9 +580,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1325814653760">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1388064588639">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -575,9 +597,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1325814653765"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1388064588651"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -585,10 +608,22 @@
   </head>
   <body>
     <p>
-      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least 'addons.${name}' for the add-on's name.
+      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least
     </p>
+    <ul>
+      <li>
+        'addons.${name}' for the add-on's name
+      </li>
+      <li>
+        'addons.${name}.description' for the description, e.g. in the add-on overview dialog (not necessary for English)
+      </li>
+      <li>
+        'addons.${name}.&lt;scriptname&gt;' for each script since it will be the menu title.
+      </li>
+    </ul>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1325032960833">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
@@ -611,7 +646,7 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1325814653770" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1388064853540" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -623,20 +658,21 @@
     </p>
   </body>
 </html>
+
 </richcontent>
-<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="277"/>
+<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="657"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/insertBinary.groovy"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/checkAddOn.groovy"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/releaseAddOn.groovy"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-screenshot-1.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/addOnDoc.groovy"/>
-<attribute NAME="delete" VALUE="${installationbase}/scripts/menuItemInfo.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/checkAddOn.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/releaseAddOn.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/addOnDoc.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/menuItemInfo.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/insertBinary.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1325814653828" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1388064887033" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -662,7 +698,7 @@
       
     </p>
     <p>
-      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.2.
+      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
     </p>
     <p>
       
@@ -670,14 +706,9 @@
     <p>
       &#160;- The files will be processed in the sequence as seen in the map.
     </p>
-    <p>
-      
-    </p>
-    <p>
-      &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
-    </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100"><richcontent TYPE="NOTE">
 
@@ -715,7 +746,46 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1325814653838" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1388064931974" HGAP="70" VSHIFT="10"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may contain any number of nodes containing binary files (normally .jar files) to be added to the add-on's classpath.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The child nodes of these nodes contain the actual files.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The files will be processed in the sequence as seen in the map.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1388064707121" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -736,10 +806,10 @@
     </p>
     <ul>
       <li>
-        <i>${name}.png</i>, like <i>oldicons-theme.png</i>. This will be used in the app-on details dialog.
+        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
       </li>
       <li>
-        <i>${name}-icon.png</i>, like <i>oldicons-theme-icon.png</i>. This will be used in the app-on overview.
+        <i>${name}-screenshot-1.png</i>, like <i>oldicons-theme-screenshot-1.png</i>. This will be used in the app-on details dialog. Further images can be included but they are not used yet.
       </li>
     </ul>
     <p>
@@ -747,6 +817,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>

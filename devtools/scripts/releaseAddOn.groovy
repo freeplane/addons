@@ -14,6 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 import java.io.File
+import java.net.URL;
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
@@ -27,6 +28,9 @@ import org.freeplane.features.map.mindmapmode.MMapModel
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.mode.ModeController
 import org.freeplane.features.url.mindmapmode.MFileManager
+import org.freeplane.main.addons.AddOnProperties
+import org.freeplane.main.addons.AddOnProperties.AddOnType;
+import org.freeplane.main.addons.AddOnsController;
 import org.freeplane.plugin.script.proxy.NodeProxy
 import org.freeplane.plugin.script.proxy.Proxy
 
@@ -48,7 +52,7 @@ int updateScripts(Proxy.Node root) {
         errors << "The root node ${root.plainText} has no 'scripts' child. Please create it or better run 'Check Add-on'"
         return 0
     }
-	scriptsNode.find{ it.plainText.matches('.*\\.groovy') }.each {
+	scriptsNode.find{ it.plainText.matches('.*\\.\\w+') }.each {
 		File scriptFile = new File(scriptsDir, expand(root, it.plainText))
 		if (!scriptFile.exists()) {
 			errors << "Can not update scriptfile $scriptFile doesn't exist"
@@ -90,22 +94,31 @@ int updateZips(Proxy.Node root) {
 
 // returns the count of images added
 int updateImages(Proxy.Node root) {
+    return updateBinaries(root, 'images')
+}
+
+// returns the count of lib files added
+int updateLib(Proxy.Node root) {
+    return updateBinaries(root, 'lib')
+}
+
+private updateBinaries(Proxy.Node root, String nodeName) {
     int count = 0
-    Proxy.Node imagesNode = root.find{ it.plainText.matches('images') }[0]
-    if (!imagesNode) {
-        errors << "The root node ${root.plainText} has no 'images' child. Please create it or better run 'Check Add-on'"
+    Proxy.Node parentNode = root.find{ it.plainText.matches(nodeName) }[0]
+    if (!parentNode) {
+        errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
         return count
     }
-    def imagesDir = new File(root.map.file.parent, 'images')
-    imagesNode.children.each {
+    def dir = new File(root.map.file.parent, nodeName)
+    parentNode.children.each {
         String filename = expand(root, it.plainText)
-        File image = new File(imagesDir, filename)
-        if (!image.exists()) {
-            errors << "Can not update image: '$image' doesn't exist"
+        File binary = new File(dir, filename)
+        if (!binary.exists()) {
+            errors << "Can not update $nodeName: '$binary' doesn't exist"
         } else {
             if (it.isLeaf())
                 it.createChild()
-            it.children.first().binary = image.bytes
+            it.children.first().binary = binary.bytes
             count++
         }
         it.folded = true
@@ -198,6 +211,27 @@ private boolean isInteractive() {
     return !Boolean.parseBoolean(System.getProperty("nonInteractive"))
 }
 
+private createLatestVersionFile(Proxy.Node releaseMapRoot) {
+    def mapFile = releaseMapRoot.map.file
+    // constant AddOnsController.LATEST_VERSION_FILE only available since 1.3.6
+    def file = new File(mapFile.parent, "version.properties")
+    def version = releaseMapRoot['version']
+    def freeplaneVersionFrom = releaseMapRoot['freeplaneVersionFrom']
+    def homepage = toUrl(releaseMapRoot, releaseMapRoot.link.text)
+    def releaseMapFileName = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm").name
+    def downloadFile = new File(homepage.path, releaseMapFileName)
+    def downloadUrl = new URL(homepage.protocol, homepage.host, homepage.port, downloadFile.path)
+    file.text = """
+version=${version}
+downloadUrl=${downloadUrl}
+freeplaneVersionFrom=${freeplaneVersionFrom}
+"""
+}
+
+private URL toUrl(Proxy.Node root, String urlString) {
+    return urlString == null ? null : new URL(expand(root, urlString))
+}
+
 //
 // ======================= MAIN =======================
 //
@@ -210,6 +244,10 @@ def version = node.map.root['version']
 if (!version) {
 	ui.errorMessage("Missing version attribute - can't continue.")
 	return
+}
+if (!node.map.root.link.text) {
+    ui.errorMessage("Missing homepage - can't continue.")
+    return
 }
 if (!node.map.isSaved() && !saveOrCancel())
     return
@@ -225,7 +263,9 @@ try {
 	counts.scripts = updateScripts(releaseMapRoot)
 	counts.zips = updateZips(releaseMapRoot)
 	counts.images = updateImages(releaseMapRoot)
+	counts.lib = updateLib(releaseMapRoot)
 	encodeTranslations(releaseMapRoot)
+    createLatestVersionFile(releaseMapRoot)
 } catch (Exception e) {
 	errors << e.message
 	e.printStackTrace()
@@ -238,10 +278,12 @@ if (errors) {
 	logger.warn("Errors during release: " + errors.join("\n"))
 }
 else {
-    logger.info("Successfully created $releaseMapFile with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images} images(s)")
+    logger.info("Successfully created $releaseMapFile with ${counts.scripts} script(s), ${counts.images} images(s), ${counts.zips} zip and ${counts.lib} lib file(s)")
     if (isInteractive()) {
         def question = """Successfully created add-on
-with ${counts.scripts} script(s), ${counts.zips} zip file(s) and ${counts.images} images(s).
+with ${counts.scripts} script(s), ${counts.images} images(s), ${counts.zips} zip and ${counts.lib} lib file(s).
+
+Also created: 'version.properties' - upload this file to the configured updateUrl!
 
 Open the new add-on map ${releaseMapFile.name}?"""
         final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);

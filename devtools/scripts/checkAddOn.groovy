@@ -150,6 +150,10 @@ root.note = withBody '''
         version. The add-on will not be installed if the Freeplane version is
         too new.
       </li>
+      <li>
+        updateUrl: URL of the file containing information (version, download url) on
+        the latest version of this add-on. By default: "${homepage}/version.properties"
+      </li>
     </ul>
   </body>
 </html>
@@ -160,7 +164,8 @@ createMissingAttributes(root, [
     'version',
     'author',
     'freeplaneVersionFrom',
-    'freeplaneVersionTo'
+    'freeplaneVersionTo',
+    'updateUrl'
 ])
 
 //
@@ -255,6 +260,9 @@ translationsNode.note = withBody '''
       <li>
         'addons.${name}.description' for the description, e.g. in the add-on overview dialog (not necessary for English)
       </li>
+      <li>
+        'addons.${name}.&lt;scriptname&gt;' for each script since it will be the menu title.
+      </li>
     </ul>
 '''
 if (translationsNode.isLeaf()) {
@@ -281,7 +289,7 @@ if (deinstallNode.attributes.size() == 0) {
 def scriptsNode = findOrCreate(root, 'scripts', RIGHT)
 scriptsNode.note = withBody '''
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name has to end with .groovy and may only consist of letters and digits. The script properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
     </p>
@@ -387,16 +395,31 @@ scriptsNode.note = withBody '''
       &#160;&#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
 '''
+if (node.map.file != null) {
+    def scriptsDir = new File(node.map.file.parent, 'scripts')
+    if (scriptsDir.exists()) {
+        scriptsDir.eachFile(FileType.FILES) { file ->
+            if (scriptsNode.children.find { it.text.contains(file.name) } == null)
+                scriptsNode.createChild(file.name)
+        }
+    }
+}
 
-def scriptsNodesWithErrors = scriptsNode.children.findAll{ !it.plainText.matches('^\\w+.groovy') }*.plainText
+def scriptsNodesWithErrors = scriptsNode.children.findAll{ !it.plainText.matches('^\\w+\\.\\w+') }*.plainText
 if (scriptsNodesWithErrors) {
-    ui.errorMessage("Error: script(s) ${scriptsNodesWithErrors} don't end with '.groovy' or contain illegal characters.")
+    ui.errorMessage("Error: script(s) ${scriptsNodesWithErrors}\n don't end in a suffix like '.groovy' or contain illegal characters.")
     return
+}
+def scriptsNodesWithUnknownSuffixes = scriptsNode.children.findAll{ !it.plainText.matches('^\\w+\\.(groovy|js)') }*.plainText
+if (scriptsNodesWithUnknownSuffixes) {
+    ui.informationMessage("Error: script(s) ${scriptsNodesWithUnknownSuffixes} may not work\n since only '.groovy' and '.js' are guaranteed to work.")
 }
 
 scriptsNode.children.each {
+    def scriptBaseName = it.plainText.replaceFirst('\\.\\w+$', '')
+    def menuTitleKey = "addon.\${name}.${scriptBaseName}"
     createMissingAttributes(it, [
-        'menuTitleKey'
+        [ 'menuTitleKey', menuTitleKey ]
         , ['menuLocation', 'main_menu_scripting']
         , ['executionMode', 'on_single_node']
         , 'keyboardShortcut'
@@ -408,33 +431,33 @@ scriptsNode.children.each {
     ])
 }
 
-filesToDeinstall.addAll(scriptsNode.children.collect { "scripts/${it.plainText}" })
+filesToDeinstall.addAll(scriptsNode.children.collect { "addons/\${name}/scripts/${it.plainText}" })
 
 //
-// ============ zips ============
+// ============ lib ============
 //
-def zipsNode = findOrCreate(root, 'zips', RIGHT)
-zipsNode.note = withBody '''
+def libNode = findOrCreate(root, 'lib', RIGHT)
+libNode.note = withBody '''
     <p>
-      An add-on may contain any number of nodes containing zip files.
+      An add-on may contain any number of nodes containing binary files (normally .jar files) to be added to the add-on's classpath.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
+      &#160;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The child nodes of these nodes contain the actual zip files.
+      &#160;- The child nodes of these nodes contain the actual files.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.2.
+      &#160;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
     </p>
     <p>
       
@@ -442,18 +465,68 @@ zipsNode.note = withBody '''
     <p>
       &#160;- The files will be processed in the sequence as seen in the map.
     </p>
-    <p>
-      
-    </p>
-    <p>
-      &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
-    </p>
 '''
-if (node.map.isSaved()) {
+if (node.map.file != null) {
+    def libDir = new File(node.map.file.parent, 'lib')
+    if (libDir.exists()) {
+        libDir.eachFile(FileType.ANY) { file ->
+            def libContentNode = libNode.children.find { it.text == file.name }
+            if (file.isDirectory()) {
+                addMessage("lib contains a directory ($file) - that's not supported!")
+                if (libContentNode)
+                    libContentNode.delete()
+            } else if (libContentNode == null) {
+                libNode.createChild(file.name)
+            }
+        }
+    }
+}
+filesToDeinstall.addAll(libNode.children.collect { "addons/\${name}/lib/${it.plainText}" })
+
+
+//
+// ============ zips ============
+//
+def zipsNode = findOrCreate(root, 'zips', RIGHT)
+zipsNode.note = withBody '''
+<p>
+An add-on may contain any number of nodes containing zip files.
+</p>
+<p>
+
+</p>
+<p>
+&#160;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
+</p>
+<p>
+
+</p>
+<p>
+&#160;- The child nodes of these nodes contain the actual zip files.
+</p>
+<p>
+
+</p>
+<p>
+&#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
+</p>
+<p>
+
+</p>
+<p>
+&#160;- The files will be processed in the sequence as seen in the map.
+</p>
+'''
+if (node.map.file != null) {
     def zipsDir = new File(node.map.file.parent, 'zips')
     if (zipsDir.exists()) {
+        zipsDir.eachFile(FileType.DIRECTORIES) { file ->
+            if (zipsNode.children.find { it.text == file.name } == null)
+                zipsNode.createChild(file.name)
+        }
         zipsDir.eachFileRecurse(FileType.FILES) { file ->
-            filesToDeinstall << file.path.substring(zipsDir.path.length() + 1)
+            def fileName = file.path.substring(zipsDir.path.length() + 1)
+            filesToDeinstall << fileName
         }
     }
 }
@@ -503,8 +576,12 @@ def actual = deinstallNode.attributes.values.collect{ it.trim() }
 actual += actual*.replace('${name}', node.map.root['name'])
 def missing = filesToDeinstall - actual
 if (missing) {
+    def movedScriptsWarning = '<p><em>Note that scripts are installed now to addons/${name}/scripts/' +
+            ' instead of scripts/. You may want to remove old entries.</em>.'
     def message = '<html><body><b>Add these files to the deinstallation rules?:</b><ul><li>' +
-        missing.join('</li><li>') +'</li></ul></body></html>'
+        missing.join('</li><li>') +'</li></ul>' +
+        (actual.join().contains('${installationbase}/scripts') ? movedScriptsWarning : '') +
+        '</body></html>'
     final int selection = ui.showConfirmDialog(null, message, "Deinstallation Rules", JOptionPane.YES_NO_OPTION)
     if (selection == JOptionPane.YES_OPTION) {
         missing.each { deinstallNode.attributes.add('delete', it) }
