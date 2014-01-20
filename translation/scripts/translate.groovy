@@ -19,7 +19,7 @@ import org.freeplane.features.url.UrlManager
 import org.freeplane.features.url.mindmapmode.MFileManager
 import org.freeplane.plugin.script.proxy.Proxy
 
-private class Translator {
+class Translator {
     private final String sourceLocale
     private final String targetLocale
 
@@ -101,7 +101,7 @@ private class Translator {
 /**
  * translates nodes recursively starting from the selected node.
  */
-private class NodeTranslator {
+class NodeTranslator {
     private Translator translator
 
     final String translatedSuffix = null
