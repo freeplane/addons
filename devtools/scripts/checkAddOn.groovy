@@ -15,17 +15,28 @@
 
 import groovy.io.FileType
 
+import java.awt.Dimension
+
+import javax.swing.JLabel
 import javax.swing.JOptionPane
+import javax.swing.JScrollPane
 
 import org.freeplane.plugin.script.proxy.Proxy
 
 messages = []
 // a List<String>
-filesToDeinstall = []
+filesToUninstall = []
 
 def addMessage(String message) {
     messages << message
     logger.info(message)
+}
+
+private boolean showConfirmDialog(String message, String title) {
+    JLabel label = new JLabel(message)
+    JScrollPane scrollPane = new JScrollPane(label)
+    scrollPane.setPreferredSize(new Dimension(700, 500))
+    return ui.showConfirmDialog(null, scrollPane, title, JOptionPane.YES_NO_OPTION)
 }
 
 def File mapFile = node.map.file
@@ -271,16 +282,16 @@ if (translationsNode.isLeaf()) {
 }
 
 //
-// ============ deinstall ============
+// ============ uninstall ============
 //
-def deinstallNode = findOrCreate(root, 'deinstall', LEFT)
-deinstallNode.note = withBody '''
+def uninstallNode = findOrCreate(root, 'deinstall', LEFT)
+uninstallNode.note = withBody '''
     <p>
-      List of files and/or directories to remove on deinstall
+      List of files and/or directories to remove on uninstall
     </p>
 '''
-if (deinstallNode.attributes.size() == 0) {
-    deinstallNode.attributes.add('delete', '${installationbase}/addons/${name}.script.xml')
+if (uninstallNode.attributes.size() == 0) {
+    uninstallNode.attributes.add('delete', '${installationbase}/addons/${name}.script.xml')
 }
 
 //
@@ -431,7 +442,7 @@ scriptsNode.children.each {
     ])
 }
 
-filesToDeinstall.addAll(scriptsNode.children.collect { "addons/\${name}/scripts/${it.plainText}" })
+filesToUninstall.addAll(scriptsNode.children.collect { "addons/\${name}/scripts/${it.plainText}" })
 
 //
 // ============ lib ============
@@ -481,7 +492,7 @@ if (node.map.file != null) {
         }
     }
 }
-filesToDeinstall.addAll(libNode.children.collect { "addons/\${name}/lib/${it.plainText}" })
+filesToUninstall.addAll(libNode.children.collect { "addons/\${name}/lib/${it.plainText}" })
 
 
 //
@@ -526,7 +537,7 @@ if (node.map.file != null) {
         }
         zipsDir.eachFileRecurse(FileType.FILES) { file ->
             def fileName = file.path.substring(zipsDir.path.length() + 1)
-            filesToDeinstall << fileName
+            filesToUninstall << fileName
         }
     }
 }
@@ -560,7 +571,7 @@ imagesNode.note = withBody '''
       Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
 '''
-filesToDeinstall.addAll(
+filesToUninstall.addAll(
     imagesNode.children.collect {
         def image = it.plainText.replace('${name}', node.map.root['name'])
         "resources/images/${image}"
@@ -568,23 +579,22 @@ filesToDeinstall.addAll(
 )
 
 //
-// ============ deinstallation rules ============
+// ============ uninstallation rules ============
 //
-filesToDeinstall = filesToDeinstall.collect { '${installationbase}/' + it.replace('\\', '/') }
-def actual = deinstallNode.attributes.values.collect{ it.trim() }
-// ${name} might occur in current deinstallation rules and/or in the list of scripts
+filesToUninstall = filesToUninstall.collect { '${installationbase}/' + it.replace('\\', '/') }
+def actual = uninstallNode.attributes.values.collect{ it.trim() }
+// ${name} might occur in current uninstallation rules and/or in the list of scripts
 actual += actual*.replace('${name}', node.map.root['name'])
-def missing = filesToDeinstall - actual
+def missing = filesToUninstall - actual
 if (missing) {
     def movedScriptsWarning = '<p><em>Note that scripts are installed now to addons/${name}/scripts/' +
             ' instead of scripts/. You may want to remove old entries.</em>.'
-    def message = '<html><body><b>Add these files to the deinstallation rules?:</b><ul><li>' +
+    def message = '<html><body><b>Add these files to the uninstallation rules?:</b><ul><li>' +
         missing.join('</li><li>') +'</li></ul>' +
         (actual.join().contains('${installationbase}/scripts') ? movedScriptsWarning : '') +
         '</body></html>'
-    final int selection = ui.showConfirmDialog(null, message, "Deinstallation Rules", JOptionPane.YES_NO_OPTION)
-    if (selection == JOptionPane.YES_OPTION) {
-        missing.each { deinstallNode.attributes.add('delete', it) }
+    if (showConfirmDialog(message, "Uninstallation Rules") == JOptionPane.YES_OPTION) {
+        missing.each { uninstallNode.attributes.add('delete', it) }
     }
 }
 

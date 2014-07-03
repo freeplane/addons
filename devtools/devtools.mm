@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1388064755515" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1394836534410" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -113,9 +113,9 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.15"/>
+<attribute NAME="version" VALUE="v0.9.17"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -153,9 +153,8 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1388064588597"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1390064741873"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -173,7 +172,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1387981044219" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
@@ -214,7 +212,7 @@
 <font SIZE="16"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1388064588698" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1390064741906" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -334,7 +332,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 
@@ -483,8 +480,20 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+<node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
+<attribute_layout NAME_WIDTH="279" VALUE_WIDTH="257"/>
+<attribute NAME="menuTitleKey" VALUE="addon.${name}.encodeTranslations"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1388064588606"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1390064741878"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -496,7 +505,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
@@ -537,13 +545,19 @@
 <node TEXT="update for multiple scripting languages" ID="ID_1961614140" CREATED="1378242272415" MODIFIED="1378242296802"/>
 <node TEXT="support for updateUrl" ID="ID_563212535" CREATED="1378242297556" MODIFIED="1378242306047"/>
 </node>
-<node TEXT="v0.9.15" ID="ID_1734128243" CREATED="1387980967186" MODIFIED="1387980974039">
+<node TEXT="v0.9.15" FOLDED="true" ID="ID_1734128243" CREATED="1387980967186" MODIFIED="1387980974039">
 <node TEXT="adjusted to new scripts location in Freeplane 1.3.x_beta" ID="ID_1916559200" CREATED="1387980975131" MODIFIED="1387981000240"/>
 <node TEXT="update check and release scripts for installation of libs" ID="ID_1872235344" CREATED="1388064513550" MODIFIED="1388064575193"/>
 <node TEXT="checkAddOn.groovy does a lot more checks and automation than before" ID="ID_661774465" CREATED="1388064473068" MODIFIED="1388064504819"/>
 </node>
+<node TEXT="v0.9.16" FOLDED="true" ID="ID_1528553682" CREATED="1394307999725" MODIFIED="1394308013608">
+<node TEXT="Fix Package add-on (Mantis #2106):&#xa;- no recursive searches for required nodes&#xa;- avoid out of memory exception on errors" ID="ID_1301970756" CREATED="1394308016278" MODIFIED="1394308164566"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1388064588616"><richcontent TYPE="NOTE">
+<node TEXT="v0.9.17" ID="ID_1339360497" CREATED="1394836489810" MODIFIED="1394836502531">
+<node TEXT="fix translation encoding" ID="ID_541623240" CREATED="1394836503900" MODIFIED="1394836521724"/>
+</node>
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -561,11 +575,10 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1388064588629"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1390064741887"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -573,17 +586,16 @@
   </head>
   <body>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
+      <font face="SansSerif, sans-serif" color="#000000">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
     </p>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
+      <font face="SansSerif, sans-serif" color="#000000">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1388064588639">
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1390064741889">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <richcontent TYPE="NOTE">
 
@@ -597,10 +609,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1388064588651"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1390064741894"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -623,9 +634,8 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1325032960833">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1390065002722">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.checkAddOn" VALUE="Build add-on"/>
@@ -633,9 +643,10 @@
 <attribute NAME="addons.addOnDoc" VALUE="Generate add-on documentation"/>
 <attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
+<attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1325032985984">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1390065085800">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
@@ -643,10 +654,11 @@
 <attribute NAME="addons.addOnDoc" VALUE="Add-on-Dokumentation erzeugen"/>
 <attribute NAME="addons.menuItemInfo" VALUE="Men&#xfc;eintrag-Details"/>
 <attribute NAME="addons.insertBinary" VALUE="Bin&#xe4;rdatei einf&#xfc;gen"/>
+<attribute NAME="addon.${name}.encodeTranslations" VALUE="&#xdc;bersetzungen kodieren"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1388064853540" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1390065011887" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -658,7 +670,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout NAME_WIDTH="40" VALUE_WIDTH="657"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -670,9 +681,10 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/addOnDoc.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/menuItemInfo.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/insertBinary.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/encodeTranslations.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1388064887033" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1390064741976" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -708,7 +720,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100"><richcontent TYPE="NOTE">
 
@@ -746,7 +757,7 @@
 </richcontent>
 </node>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1388064931974" HGAP="70" VSHIFT="10"><richcontent TYPE="NOTE">
+<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1390064741970" HGAP="70" VSHIFT="10"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -782,10 +793,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1388064707121" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1390064741993" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -817,7 +827,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>

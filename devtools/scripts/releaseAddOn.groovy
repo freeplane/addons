@@ -13,14 +13,16 @@
 //  - It updates the script node's context from the files lying around
 ////////////////////////////////////////////////////////////////////////////////
 
-import java.io.File
-import java.net.URL;
+import groovy.json.StringEscapeUtils
+
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 import javax.swing.JOptionPane
 
-import groovy.json.StringEscapeUtils
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.WordUtils;
 import org.freeplane.core.util.LogUtils
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
@@ -28,9 +30,6 @@ import org.freeplane.features.map.mindmapmode.MMapModel
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.mode.ModeController
 import org.freeplane.features.url.mindmapmode.MFileManager
-import org.freeplane.main.addons.AddOnProperties
-import org.freeplane.main.addons.AddOnProperties.AddOnType;
-import org.freeplane.main.addons.AddOnsController;
 import org.freeplane.plugin.script.proxy.NodeProxy
 import org.freeplane.plugin.script.proxy.Proxy
 
@@ -52,7 +51,7 @@ int updateScripts(Proxy.Node root) {
         errors << "The root node ${root.plainText} has no 'scripts' child. Please create it or better run 'Check Add-on'"
         return 0
     }
-	scriptsNode.find{ it.plainText.matches('.*\\.\\w+') }.each {
+	scriptsNode.children.findAll{ it.plainText.matches('.*\\.\\w+') }.each {
 		File scriptFile = new File(scriptsDir, expand(root, it.plainText))
 		if (!scriptFile.exists()) {
 			errors << "Can not update scriptfile $scriptFile doesn't exist"
@@ -70,7 +69,7 @@ int updateScripts(Proxy.Node root) {
 // returns the count of zips added
 int updateZips(Proxy.Node root) {
 	int count = 0
-	Proxy.Node zipsNode = root.find{ it.plainText.matches('zips') }[0]
+	Proxy.Node zipsNode = root.children.find{ it.plainText.matches('zips') }
 	if (!zipsNode) {
 		errors << "The root node ${root.plainText} has no 'zips' child. Please create it or better run 'Check Add-on'"
 		return count
@@ -104,7 +103,7 @@ int updateLib(Proxy.Node root) {
 
 private updateBinaries(Proxy.Node root, String nodeName) {
     int count = 0
-    Proxy.Node parentNode = root.find{ it.plainText.matches(nodeName) }[0]
+    Proxy.Node parentNode = root.children.find{ it.plainText.matches(nodeName) }
     if (!parentNode) {
         errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
         return count
@@ -126,9 +125,17 @@ private updateBinaries(Proxy.Node root, String nodeName) {
     return count
 }
 
+String escapeIfNecessary(String v) {
+    Pattern escapedCharMatcher = Pattern.compile('\\\\u[0-9a-zA-Z]{4}')
+    if (escapedCharMatcher.matcher(v).find())
+        return v
+    else
+        return StringEscapeUtils.escapeJava(v)
+}
+
 void encodeTranslations(Proxy.Node root) {
     def nodeName = 'translations'
-    Proxy.Node translationsNode = root.find{ it.plainText.matches(nodeName) }[0]
+    Proxy.Node translationsNode = root.children.find{ it.plainText.matches(nodeName) }
     if (!translationsNode) {
         errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
         return
@@ -136,7 +143,7 @@ void encodeTranslations(Proxy.Node root) {
     translationsNode.children.each { localeNode ->
         localeNode.attributes.map.each { k,v ->
             if (v) {
-                localeNode.attributes.set(k, StringEscapeUtils.escapeJava(v))
+                localeNode.attributes.set(k, escapeIfNecessary(v))
             }
         }
     }
@@ -232,6 +239,14 @@ private URL toUrl(Proxy.Node root, String urlString) {
     return urlString == null ? null : new URL(expand(root, urlString))
 }
 
+private String shorten(Collection<String> strings, int entrysize) {
+    strings.collect { StringUtils.abbreviate(it, entrysize) }.join('\n')
+}
+
+private String shortenAndWrap(Collection<String> strings, int entrysize) {
+    strings.collect { StringUtils.abbreviate(WordUtils.wrap(it, 80, '\n  ', true), entrysize) }.join('\n')
+}
+
 //
 // ======================= MAIN =======================
 //
@@ -274,8 +289,8 @@ try {
     logger.info("created add-on package file " + releaseMapFile)
 }
 if (errors) {
-	ui.errorMessage("Errors during release (see logfile too): \n" + errors.join("\n"))
-	logger.warn("Errors during release: " + errors.join("\n"))
+	ui.errorMessage("Errors during release (see logfile too): \n" + shortenAndWrap(errors, 200))
+	logger.warn("Errors during release: " + shorten(errors, 3000))
 }
 else {
     logger.info("Successfully created $releaseMapFile with ${counts.scripts} script(s), ${counts.images} images(s), ${counts.zips} zip and ${counts.lib} lib file(s)")
