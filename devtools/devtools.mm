@@ -556,8 +556,11 @@
 <node TEXT="v0.9.17" FOLDED="true" ID="ID_1339360497" CREATED="1394836489810" MODIFIED="1394836502531">
 <node TEXT="fix translation encoding" ID="ID_541623240" CREATED="1394836503900" MODIFIED="1394836521724"/>
 </node>
-<node TEXT="v0.9.18" ID="ID_95478392" CREATED="1404459366184" MODIFIED="1404459374374">
+<node TEXT="v0.9.18" FOLDED="true" ID="ID_95478392" CREATED="1404459366184" MODIFIED="1404459374374">
 <node TEXT="Fix bug in checkAddOn.groovy that prevented uninstall node from being updated." ID="ID_1125811540" CREATED="1404459375469" MODIFIED="1404500423490"/>
+</node>
+<node TEXT="v0.9.19" ID="ID_166560259" CREATED="1404459366184" MODIFIED="1405864648315">
+<node TEXT="added Netherlands translation - thanks to Haai Henkie!" ID="ID_214157042" CREATED="1404459375469" MODIFIED="1405864694444"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">
@@ -659,6 +662,17 @@
 <attribute NAME="addons.insertBinary" VALUE="Bin&#xe4;rdatei einf&#xfc;gen"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="&#xdc;bersetzungen kodieren"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
+</node>
+<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
+<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
+<attribute NAME="addons.checkAddOn" VALUE="Add-on opbouwen"/>
+<attribute NAME="addons.releaseAddOn" VALUE="Add-on package genereren"/>
+<attribute NAME="addons.addOnDoc" VALUE="Add-on documentatie genereren"/>
+<attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
+<attribute NAME="addons.insertBinary" VALUE="Binary invoegen"/>
+<attribute NAME="addon.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
+<attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
 </node>
 </node>
 <node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1390065011887" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
