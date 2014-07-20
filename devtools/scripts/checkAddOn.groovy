@@ -227,7 +227,7 @@ the Free Software Foundation, either version 2 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 '''
     addMessage('''Missing license! - Added the default GNU v2+ license (like Freeplane).
@@ -407,11 +407,16 @@ scriptsNode.note = withBody '''
     </p>
 '''
 if (node.map.file != null) {
+    def filesToExclude = ['.classpath', '.project', 'freeplane.dsld']
     def scriptsDir = new File(node.map.file.parent, 'scripts')
     if (scriptsDir.exists()) {
         scriptsDir.eachFile(FileType.FILES) { file ->
-            if (scriptsNode.children.find { it.text.contains(file.name) } == null)
-                scriptsNode.createChild(file.name)
+            def fileName = file.name
+            if (filesToExclude.indexOf(fileName) == -1
+                && scriptsNode.children.find { it.text.contains(fileName) } == null)
+            {
+					scriptsNode.createChild(fileName)
+			}
         }
     }
 }
