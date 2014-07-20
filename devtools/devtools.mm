@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1394836534410" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1404459360148" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -113,7 +113,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.17"/>
+<attribute NAME="version" VALUE="v0.9.18"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -553,8 +553,11 @@
 <node TEXT="v0.9.16" FOLDED="true" ID="ID_1528553682" CREATED="1394307999725" MODIFIED="1394308013608">
 <node TEXT="Fix Package add-on (Mantis #2106):&#xa;- no recursive searches for required nodes&#xa;- avoid out of memory exception on errors" ID="ID_1301970756" CREATED="1394308016278" MODIFIED="1394308164566"/>
 </node>
-<node TEXT="v0.9.17" ID="ID_1339360497" CREATED="1394836489810" MODIFIED="1394836502531">
+<node TEXT="v0.9.17" FOLDED="true" ID="ID_1339360497" CREATED="1394836489810" MODIFIED="1394836502531">
 <node TEXT="fix translation encoding" ID="ID_541623240" CREATED="1394836503900" MODIFIED="1394836521724"/>
+</node>
+<node TEXT="v0.9.18" ID="ID_95478392" CREATED="1404459366184" MODIFIED="1404459374374">
+<node TEXT="Fix bug in checkAddOn.groovy that prevented uninstall node from being updated." ID="ID_1125811540" CREATED="1404459375469" MODIFIED="1404500423490"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">

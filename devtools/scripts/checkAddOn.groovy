@@ -32,7 +32,7 @@ def addMessage(String message) {
     logger.info(message)
 }
 
-private boolean showConfirmDialog(String message, String title) {
+private int showConfirmDialog(String message, String title) {
     JLabel label = new JLabel(message)
     JScrollPane scrollPane = new JScrollPane(label)
     scrollPane.setPreferredSize(new Dimension(700, 500))
