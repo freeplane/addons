@@ -542,7 +542,9 @@ if (node.map.file != null) {
         }
         zipsDir.eachFileRecurse(FileType.FILES) { file ->
             def fileName = file.path.substring(zipsDir.path.length() + 1)
-            filesToUninstall << fileName
+            if (!(fileName =~ /\\\./)) {
+            	filesToUninstall << fileName
+            }
         }
     }
 }
