@@ -161,16 +161,18 @@ byte[] getZipBytes(File topDir) {
 		if (file.isDirectory() && !relative.endsWith('/')){
 			relative += "/"
 		}
-		println "adding $relative"
-		ZipEntry entry = new ZipEntry(relative)
-		entry.time = file.lastModified()
-		zipOutput.putNextEntry(entry)
-		if (file.isFile()) {
-            def fileInputStream = new FileInputStream(file)
-            zipOutput << fileInputStream
-            fileInputStream.close()
+		if (!(relative =~ /\/\./)) {
+			println "adding $relative"
+			ZipEntry entry = new ZipEntry(relative)
+			entry.time = file.lastModified()
+			zipOutput.putNextEntry(entry)
+			if (file.isFile()) {
+				def fileInputStream = new FileInputStream(file)
+				zipOutput << fileInputStream
+				fileInputStream.close()
+			}
+			++filesAdded
 		}
-        ++filesAdded
 	}
     if (filesAdded) {
         zipOutput.close()
