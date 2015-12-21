@@ -1,6 +1,6 @@
-<map version="freeplane 1.2.0">
+<map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1330624744693" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1450731369210" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/packAndGo/">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -104,11 +104,13 @@
 </stylenode>
 </map_styles>
 </hook>
+<attribute_layout NAME_WIDTH="149" VALUE_WIDTH="108"/>
 <attribute NAME="name" VALUE="packAndGo"/>
-<attribute NAME="version" VALUE="v0.4"/>
+<attribute NAME="version" VALUE="v0.5"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
+<attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">
 
 <html>
@@ -138,12 +140,15 @@
       <li>
         freeplane-version-to: Normally empty: The newest compatible Freeplane version. The add-on will not be installed if the Freeplane version is too new.
       </li>
+      <li>
+        updateUrl: URL of the file containing information (version, download url) on the latest version of this add-on. By default: &quot;${homepage}/version.properties&quot;
+      </li>
     </ul>
   </body>
 </html>
 
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_952130767" CREATED="1329845648096" MODIFIED="1330624744707"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_952130767" CREATED="1329845648096" MODIFIED="1450729929048"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -156,13 +161,16 @@
     <p>
       So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
     </p>
+    <p>
+      To translate the description you have to define a translation for the key 'addons.${name}.description'.
+    </p>
   </body>
 </html>
 
 </richcontent>
 <node TEXT="Pack and Go provides a function to pack a map with all its dependencies into one zip file." ID="ID_611222763" CREATED="1329847323523" MODIFIED="1329847430461"/>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_1862116628" CREATED="1329845648140" MODIFIED="1330624744712"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="left" ID="ID_1862116628" CREATED="1329845648140" MODIFIED="1450729929054"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -185,11 +193,14 @@
 <node TEXT="v0.3" FOLDED="true" ID="ID_1266444382" CREATED="1329935632579" MODIFIED="1330189752828">
 <node TEXT="bugfix: handle files containing spaces" ID="ID_917606048" CREATED="1329935639687" MODIFIED="1330189766898"/>
 </node>
-<node TEXT="v0.4" ID="ID_187731644" CREATED="1330623275097" MODIFIED="1330623280921">
+<node TEXT="v0.4" FOLDED="true" ID="ID_187731644" CREATED="1330623275097" MODIFIED="1330623280921">
 <node TEXT="Added great icons from Predrag Cuklin - thanks!" ID="ID_65873411" CREATED="1330623282238" MODIFIED="1330623316683"/>
 </node>
+<node TEXT="v0.5" ID="ID_505302355" CREATED="1450731153904" MODIFIED="1450731159364">
+<node TEXT="add homepage" ID="ID_978981560" CREATED="1450731162101" MODIFIED="1450731174076"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1330624744716"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1450729929060"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -211,7 +222,7 @@
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1392544058" CREATED="1329845648172" MODIFIED="1329845648173"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1747749272" CREATED="1329845648198" MODIFIED="1330624744723"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1747749272" CREATED="1329845648198" MODIFIED="1450729929067"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -229,7 +240,7 @@
 
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1330624744732"><richcontent TYPE="NOTE">
+<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1450729929071"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -244,7 +255,7 @@
 
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_595866025" CREATED="1329845648220" MODIFIED="1330624744736"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_595866025" CREATED="1329845648220" MODIFIED="1450729929081"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -252,8 +263,19 @@
   </head>
   <body>
     <p>
-      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least 'addons.${name}' for the add-on's name.
+      The translation keys that this script uses. Define one child node per supported locale. The attributes contain the translations. Define at least
     </p>
+    <ul>
+      <li>
+        'addons.${name}' for the add-on's name
+      </li>
+      <li>
+        'addons.${name}.description' for the description, e.g. in the add-on overview dialog (not necessary for English)
+      </li>
+      <li>
+        'addons.${name}.&lt;scriptname&gt;' for each script since it will be the menu title.
+      </li>
+    </ul>
   </body>
 </html>
 
@@ -265,7 +287,7 @@
 <attribute NAME="addons.${name}" VALUE="Pack &amp; Go"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_1581740825" CREATED="1329845648270" MODIFIED="1330624749367"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_1581740825" CREATED="1329845648270" MODIFIED="1450731139525"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -273,18 +295,20 @@
   </head>
   <body>
     <p>
-      List of files and/or directories to remove on deinstall
+      List of files and/or directories to remove on uninstall
     </p>
   </body>
 </html>
 
 </richcontent>
+<attribute_layout NAME_WIDTH="51" VALUE_WIDTH="441"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/packAndGo.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/packAndGo-icon.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/packAndGo-screenshot-1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/packAndGo.groovy"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1887702609" CREATED="1329845648312" MODIFIED="1330624744760"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_1887702609" CREATED="1329845648312" MODIFIED="1450729929107"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -292,7 +316,7 @@
   </head>
   <body>
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). Its properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
       
@@ -419,7 +443,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_139231412" CREATED="1329845648349" MODIFIED="1330624744770"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_139231412" CREATED="1329845648349" MODIFIED="1450729929198"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -445,7 +469,7 @@
       
     </p>
     <p>
-      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.2.
+      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
     </p>
     <p>
       
@@ -453,18 +477,12 @@
     <p>
       &#160;- The files will be processed in the sequence as seen in the map.
     </p>
-    <p>
-      
-    </p>
-    <p>
-      &#160;- Zip files must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
-    </p>
   </body>
 </html>
 
 </richcontent>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_40703410" CREATED="1329845648371" MODIFIED="1330624744777"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_40703410" CREATED="1329845648371" MODIFIED="1450729929208"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -500,6 +518,45 @@
 </richcontent>
 <node TEXT="packAndGo-icon.png" ID="ID_1362932968" CREATED="1330623574964" MODIFIED="1330623574964"/>
 <node TEXT="packAndGo-screenshot-1.png" ID="ID_183902495" CREATED="1330623574964" MODIFIED="1330623687988"/>
+</node>
+<node TEXT="lib" POSITION="right" ID="ID_553709855" CREATED="1450729929156" MODIFIED="1450729929184"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      An add-on may contain any number of nodes containing binary files (normally .jar files) to be added to the add-on's classpath.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The child nodes of these nodes contain the actual files.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;- The files will be processed in the sequence as seen in the map.
+    </p>
+  </body>
+</html>
+
+</richcontent>
 </node>
 </node>
 </map>
