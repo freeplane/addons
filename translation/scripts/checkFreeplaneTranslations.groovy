@@ -12,7 +12,7 @@ import java.awt.FlowLayout as FL
 import org.freeplane.core.resources.ResourceController
 import org.freeplane.core.util.LogUtils
 
-private class Translator {
+class Translator {
     private final String sourceLocale
     private final String targetLocale
 
