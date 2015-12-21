@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1427741609604" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1450739815868" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -113,7 +113,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.20"/>
+<attribute NAME="version" VALUE="v0.9.21"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -483,7 +483,7 @@
 <node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
 <attribute_layout NAME_WIDTH="279" VALUE_WIDTH="257"/>
 <attribute NAME="menuTitleKey" VALUE="addon.${name}.encodeTranslations"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -563,8 +563,15 @@
 <node TEXT="added Dutch translation - thanks to Haai Henkie!" ID="ID_214157042" CREATED="1404459375469" MODIFIED="1405878837338"/>
 <node TEXT="checkAddOn.groovy: ignore classpath, .project and freeplane.dsld from scripts/" ID="ID_758381956" CREATED="1405878837767" MODIFIED="1405878912184"/>
 </node>
-<node TEXT="v0.9.20" ID="ID_1518536148" CREATED="1404459366184" MODIFIED="1427741686416">
+<node TEXT="v0.9.20" FOLDED="true" ID="ID_1518536148" CREATED="1404459366184" MODIFIED="1427741686416">
 <node TEXT="fix path to version.properties" ID="ID_1713135491" CREATED="1404459375469" MODIFIED="1427743639121"/>
+<node TEXT="#2234 dealing with spaces in filenames leads releaseAddOn.groovy to crash" ID="ID_1164336874" CREATED="1434841185897" MODIFIED="1434841185897"/>
+</node>
+<node TEXT="v0.9.21" ID="ID_1668855804" CREATED="1450739820676" MODIFIED="1450739830167">
+<node TEXT="menuItemInfo: adjusted to Freeplane 1.4 while keeping compatibility to 1.3" ID="ID_1688435093" CREATED="1450741913971" MODIFIED="1450742012187"/>
+<node TEXT="releaseAddOn: avoid problems with paths containing spaces" ID="ID_122150363" CREATED="1450739831167" MODIFIED="1450739867477"/>
+<node TEXT="checkAddOn: add check for the add-on homepage" ID="ID_1883189557" CREATED="1450739868338" MODIFIED="1450739902391"/>
+<node TEXT="encodeTranslations: fix menu location" ID="ID_320983619" CREATED="1450739904141" MODIFIED="1450739921798"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">
@@ -596,10 +603,10 @@
   </head>
   <body>
     <p>
-      <font face="SansSerif, sans-serif" color="#000000">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
+      <font color="#000000" face="SansSerif, sans-serif">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
     </p>
     <p>
-      <font face="SansSerif, sans-serif" color="#000000">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
+      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
     </p>
   </body>
 </html>
@@ -656,15 +663,15 @@
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1390065085800">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1450741668005">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
 <attribute NAME="addons.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
 <attribute NAME="addons.addOnDoc" VALUE="Add-on-Dokumentation erzeugen"/>
-<attribute NAME="addons.menuItemInfo" VALUE="Men&#xfc;eintrag-Details"/>
-<attribute NAME="addons.insertBinary" VALUE="Bin&#xe4;rdatei einf&#xfc;gen"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="&#xdc;bersetzungen kodieren"/>
+<attribute NAME="addons.menuItemInfo" VALUE="Men\u00FCeintrag-Details"/>
+<attribute NAME="addons.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
+<attribute NAME="addon.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 <node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
