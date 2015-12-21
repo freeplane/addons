@@ -10,9 +10,7 @@ import groovy.swing.SwingBuilder
 
 import java.awt.datatransfer.StringSelection
 
-import javax.swing.tree.DefaultMutableTreeNode
-
-import org.freeplane.core.ui.MenuBuilder
+import org.freeplane.core.util.FreeplaneVersion
 import org.freeplane.core.util.LogUtils
 import org.freeplane.core.util.MenuUtils.MenuEntry
 import org.freeplane.features.clipboard.ClipboardController
@@ -21,10 +19,27 @@ import org.freeplane.features.mode.Controller
 
 
 public String getMenuPath(final String menuItemKey) {
-    MenuBuilder menuBuilder = Controller.currentModeController.userInputListenerFactory.menuBuilder
-    if (!menuItemKey)
-        return null
-    DefaultMutableTreeNode node = menuBuilder.get(menuItemKey)
+	if (!menuItemKey)
+		return null
+	def lastReleaseWithMenuBuilder = FreeplaneVersion.getVersion("1.4.10")
+	if (c.freeplaneVersion <= lastReleaseWithMenuBuilder)
+		getMenuPath_v1_3(menuItemKey)
+	else
+		getMenuPath_impl(menuItemKey)
+}
+
+private getMenuPath_impl(String menuItemKey) {
+	def rootEntry = Controller.currentModeController.userInputListenerFactory.genericMenuStructure
+	def node = rootEntry.findEntry(menuItemKey)
+	return node ? node.path : null
+}
+
+// Legacy version
+private getMenuPath_v1_3(String menuItemKey) {
+    def menuBuilder = Controller.currentModeController.userInputListenerFactory.menuBuilder
+	if (!menuItemKey)
+		return null
+    def node = menuBuilder.get(menuItemKey)
     if (!node)
         return null
     return node.parent.key + '/' + node.key
