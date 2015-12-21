@@ -123,6 +123,10 @@ else if (!addOnTechName.charAt(0).isLowerCase()) {
 //
 // ============ root ============
 //
+if (!root.link) {
+    addMessage("Please add a hyperlink to the add-on homepage to the root note!\nYou will not be able to release otherwise!")
+}
+
 if (!root.style.backgroundColorCode || root.style.backgroundColorCode.toLowerCase() == '#ffffff') {
     root.style.backgroundColorCode = '#97c7dc'
     root.style.font.italic = true
