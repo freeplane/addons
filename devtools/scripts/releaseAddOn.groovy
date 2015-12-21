@@ -206,7 +206,7 @@ private MapModel createReleaseMap(Proxy.Node node) {
     final ModeController modeController = Controller.getCurrentModeController()
     final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController)
     MapModel releaseMap = new MMapModel()
-    if (!fileManager.loadImpl(node.map.file.toURI().toURL(), releaseMap)) {
+    if (!fileManager.loadImpl(node.map.file.toURL(), releaseMap)) {
         LogUtils.warn("can not load " + node.map.file)
         return null
     }
