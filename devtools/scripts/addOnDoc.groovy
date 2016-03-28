@@ -37,8 +37,10 @@ private String authorsToHtml(String authors) {
     return authors
 }
 
+// an example:
+
 //==Insert Inline Image==
-//'''by Volker Börchers and Rickenbroc'''
+//'''by Volker Boerchers and Rickenbroc'''
 //
 //Asks for an URL and inserts an HTML <tt><img></tt> tag at the end of the node's text. If the node is not already an HTML node it will be converted. [http://freeplane.sourceforge.net/wiki/index.php/Scripting:_Example_scripts#Inserts_an_inline_image_into_node_text_or_details Known from the example scripts page]. The new menu item can be found under ''Edit->Extensions'' and it is bound to ''Control+Shift+i''.
 //
@@ -52,9 +54,12 @@ def title = root.plainText
 def name = root.attributes.getFirst('name')
 def version = root.attributes.getFirst('version')
 def authors = authorsToHtml(root.attributes.getFirst('author'))
-def descriptionNode = findNode(root, 'description').children.first()
-
-def description = descriptionNode.text.replaceAll('</?(html|body|head|p)>', '').replaceAll('\\s+\n\\s+', '\n\n').trim()
+def descriptionNode = findNode(root, 'description')
+if (!descriptionNode || descriptionNode.isLeaf()) {
+    ui.errorMessage("Description is missing, can't proceed")
+    return
+}
+def description = descriptionNode.children.first().text.replaceAll('</?(html|body|head|p)>', '').replaceAll('\\s+\n\\s+', '\n\n').trim()
 
 def doc = """==http://freeplane.sourceforge.net/addons/${name}/images/${name}-icon.png $title==
 '''by ${authors}'''
