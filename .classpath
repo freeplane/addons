@@ -8,12 +8,9 @@
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_formula"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_help"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_latex"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_script"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_script_test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_svg"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_uispec4j"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/JOrtho_0.4_freeplane"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
