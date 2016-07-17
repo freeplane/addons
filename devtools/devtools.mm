@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1450739815868" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1460908957277" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -113,7 +113,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.21"/>
+<attribute NAME="version" VALUE="v0.9.22"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -173,7 +173,7 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1387981044219" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1460907917696" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -195,6 +195,12 @@
       </li>
       <li>
         <i>Insert binary</i>: Asks for a file to insert as text of the current node&#160;(BASE64 encoded).
+      </li>
+      <li>
+        <i>Extract binary</i>: Asks for a file to extract the BASE64 encoded binary in the current node to.
+      </li>
+      <li>
+        <i>Encode translation</i>: Encode non-ASCII characters so that they don't get scrambled while packaging or installation. This function is included in <i>Package add-on for release</i>&#160;so you don't need this function.
       </li>
       <li>
         <i>Menu item info</i>: Shows technical details about a selected menu item.
@@ -480,6 +486,30 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
+    </p>
+  </body>
+</html>
+</richcontent>
+<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute NAME="menuTitleKey" VALUE="addons.extractBinary"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
+</node>
 <node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
 <attribute_layout NAME_WIDTH="279" VALUE_WIDTH="257"/>
 <attribute NAME="menuTitleKey" VALUE="addon.${name}.encodeTranslations"/>
@@ -567,11 +597,14 @@
 <node TEXT="fix path to version.properties" ID="ID_1713135491" CREATED="1404459375469" MODIFIED="1427743639121"/>
 <node TEXT="#2234 dealing with spaces in filenames leads releaseAddOn.groovy to crash" ID="ID_1164336874" CREATED="1434841185897" MODIFIED="1434841185897"/>
 </node>
-<node TEXT="v0.9.21" ID="ID_1668855804" CREATED="1450739820676" MODIFIED="1450739830167">
+<node TEXT="v0.9.21" FOLDED="true" ID="ID_1668855804" CREATED="1450739820676" MODIFIED="1460908931742">
 <node TEXT="menuItemInfo: adjusted to Freeplane 1.4 while keeping compatibility to 1.3" ID="ID_1688435093" CREATED="1450741913971" MODIFIED="1450742012187"/>
 <node TEXT="releaseAddOn: avoid problems with paths containing spaces" ID="ID_122150363" CREATED="1450739831167" MODIFIED="1450739867477"/>
 <node TEXT="checkAddOn: add check for the add-on homepage" ID="ID_1883189557" CREATED="1450739868338" MODIFIED="1450739902391"/>
 <node TEXT="encodeTranslations: fix menu location" ID="ID_320983619" CREATED="1450739904141" MODIFIED="1450739921798"/>
+</node>
+<node TEXT="v0.9.22" ID="ID_1516811150" CREATED="1450739820676" MODIFIED="1460908937019">
+<node TEXT="added extractBinary" ID="ID_1578685543" CREATED="1460905356948" MODIFIED="1460905368928"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">
@@ -652,7 +685,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1390065002722">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1460906059060">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.checkAddOn" VALUE="Build add-on"/>
@@ -660,10 +693,11 @@
 <attribute NAME="addons.addOnDoc" VALUE="Generate add-on documentation"/>
 <attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
+<attribute NAME="addons.extractBinary" VALUE="Extract Binary"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1450741668005">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1460906275359">
 <attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
@@ -671,6 +705,7 @@
 <attribute NAME="addons.addOnDoc" VALUE="Add-on-Dokumentation erzeugen"/>
 <attribute NAME="addons.menuItemInfo" VALUE="Men\u00FCeintrag-Details"/>
 <attribute NAME="addons.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
+<attribute NAME="addons.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
@@ -686,7 +721,7 @@
 <attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1390065011887" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1460908234330" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -699,7 +734,7 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="657"/>
+<attribute_layout NAME_WIDTH="51" VALUE_WIDTH="468"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
@@ -709,6 +744,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/addOnDoc.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/menuItemInfo.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/insertBinary.groovy"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/encodeTranslations.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
@@ -749,41 +785,6 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="scripts" ID="ID_1641934927" CREATED="1318920961613" MODIFIED="1319062305100"><richcontent TYPE="NOTE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Unpacked to &lt;userdir&gt;/scripts/freeplane.dsld
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      In Eclipse,
-    </p>
-    <p>
-      1. install the Groovy plugin, see http://groovy.codehaus.org/Eclipse+Plugin
-    </p>
-    <p>
-      2. create a new Groovy project for editing your scripts
-    </p>
-    <p>
-      3. check out the Freeplane sources and create Java projects for them, see http://freeplane.sourceforge.net/wiki/index.php/Bazaar_howto
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
 </node>
 <node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1390064741970" HGAP="70" VSHIFT="10"><richcontent TYPE="NOTE">
 

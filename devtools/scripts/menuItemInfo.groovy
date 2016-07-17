@@ -17,7 +17,6 @@ import org.freeplane.features.clipboard.ClipboardController
 import org.freeplane.features.link.mindmapmode.SelectMenuItemDialog
 import org.freeplane.features.mode.Controller
 
-
 public String getMenuPath(final String menuItemKey) {
 	if (!menuItemKey)
 		return null
@@ -45,7 +44,16 @@ private getMenuPath_v1_3(String menuItemKey) {
     return node.parent.key + '/' + node.key
 }
 
-MenuEntry menuEntry = new SelectMenuItemDialog(node.delegate).getMenuItem()
+def createSelectMenuItemDialog(node) {
+	try {
+		// Freeplane 1.5
+		return new SelectMenuItemDialog(node.delegate, true)
+	} catch (Exception e) {
+		return new SelectMenuItemDialog(node.delegate)
+	}
+}
+
+MenuEntry menuEntry = createSelectMenuItemDialog(node).getMenuItem()
 if (menuEntry != null) {
     String menuPath = getMenuPath(menuEntry.key)
     def displayMessage = """
