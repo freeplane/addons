@@ -16,7 +16,6 @@ import java.awt.Toolkit
 import java.awt.datatransfer.Clipboard
 import java.awt.datatransfer.DataFlavor
 import java.awt.image.BufferedImage
-import java.io.File;
 import java.util.Date
 
 import javax.imageio.ImageIO
@@ -25,10 +24,9 @@ import javax.swing.ImageIcon
 import javax.swing.JFileChooser
 import javax.swing.JTextField
 import javax.swing.SwingUtilities
-import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter
 
 import org.freeplane.core.resources.ResourceController
-import org.freeplane.core.util.FileUtils;
 import org.freeplane.features.link.LinkController
 import org.freeplane.features.mode.Controller
 import org.freeplane.features.url.UrlManager
@@ -81,7 +79,9 @@ locationRelativeTo:ui.frame, owner:ui.frame, pack:true) {
 							image = getBufferedImage(image);	//convert into something it understands
 						}
 						JFileChooser save=new JFileChooser(node.map.file); //default directory = where the map is
-						save.setFileFilter(fileFilter());
+						FileNameExtensionFilter filter = new FileNameExtensionFilter(
+						"PNG Images", "png");
+						save.setFileFilter(filter);
 						save.setDialogTitle("Save clipboard image as")
 						Date date = new Date() //ms from the creation for appending the image name and make it unique
 						def mapName = node.map.name //name of the map
@@ -256,19 +256,4 @@ public static BufferedImage getBufferedImage(Image image){ //workaround for macO
     graph2D.drawImage(image, 0, 0, w, h, null); //drawing the image on the bufferedImage graphic
     graph2D.dispose();
     return bufferedImg;
-}
-
-private FileFilter fileFilter() {
-	return new FileFilter() {
-		@Override
-		public String getDescription() {
-			return "PNG Images";
-		}
-
-		@Override
-		public boolean accept(File f) {
-			String extension = FileUtils.getExtension(f);
-			return extension.equals("png");
-		}
-    }
 }
