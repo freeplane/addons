@@ -1,4 +1,4 @@
-// @ExecutionModes({on_single_node="main_menu_scripting/devtools[addons.insertBinary]"})
+// @ExecutionModes({on_single_node="main_menu_scripting/addons.devtools[addons.insertBinary]"})
 // Copyright (C) 2009-2011 Dave (Dke211, initial author), Volker Boerchers (adaptation for Freeplane)
 //
 // This program is free software: you can redistribute it and/or modify

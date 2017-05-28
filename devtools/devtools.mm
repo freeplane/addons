@@ -1,15 +1,19 @@
-<map version="freeplane 1.3.0">
+<map version="freeplane 1.5.9">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1460908957277" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1495887283013" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" show_note_icons="true"/>
+    <properties fit_to_viewport="false;" show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node">
-<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="default"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="9"/>
+</stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.note"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.floating">
 <edge STYLE="hide_edge"/>
@@ -87,7 +91,7 @@
 <font NAME="Liberation Sans" SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000">
 <font SIZE="20"/>
 </stylenode>
@@ -104,16 +108,16 @@
 <font SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
 <stylenode TEXT="red" COLOR="#ff0300"/>
 <stylenode TEXT="green" COLOR="#00cd00"/>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
-<attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
+<attribute_layout NAME_WIDTH="95.99999713897714 pt" VALUE_WIDTH="95.99999713897714 pt"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.22"/>
+<attribute NAME="version" VALUE="v0.9.23-pre01"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -154,7 +158,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1390064741873"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1495886982366"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -173,7 +177,8 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1460907917696" BACKGROUND_COLOR="#ffff75" HGAP="-482" VSHIFT="-152"><richcontent TYPE="NODE">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1495888193096" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482.0 px" VSHIFT_QUANTITY="-152.0 px"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -206,6 +211,9 @@
         <i>Menu item info</i>: Shows technical details about a selected menu item.
       </li>
       <li>
+        <i>Create properties XML:</i>&#160;You can create a *.script.xml file as it will be installed by the packaged add-on. It contains all settings specified by the nodes and attributes in your map.
+      </li>
+      <li>
         <i>freeplane.dsld</i>: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
       </li>
     </ul>
@@ -216,9 +224,10 @@
 </html>
 </richcontent>
 <font SIZE="16"/>
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1390064741906" HGAP="50" VSHIFT="-10"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1495886982513" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-10.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -339,7 +348,8 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1495859022735"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -364,9 +374,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.checkAddOn"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -375,7 +385,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225"><richcontent TYPE="NOTE">
+<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1495859033888"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -403,9 +413,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.releaseAddOn"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -414,7 +424,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1323993328104"><richcontent TYPE="NOTE">
+<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1495859042316"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -427,9 +437,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.addOnDoc"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -438,7 +448,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1324456004959"><richcontent TYPE="NOTE">
+<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1495859064207"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -451,9 +461,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.menuItemInfo"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -462,7 +472,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE">
+<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1495859081810"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -475,9 +485,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.insertBinary"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -486,7 +496,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE">
+<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1495859091946"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -499,9 +509,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.extractBinary"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -510,10 +520,10 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
-<attribute_layout NAME_WIDTH="279" VALUE_WIDTH="257"/>
-<attribute NAME="menuTitleKey" VALUE="addon.${name}.encodeTranslations"/>
-<attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
+<node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1495868261571">
+<attribute_layout NAME_WIDTH="209.24999376386424 pt" VALUE_WIDTH="192.74999425560253 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.encodeTranslations"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -522,8 +532,20 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
+<node TEXT="createAddOnXML.groovy" ID="ID_1453785280" CREATED="1495887035981" MODIFIED="1495900739252">
+<attribute_layout NAME_WIDTH="184.4999945014717 pt" VALUE_WIDTH="184.4999945014717 pt"/>
+<attribute NAME="menuTitleKey" VALUE="addons.createAddOnXML"/>
+<attribute NAME="menuLocation" VALUE="main_menu_scripting/addons.${name}"/>
+<attribute NAME="executionMode" VALUE="on_single_node"/>
+<attribute NAME="keyboardShortcut" VALUE=""/>
+<attribute NAME="execute_scripts_without_asking" VALUE="true"/>
+<attribute NAME="execute_scripts_without_file_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_write_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_exec_restriction" VALUE="true"/>
+<attribute NAME="execute_scripts_without_network_restriction" VALUE="true"/>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1390064741878"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1495886982377"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -536,6 +558,7 @@
   </body>
 </html>
 </richcontent>
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
 </node>
@@ -576,6 +599,7 @@
 <node TEXT="support for updateUrl" ID="ID_563212535" CREATED="1378242297556" MODIFIED="1378242306047"/>
 </node>
 <node TEXT="v0.9.15" FOLDED="true" ID="ID_1734128243" CREATED="1387980967186" MODIFIED="1387980974039">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 <node TEXT="adjusted to new scripts location in Freeplane 1.3.x_beta" ID="ID_1916559200" CREATED="1387980975131" MODIFIED="1387981000240"/>
 <node TEXT="update check and release scripts for installation of libs" ID="ID_1872235344" CREATED="1388064513550" MODIFIED="1388064575193"/>
 <node TEXT="checkAddOn.groovy does a lot more checks and automation than before" ID="ID_661774465" CREATED="1388064473068" MODIFIED="1388064504819"/>
@@ -604,10 +628,23 @@
 <node TEXT="encodeTranslations: fix menu location" ID="ID_320983619" CREATED="1450739904141" MODIFIED="1450739921798"/>
 </node>
 <node TEXT="v0.9.22" ID="ID_1516811150" CREATED="1450739820676" MODIFIED="1460908937019">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 <node TEXT="added extractBinary" ID="ID_1578685543" CREATED="1460905356948" MODIFIED="1460905368928"/>
 </node>
+<node TEXT="v0.9.23" ID="ID_1820876748" CREATED="1495887470225" MODIFIED="1495887478853">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+<node TEXT="added createAddOnXML" ID="ID_864223506" CREATED="1495887484961" MODIFIED="1495887527488">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1390064741883"><richcontent TYPE="NOTE">
+<node TEXT="improved menu structure" ID="ID_413986924" CREATED="1495887538433" MODIFIED="1495887550144">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+</node>
+<node TEXT="additional Dutch translation" ID="ID_1915748795" CREATED="1495887603344" MODIFIED="1495887614805">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+</node>
+</node>
+</node>
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1495886982385"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -626,9 +663,10 @@
   </body>
 </html>
 </richcontent>
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1390064741887"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1495886982395"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -645,8 +683,8 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1390064741889">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1495886982448">
+<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <richcontent TYPE="NOTE">
 
 <html>
@@ -661,7 +699,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1390064741894"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1495900076650"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -685,8 +723,9 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1460906059060">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1495870458703">
+<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.checkAddOn" VALUE="Build add-on"/>
 <attribute NAME="addons.releaseAddOn" VALUE="Package add-on for publication"/>
@@ -694,11 +733,11 @@
 <attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
 <attribute NAME="addons.extractBinary" VALUE="Extract Binary"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
+<attribute NAME="addons.encodeTranslations" VALUE="Encode translations"/>
+<attribute NAME="addons.createAddOnXML" VALUE="Create properties XML"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1460906275359">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1495870655236">
+<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
 <attribute NAME="addons.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
@@ -706,22 +745,24 @@
 <attribute NAME="addons.menuItemInfo" VALUE="Men\u00FCeintrag-Details"/>
 <attribute NAME="addons.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
 <attribute NAME="addons.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
+<attribute NAME="addons.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
+<attribute NAME="addons.createAddOnXML" VALUE="XML mit Eigenschaften erstellen"/>
 </node>
-<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1495891847822">
+<attribute_layout NAME_WIDTH="119.24999644607315 pt" VALUE_WIDTH="150.74999550730004 pt"/>
 <attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
+<attribute NAME="addons.${name}.description" VALUE="&lt;p&gt;Deze add-on brengt gereedschap bij elkaar dat handig is voor script en/of add-on ontwikkelaars.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;Add-on opbouwen&lt;/i&gt;: voegt alle standaard knopen, attributen en notities toe aan de huidige map. Kan met een lege map gebruikt worden om de basis voor een add-on te maken. &lt;/li&gt;&lt;li&gt;&lt;i&gt;Add-on package genereren&lt;/i&gt;: Het kopieert de &amp;lt;addon&amp;gt;.mm naar &amp;lt;addon&amp;gt;-&amp;lt;version&amp;gt;.mm en werkt de context van de knopen bij aan de hand van de aanwezige bestanden.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Add-on documentatie genereren&lt;/i&gt;: Maakt een extract om op de Freeplane add-ons wiki pagina te zetten.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Binary invoegen&lt;/i&gt;: Vraagt om een bestand om deze als text aan de geselecteerde knoop toe te voegen (BASE64 gecodeerd).&lt;/li&gt;&lt;li&gt;&lt;i&gt;Binary extraheren&lt;/i&gt;: Zet de BASE64 gecodeerde inhoud van de geselecteerde knoop weer in een bestand om.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Vertalingen coderen&lt;/i&gt;: Codeert niet-ASCII tekens zodat deze niet in verkeerde tekens omgezet worden bij het inpakken of installeren. Deze functie is onderdeel van &lt;i&gt;Add-on package genereren&lt;/i&gt; dus het is niet nodig om deze functie te gebruiken.&lt;/li&gt;&lt;li&gt;&lt;i&gt;Menu item info&lt;/i&gt;: Laat technische details zien over een geselecteerd item.&lt;/li&gt;&lt;li&gt;&lt;i&gt;XML met eigenschappen aanmaken:&lt;/i&gt; Je kunt een *.script.xml bestand cre&#xeb;ren zoals dat door de ingepakte add-on ge&#xef;nstalleerd zal worden. Het bevat alle instellingen die de knopen en attributen in je map defini&#xeb;ren&lt;/li&gt;&lt;li&gt;&lt;i&gt;freeplane.dsld&lt;/i&gt;: Voegt Eclipse ondersteuning toe voor voorgedefinieerde script bindingen zoals node, c, ui, textUtils, ...&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;De functies zijn beschikbaar onder Extra -&amp;gt; Ontwikkeltools&lt;/p&gt;"/>
 <attribute NAME="addons.checkAddOn" VALUE="Add-on opbouwen"/>
 <attribute NAME="addons.releaseAddOn" VALUE="Add-on package genereren"/>
 <attribute NAME="addons.addOnDoc" VALUE="Add-on documentatie genereren"/>
 <attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.insertBinary" VALUE="Binary invoegen"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
+<attribute NAME="addons.extractBinary" VALUE="Binary extraheren"/>
+<attribute NAME="addons.encodeTranslations" VALUE="Vertalingen coderen"/>
+<attribute NAME="addons.createAddOnXML" VALUE="XML met eigenschappen aanmaken"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1460908234330" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1495886982473" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -729,26 +770,27 @@
   </head>
   <body>
     <p>
-      List of files and/or directories to remove on deinstall
+      List of files and/or directories to remove on uninstall
     </p>
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="51" VALUE_WIDTH="468"/>
+<attribute_layout NAME_WIDTH="27.74999917298558 pt" VALUE_WIDTH="293.9999912381175 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
-<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
-<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-screenshot-1.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/checkAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/addOnDoc.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/menuItemInfo.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/insertBinary.groovy"/>
-<attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/extractBinary.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/encodeTranslations.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-screenshot-1.png"/>
+<attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/createAddOnXML.groovy"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1390064741976" HGAP="70" VSHIFT="-20"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1495886982780" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="-20.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -785,8 +827,11 @@
   </body>
 </html>
 </richcontent>
+<node TEXT="scripts" ID="ID_394374622" CREATED="1495859651381" MODIFIED="1495859651384">
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1390064741970" HGAP="70" VSHIFT="10"><richcontent TYPE="NOTE">
+</node>
+<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1495886982734" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="10.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -824,7 +869,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1390064741993" HGAP="70" VSHIFT="-180"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1495886982833" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="-180.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -857,6 +902,7 @@
   </body>
 </html>
 </richcontent>
+<attribute_layout VALUE_WIDTH="80.0 pt"/>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646"/>
 <node TEXT="${name}-screenshot-1.png" ID="ID_1150955427" CREATED="1322728032545" MODIFIED="1322954458469"/>

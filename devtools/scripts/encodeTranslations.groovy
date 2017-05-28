@@ -1,3 +1,5 @@
+// @ExecutionModes({on_single_node="main_menu_scripting/addons.devtools[addons.encodeTranslations]"})
+
 import org.apache.commons.lang.StringEscapeUtils
 def nodeName = 'translations'
 def translationsNode = c.find{ it.plainText.matches(nodeName) }[0]

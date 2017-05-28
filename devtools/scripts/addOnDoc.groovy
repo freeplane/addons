@@ -1,4 +1,4 @@
-// @ExecutionModes({on_single_node="main_menu_scripting/devtools[addons.addOnDoc]"})
+// @ExecutionModes({on_single_node="main_menu_scripting/addons.devtools[addons.addOnDoc]"})
 // Copyright (C) 2011 Volker Boerchers
 //
 // This program is free software: you can redistribute it and/or modify
