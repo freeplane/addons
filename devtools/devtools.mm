@@ -113,7 +113,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.22"/>
+<attribute NAME="version" VALUE="v0.9.23"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.3.07"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
