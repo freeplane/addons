@@ -13,7 +13,7 @@
 //  - It updates the script node's context from the files lying around
 ////////////////////////////////////////////////////////////////////////////////
 
-import devtools.DevtoolUtils
+import addons.devtools.DevtoolUtils
 
 import java.util.regex.Pattern
 import java.util.zip.ZipEntry

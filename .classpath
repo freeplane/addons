@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="devtools/scripts/|translation/scripts/|insertInlineImage/scripts/|packAndGo/scripts/" including="devtools/*.groovy" kind="src" path=""/>
 	<classpathentry including="*.groovy" kind="src" path="devtools/scripts"/>
+	<classpathentry kind="src" path="devtools/zips/src"/>
 	<classpathentry including="*.groovy" kind="src" path="translation/scripts"/>
 	<classpathentry including="*.groovy" kind="src" path="insertInlineImage/scripts"/>
 	<classpathentry including="*.groovy" kind="src" path="packAndGo/scripts"/>

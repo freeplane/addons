@@ -1,4 +1,4 @@
-package devtools
+package addons.devtools
 /**
  * Utilities for the Devtools add-on
  * 
