@@ -1,7 +1,5 @@
 // @ExecutionModes({on_single_node="main_menu_scripting/devtools[addons.encodeTranslations]"})
 
-import addons.devtools.DevtoolUtils
-
 def nodeName = 'translations'
 def translationsNode = c.find{ it.plainText.matches(nodeName) }[0]
 if (!translationsNode) {
@@ -11,7 +9,7 @@ if (!translationsNode) {
     translationsNode.children.each { localeNode ->
         localeNode.attributes.map.each { k,v ->
             if (v) {
-                localeNode.attributes.set(k, DevtoolUtils.escapeUtf8(v))
+                localeNode.attributes.set(k, textUtils.escapeUtf8(v))
                 count++
             }
         }

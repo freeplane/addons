@@ -13,8 +13,6 @@
 //  - It updates the script node's context from the files lying around
 ////////////////////////////////////////////////////////////////////////////////
 
-import addons.devtools.DevtoolUtils
-
 import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
@@ -123,22 +121,6 @@ private updateBinaries(Proxy.Node root, String nodeName) {
         it.folded = true
     }
     return count
-}
-
-void encodeTranslations(Proxy.Node root) {
-    def nodeName = 'translations'
-    Proxy.Node translationsNode = root.children.find{ it.plainText.matches(nodeName) }
-    if (!translationsNode) {
-        errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
-        return
-    }
-    translationsNode.children.each { localeNode ->
-        localeNode.attributes.map.each { k,v ->
-            if (v) {
-                localeNode.attributes.set(k, DevtoolUtils.escapeUtf8(v))
-            }
-        }
-    }
 }
 
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
@@ -271,7 +253,6 @@ try {
 	counts.zips = updateZips(releaseMapRoot)
 	counts.images = updateImages(releaseMapRoot)
 	counts.lib = updateLib(releaseMapRoot)
-	encodeTranslations(releaseMapRoot)
     createLatestVersionFile(releaseMapRoot)
 } catch (Exception e) {
 	errors << e.message
