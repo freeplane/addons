@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="devtools/scripts"/>
-	<classpathentry kind="src" path="devtools/zips/scripts"/>
-	<classpathentry kind="src" path="insertInlineImage/scripts"/>
+	<classpathentry including="*.groovy" kind="src" path="devtools/scripts"/>
+	<classpathentry including="*.groovy" kind="src" path="translation/scripts"/>
+	<classpathentry including="*.groovy" kind="src" path="insertInlineImage/scripts"/>
+	<classpathentry including="*.groovy" kind="src" path="packAndGo/scripts"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
@@ -12,5 +13,11 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_script"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_plugin_svg"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/JOrtho_0.4_freeplane"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/freeplane_api"/>
+	<classpathentry kind="lib" path="../freeplane/BIN/core/org.freeplane.core/lib/commons-lang-2.6.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

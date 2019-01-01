@@ -13,16 +13,14 @@
 //  - It updates the script node's context from the files lying around
 ////////////////////////////////////////////////////////////////////////////////
 
-import groovy.json.StringEscapeUtils
-
-import java.util.regex.Pattern;
+import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 import javax.swing.JOptionPane
 
 import org.apache.commons.lang.StringUtils
-import org.apache.commons.lang.WordUtils;
+import org.apache.commons.lang.WordUtils
 import org.freeplane.core.util.LogUtils
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
@@ -125,34 +123,10 @@ private updateBinaries(Proxy.Node root, String nodeName) {
     return count
 }
 
-String escapeIfNecessary(String v) {
-    Pattern escapedCharMatcher = Pattern.compile('\\\\u[0-9a-zA-Z]{4}')
-    if (escapedCharMatcher.matcher(v).find())
-        return v
-    else
-        return StringEscapeUtils.escapeJava(v)
-}
-
-void encodeTranslations(Proxy.Node root) {
-    def nodeName = 'translations'
-    Proxy.Node translationsNode = root.children.find{ it.plainText.matches(nodeName) }
-    if (!translationsNode) {
-        errors << "The root node ${root.plainText} has no '$nodeName' child. Please create it or better run 'Check Add-on'"
-        return
-    }
-    translationsNode.children.each { localeNode ->
-        localeNode.attributes.map.each { k,v ->
-            if (v) {
-                localeNode.attributes.set(k, escapeIfNecessary(v))
-            }
-        }
-    }
-}
-
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
 byte[] getZipBytes(File topDir) {
 	def byteArrayOutputStream = new ByteArrayOutputStream()
-	ZipOutputStream zipOutput = new ZipOutputStream(byteArrayOutputStream);
+	ZipOutputStream zipOutput = new ZipOutputStream(byteArrayOutputStream)
 
     int filesAdded = 0
 	int topDirLength = topDir.parent.length() + 1
@@ -196,7 +170,7 @@ private boolean saveOrCancel() {
         return false
     }        
     def question = "Do you want to save ${node.map.name} first?"
-    final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+    final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE)
     if (selection == JOptionPane.YES_OPTION)
         node.map.save(false)
     return (selection != JOptionPane.CANCEL_OPTION)
@@ -279,7 +253,6 @@ try {
 	counts.zips = updateZips(releaseMapRoot)
 	counts.images = updateImages(releaseMapRoot)
 	counts.lib = updateLib(releaseMapRoot)
-	encodeTranslations(releaseMapRoot)
     createLatestVersionFile(releaseMapRoot)
 } catch (Exception e) {
 	errors << e.message
@@ -301,7 +274,7 @@ with ${counts.scripts} script(s), ${counts.images} images(s), ${counts.zips} zip
 Also created: 'version.properties' - upload this file to the configured updateUrl!
 
 Open the new add-on map ${releaseMapFile.name}?"""
-        final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        final int selection = JOptionPane.showConfirmDialog(ui.frame, question, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)
         if (selection == JOptionPane.YES_OPTION) {
             try {
                 c.newMap(releaseMapFile.toURI().toURL())
