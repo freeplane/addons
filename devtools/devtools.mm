@@ -1,9 +1,9 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1546215012709" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1460908957277" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -709,9 +709,8 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1460906059060">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1546350932145">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.checkAddOn" VALUE="Build add-on"/>
@@ -721,9 +720,9 @@
 <attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
 <attribute NAME="addons.extractBinary" VALUE="Extract Binary"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
+<attribute NAME="devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1460906275359">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1546350946691">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
@@ -733,9 +732,9 @@
 <attribute NAME="addons.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
 <attribute NAME="addons.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
+<attribute NAME="devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
-<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
+<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1546350972211">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
 <attribute NAME="addons.checkAddOn" VALUE="Add-on opbouwen"/>
@@ -744,10 +743,10 @@
 <attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.insertBinary" VALUE="Binary invoegen"/>
 <attribute NAME="addon.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
+<attribute NAME="devtools" VALUE="Ontwikkeltools"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1546215012847" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1460908234330" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
