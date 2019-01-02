@@ -437,7 +437,7 @@ if (scriptsNodesWithUnknownSuffixes) {
 
 scriptsNode.children.each {
     def scriptBaseName = it.plainText.replaceFirst('\\.\\w+$', '')
-    def menuTitleKey = "addon.\${name}.${scriptBaseName}"
+    def menuTitleKey = "addons.\${name}.${scriptBaseName}"
     createMissingAttributes(it, [
         [ 'menuTitleKey', menuTitleKey ]
         , ['menuLocation', 'main_menu_scripting']
