@@ -374,7 +374,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.checkAddOn"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.checkAddOn"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -413,7 +413,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.releaseAddOn"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.releaseAddOn"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -437,7 +437,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.addOnDoc"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.addOnDoc"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -461,7 +461,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.menuItemInfo"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.menuItemInfo"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -485,7 +485,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.insertBinary"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.insertBinary"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -509,7 +509,7 @@
 </html>
 </richcontent>
 <attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addons.extractBinary"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.extractBinary"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -521,7 +521,7 @@
 </node>
 <node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
 <attribute_layout NAME_WIDTH="209.24999376386424 pt" VALUE_WIDTH="192.74999425560253 pt"/>
-<attribute NAME="menuTitleKey" VALUE="addon.${name}.encodeTranslations"/>
+<attribute NAME="menuTitleKey" VALUE="addons.${name}.encodeTranslations"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE=""/>
@@ -714,36 +714,36 @@
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1460906059060">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
-<attribute NAME="addons.checkAddOn" VALUE="Build add-on"/>
-<attribute NAME="addons.releaseAddOn" VALUE="Package add-on for publication"/>
-<attribute NAME="addons.addOnDoc" VALUE="Generate add-on documentation"/>
-<attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
-<attribute NAME="addons.insertBinary" VALUE="Insert Binary"/>
-<attribute NAME="addons.extractBinary" VALUE="Extract Binary"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="Encode translations"/>
+<attribute NAME="addons.${name}.checkAddOn" VALUE="Build add-on"/>
+<attribute NAME="addons.${name}.releaseAddOn" VALUE="Package add-on for publication"/>
+<attribute NAME="addons.${name}.addOnDoc" VALUE="Generate add-on documentation"/>
+<attribute NAME="addons.${name}.menuItemInfo" VALUE="Menu item info"/>
+<attribute NAME="addons.${name}.insertBinary" VALUE="Insert Binary"/>
+<attribute NAME="addons.${name}.extractBinary" VALUE="Extract Binary"/>
+<attribute NAME="addons.${name}.encodeTranslations" VALUE="Encode translations"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
 <node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1460906275359">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
-<attribute NAME="addons.checkAddOn" VALUE="Komplettiere Add-on"/>
-<attribute NAME="addons.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
-<attribute NAME="addons.addOnDoc" VALUE="Add-on-Dokumentation erzeugen"/>
-<attribute NAME="addons.menuItemInfo" VALUE="Men\u00FCeintrag-Details"/>
-<attribute NAME="addons.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
-<attribute NAME="addons.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
+<attribute NAME="addons.${name}.checkAddOn" VALUE="Komplettiere Add-on"/>
+<attribute NAME="addons.${name}.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
+<attribute NAME="addons.${name}.addOnDoc" VALUE="Add-on-Dokumentation erzeugen"/>
+<attribute NAME="addons.${name}.menuItemInfo" VALUE="Men\u00FCeintrag-Details"/>
+<attribute NAME="addons.${name}.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
+<attribute NAME="addons.${name}.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
+<attribute NAME="addons.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
 <node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
-<attribute NAME="addons.checkAddOn" VALUE="Add-on opbouwen"/>
-<attribute NAME="addons.releaseAddOn" VALUE="Add-on package genereren"/>
-<attribute NAME="addons.addOnDoc" VALUE="Add-on documentatie genereren"/>
-<attribute NAME="addons.menuItemInfo" VALUE="Menu item info"/>
-<attribute NAME="addons.insertBinary" VALUE="Binary invoegen"/>
-<attribute NAME="addon.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
+<attribute NAME="addons.${name}.checkAddOn" VALUE="Add-on opbouwen"/>
+<attribute NAME="addons.${name}.releaseAddOn" VALUE="Add-on package genereren"/>
+<attribute NAME="addons.${name}.addOnDoc" VALUE="Add-on documentatie genereren"/>
+<attribute NAME="addons.${name}.menuItemInfo" VALUE="Menu item info"/>
+<attribute NAME="addons.${name}.insertBinary" VALUE="Binary invoegen"/>
+<attribute NAME="addons.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
 <attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
 </node>
 </node>
