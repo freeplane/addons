@@ -13,7 +13,6 @@ import java.awt.datatransfer.StringSelection
 import org.freeplane.core.util.FreeplaneVersion
 import org.freeplane.core.util.LogUtils
 import org.freeplane.core.util.MenuUtils.MenuEntry
-import org.freeplane.features.clipboard.ClipboardController
 import org.freeplane.features.link.mindmapmode.SelectMenuItemDialog
 import org.freeplane.features.mode.Controller
 
@@ -63,8 +62,7 @@ Command line option (copied to clipboard): -X${menuEntry.key}
 Path: ${menuPath}
 Shortcut: ${ui.keyStrokeToString(menuEntry.keyStroke)}
 """
-    // from 1.2.12 on you can use setClipboardContents(String)
-    ClipboardController.getController().setClipboardContents(new StringSelection("-X${menuEntry.key}".toString()));
+    textUtils.copyToClipboard("-X${menuEntry.key}");
     c.statusInfo = "Copied command line option for '$menuEntry' to clipboard"
     LogUtils.info(displayMessage.replace('\n', ', '));
     def s = new SwingBuilder()
