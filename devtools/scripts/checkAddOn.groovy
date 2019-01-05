@@ -440,7 +440,7 @@ scriptsNode.children.each {
     def menuTitleKey = "addons.\${name}.${scriptBaseName}"
     createMissingAttributes(it, [
         [ 'menuTitleKey', menuTitleKey ]
-        , ['menuLocation', 'main_menu_scripting']
+        , ['menuLocation', 'main_menu_scripting/addons.\${name}']
         , ['executionMode', 'on_single_node']
         , 'keyboardShortcut'
         , ['execute_scripts_without_asking', 'true']
