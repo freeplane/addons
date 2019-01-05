@@ -157,7 +157,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1546215012821"><richcontent TYPE="NOTE">
 
@@ -177,10 +176,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout VALUE_WIDTH="100.0 pt"/>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1460907917696" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482.0 px" VSHIFT_QUANTITY="-152.0 px"><richcontent TYPE="NODE">
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1546724580355" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482.0 px" VSHIFT_QUANTITY="-152.0 px"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -188,36 +186,36 @@
   </head>
   <body>
     <p>
-      This add-on collects some utilities that script and/or add-on developers will find useful.
+      <font size="3">This add-on collects some utilities that script and/or add-on developers will find useful. </font>
     </p>
     <ul>
       <li>
-        <i>Build add-on</i>: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on.
+        <i><font size="3">Build add-on</font></i><font size="3">: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on. </font>
       </li>
       <li>
-        <i>Package add-on for release</i>: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around.
+        <i><font size="3">Package add-on for release</font></i><font size="3">: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around. </font>
       </li>
       <li>
-        <i>Generate add-on documentation</i>: Creates a snippet for the Freeplane add-ons wiki page.
+        <i><font size="3">Generate add-on documentation</font></i><font size="3">: Creates a snippet for the Freeplane add-ons wiki page. </font>
       </li>
       <li>
-        <i>Insert binary</i>: Asks for a file to insert as text of the current node&#160;(BASE64 encoded).
+        <i><font size="3">Insert binary</font></i><font size="3">: Asks for a file to insert as text of the current node&#160;(BASE64 encoded). </font>
       </li>
       <li>
-        <i>Extract binary</i>: Asks for a file to extract the BASE64 encoded binary in the current node to.
+        <i><font size="3">Extract binary</font></i><font size="3">: Asks for a file to extract the BASE64 encoded binary in the current node to. </font>
       </li>
       <li>
-        <i>Encode translation</i>: Encode non-ASCII characters so that they don't get scrambled while packaging or installation. This function is included in <i>Package add-on for release</i>&#160;so you don't need this function.
+        <i><font size="3">Encode translation</font></i><font size="3">: Encode non-ASCII characters so that they don't get scrambled while packaging or installation. This function is included in <i>Package add-on for release</i>&#160;so you don't need this function. </font>
       </li>
       <li>
-        <i>Menu item info</i>: Shows technical details about a selected menu item.
+        <i><font size="3">Menu item info</font></i><font size="3">: Shows technical details about a selected menu item. </font>
       </li>
       <li>
-        <i>freeplane.dsld</i>: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ...
+        <i><font size="3">freeplane.dsld</font></i><font size="3">: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ... </font>
       </li>
     </ul>
     <p>
-      The functions are available under Tools -&gt; Development Tools
+      <font size="3">The functions are available under Tools -&gt; Development Tools</font>
     </p>
   </body>
 </html>
@@ -346,7 +344,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 
@@ -544,7 +541,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
@@ -647,7 +643,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
@@ -666,7 +661,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1546215012841">
@@ -683,7 +677,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1546215012845"><richcontent TYPE="NOTE">
@@ -709,9 +702,8 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1460906059060">
+<node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1546724768521">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Build add-on"/>
@@ -721,9 +713,8 @@
 <attribute NAME="addons.${name}.insertBinary" VALUE="Insert Binary"/>
 <attribute NAME="addons.${name}.extractBinary" VALUE="Extract Binary"/>
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Encode translations"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Developer Tools"/>
 </node>
-<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1460906275359">
+<node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1546724772558">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Komplettiere Add-on"/>
@@ -733,9 +724,8 @@
 <attribute NAME="addons.${name}.insertBinary" VALUE="Bin\u00E4rdatei einf\u00FCgen"/>
 <attribute NAME="addons.${name}.extractBinary" VALUE="Knoten in Bin\u00E4rdatei extrahieren"/>
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Entwicklungswerkzeuge"/>
 </node>
-<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1405853018203">
+<node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1546724776569">
 <attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
 <attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Add-on opbouwen"/>
@@ -744,7 +734,6 @@
 <attribute NAME="addons.${name}.menuItemInfo" VALUE="Menu item info"/>
 <attribute NAME="addons.${name}.insertBinary" VALUE="Binary invoegen"/>
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
-<attribute NAME="main_menu_scripting/devtools" VALUE="Ontwikkeltools"/>
 </node>
 </node>
 <node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1546215012847" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
@@ -759,7 +748,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout NAME_WIDTH="38.249998860061204 pt" VALUE_WIDTH="350.9999895393851 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -811,7 +799,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="scripts" ID="ID_875490853" CREATED="1545222247205" MODIFIED="1545222247206">
 <attribute_layout VALUE_WIDTH="100.0 pt"/>
@@ -853,7 +840,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <attribute_layout VALUE_WIDTH="100.0 pt"/>
 </node>
@@ -889,7 +875,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646">
