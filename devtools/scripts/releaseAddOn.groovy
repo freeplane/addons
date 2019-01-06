@@ -36,57 +36,57 @@ errors = []
 dialogTitle = 'Create release package'
 
 def expand(Proxy.Node attributeNode, String string) {
-	// expands strings like "${name}.groovy"
-	string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = attributeNode.attributes.map[key]; v ? v : match})
+    // expands strings like "${name}.groovy"
+    string.replaceAll(/\$\{([^}]+)\}/, { match, key -> def v = attributeNode.attributes.map[key]; v ? v : match})
 }
 
 // returns the count of scripts added
 int updateScripts(Proxy.Node root) {
-	int count = 0
-	def scriptsDir = new File(root.map.file.parent, 'scripts')
+    int count = 0
+    def scriptsDir = new File(root.map.file.parent, 'scripts')
     Proxy.Node scriptsNode = root.children.find{ it.plainText == 'scripts' }
     if (!scriptsNode) {
         errors << "The root node ${root.plainText} has no 'scripts' child. Please create it or better run 'Check Add-on'"
         return 0
     }
-	scriptsNode.children.findAll{ it.plainText.matches('.*\\.\\w+') }.each {
-		File scriptFile = new File(scriptsDir, expand(root, it.plainText))
-		if (!scriptFile.exists()) {
-			errors << "Can not update scriptfile $scriptFile doesn't exist"
-		} else {
-			if (it.isLeaf())
-				it.createChild()
-			it.children.first().text = scriptFile.text
-			count++
-		}
-		it.folded = true
-	}
-	return count
+    scriptsNode.children.findAll{ it.plainText.matches('.*\\.\\w+') }.each {
+        File scriptFile = new File(scriptsDir, expand(root, it.plainText))
+        if (!scriptFile.exists()) {
+            errors << "Can not update scriptfile $scriptFile doesn't exist"
+        } else {
+            if (it.isLeaf())
+                it.createChild()
+            it.children.first().text = scriptFile.text
+            count++
+        }
+        it.folded = true
+    }
+    return count
 }
 
 // returns the count of zips added
 int updateZips(Proxy.Node root) {
-	int count = 0
-	Proxy.Node zipsNode = root.children.find{ it.plainText.matches('zips') }
-	if (!zipsNode) {
-		errors << "The root node ${root.plainText} has no 'zips' child. Please create it or better run 'Check Add-on'"
-		return count
-	}
-	def zipsDir = new File(root.map.file.parent, 'zips')
-	zipsNode.children.each {
-		String dirToZipString = expand(root, it.plainText)
-		File dirToZip = new File(zipsDir, dirToZipString)
-		if (!dirToZip.exists()) {
-			errors << "Can not update zip file: directory $dirToZip doesn't exist"
-		} else {
-			if (it.isLeaf())
-				it.createChild()
-			it.children.first().binary = getZipBytes(dirToZip)
-			count++
-		}
-		it.folded = true
-	}
-	return count
+    int count = 0
+    Proxy.Node zipsNode = root.children.find{ it.plainText.matches('zips') }
+    if (!zipsNode) {
+        errors << "The root node ${root.plainText} has no 'zips' child. Please create it or better run 'Check Add-on'"
+        return count
+    }
+    def zipsDir = new File(root.map.file.parent, 'zips')
+    zipsNode.children.each {
+        String dirToZipString = expand(root, it.plainText)
+        File dirToZip = new File(zipsDir, dirToZipString)
+        if (!dirToZip.exists()) {
+            errors << "Can not update zip file: directory $dirToZip doesn't exist"
+        } else {
+            if (it.isLeaf())
+                it.createChild()
+            it.children.first().binary = getZipBytes(dirToZip)
+            count++
+        }
+        it.folded = true
+    }
+    return count
 }
 
 // returns the count of images added
@@ -125,27 +125,27 @@ private updateBinaries(Proxy.Node root, String nodeName) {
 
 // for topDir='/a/b/c' creates a zip file whose entries' path will start with 'c/'
 byte[] getZipBytes(File topDir) {
-	def byteArrayOutputStream = new ByteArrayOutputStream()
-	ZipOutputStream zipOutput = new ZipOutputStream(byteArrayOutputStream)
+    def byteArrayOutputStream = new ByteArrayOutputStream()
+    ZipOutputStream zipOutput = new ZipOutputStream(byteArrayOutputStream)
 
     int filesAdded = 0
-	int topDirLength = topDir.parent.length() + 1
-	topDir.eachFileRecurse { file ->
-		def relative = file.absolutePath.substring(topDirLength).replace('\\', '/')
-		if (file.isDirectory() && !relative.endsWith('/')){
-			relative += "/"
-		}
-		println "adding $relative"
-		ZipEntry entry = new ZipEntry(relative)
-		entry.time = file.lastModified()
-		zipOutput.putNextEntry(entry)
-		if (file.isFile()) {
+    int topDirLength = topDir.parent.length() + 1
+    topDir.eachFileRecurse { file ->
+        def relative = file.absolutePath.substring(topDirLength).replace('\\', '/')
+        if (file.isDirectory() && !relative.endsWith('/')){
+            relative += "/"
+        }
+        println "adding $relative"
+        ZipEntry entry = new ZipEntry(relative)
+        entry.time = file.lastModified()
+        zipOutput.putNextEntry(entry)
+        if (file.isFile()) {
             def fileInputStream = new FileInputStream(file)
             zipOutput << fileInputStream
             fileInputStream.close()
-		}
+        }
         ++filesAdded
-	}
+    }
     if (filesAdded) {
         zipOutput.close()
         return byteArrayOutputStream.toByteArray()
@@ -184,7 +184,7 @@ private MapModel createReleaseMap(Proxy.Node node) {
         LogUtils.warn("can not load " + node.map.file)
         return null
     }
-	modeController.getMapController().fireMapCreated(releaseMap)
+    modeController.getMapController().fireMapCreated(releaseMap)
     return releaseMap
 }
 
@@ -226,13 +226,13 @@ private String shortenAndWrap(Collection<String> strings, int entrysize) {
 //
 def File mapFile = node.map.file
 if (!mapFile) {
-	ui.errorMessage("This map isn't saved yet - can't continue.")
-	return
+    ui.errorMessage("This map isn't saved yet - can't continue.")
+    return
 }
 def version = node.map.root['version']
 if (!version) {
-	ui.errorMessage("Missing version attribute - can't continue.")
-	return
+    ui.errorMessage("Missing version attribute - can't continue.")
+    return
 }
 if (!node.map.root.link.text) {
     ui.errorMessage("Missing homepage - can't continue.")
@@ -249,21 +249,21 @@ if (releaseMap == null)
 def counts = [:]
 try {
     def releaseMapRoot = new NodeProxy(releaseMap.rootNode, null)
-	counts.scripts = updateScripts(releaseMapRoot)
-	counts.zips = updateZips(releaseMapRoot)
-	counts.images = updateImages(releaseMapRoot)
-	counts.lib = updateLib(releaseMapRoot)
+    counts.scripts = updateScripts(releaseMapRoot)
+    counts.zips = updateZips(releaseMapRoot)
+    counts.images = updateImages(releaseMapRoot)
+    counts.lib = updateLib(releaseMapRoot)
     createLatestVersionFile(releaseMapRoot)
 } catch (Exception e) {
-	errors << e.message
-	e.printStackTrace()
+    errors << e.message
+    e.printStackTrace()
 } finally {
-	releaseMapFile.bytes = getBytes(releaseMap)
+    releaseMapFile.bytes = getBytes(releaseMap)
     logger.info("created add-on package file " + releaseMapFile)
 }
 if (errors) {
-	ui.errorMessage("Errors during release (see logfile too): \n" + shortenAndWrap(errors, 200))
-	logger.warn("Errors during release: " + shorten(errors, 3000))
+    ui.errorMessage("Errors during release (see logfile too): \n" + shortenAndWrap(errors, 200))
+    logger.warn("Errors during release: " + shorten(errors, 3000))
 }
 else {
     logger.info("Successfully created $releaseMapFile with ${counts.scripts} script(s), ${counts.images} images(s), ${counts.zips} zip and ${counts.lib} lib file(s)")
