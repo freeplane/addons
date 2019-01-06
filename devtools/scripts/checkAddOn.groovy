@@ -58,7 +58,7 @@ def createMissingAttributes(Proxy.Node node, List<String> attributes) {
     attributes.each {
         def name = (it instanceof List) ? it[0] : it
         def value = (it instanceof List) ? it[1] : ""
-        if (node.attributes.findFirst(name) == -1) {
+        if (!node.attributes.containsKey(name)) {
             node[name] = value
             addMessage("Created attribute '$name' = '$value' in '${node.plainText}'")
         }
@@ -280,10 +280,11 @@ translationsNode.note = withBody '''
       </li>
     </ul>
 '''
-if (translationsNode.isLeaf()) {
-    def en = translationsNode.createChild('en')
-    en['addons.${name}'] = addOnName
-}
+def englishTranslationsNode = findOrCreate(translationsNode, 'en', LEFT)
+createMissingAttributes(englishTranslationsNode, [
+    [ 'addons.${name}', addOnName ]
+])
+// englishTranslationsNode will be accessed later for script name translations
 
 //
 // ============ uninstall ============
@@ -304,7 +305,7 @@ if (uninstallNode.attributes.size() == 0) {
 def scriptsNode = findOrCreate(root, 'scripts', RIGHT)
 scriptsNode.note = withBody '''
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. insertInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
     </p>
@@ -312,13 +313,10 @@ scriptsNode.note = withBody '''
       * menuLocation: &lt;locationkey&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Defines where the menu location.
+      &#160;&#160;&#160;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
     </p>
     <p>
-      &#160;&#160;&#160;-&#160;See mindmapmodemenu.xml for how the menu locations look like.
-    </p>
-    <p>
-      &#160;&#160;&#160;- http://freeplane.bzr.sf.net/bzr/freeplane/freeplane_program/trunk/annotate/head%3A/freeplane/resources/xml/mindmapmodemenu.xml
+      &#160;&#160;&#160;-&#160;Use developer tool menuItemInfo to inspect menu location keys.
     </p>
     <p>
       &#160;&#160;&#160;- This attribute is mandatory
@@ -419,8 +417,8 @@ if (node.map.file != null) {
             if (filesToExclude.indexOf(fileName) == -1
                 && scriptsNode.children.find { it.text.contains(fileName) } == null)
             {
-					scriptsNode.createChild(fileName)
-			}
+                scriptsNode.createChild(fileName)
+            }
         }
     }
 }
@@ -437,7 +435,8 @@ if (scriptsNodesWithUnknownSuffixes) {
 
 scriptsNode.children.each {
     def scriptBaseName = it.plainText.replaceFirst('\\.\\w+$', '')
-    def menuTitleKey = "addons.\${name}.${scriptBaseName}"
+    def existingMenuTitleKey = it.attributes.getFirst('menuTitleKey')
+    def menuTitleKey = existingMenuTitleKey ?: "addons.\${name}.${scriptBaseName}"
     createMissingAttributes(it, [
         [ 'menuTitleKey', menuTitleKey ]
         , ['menuLocation', 'main_menu_scripting/addons.\${name}']
@@ -449,6 +448,7 @@ scriptsNode.children.each {
         , ['execute_scripts_without_exec_restriction', 'false']
         , ['execute_scripts_without_network_restriction', 'false']
     ])
+    createMissingAttributes(englishTranslationsNode, [menuTitleKey])
 }
 
 filesToUninstall.addAll(scriptsNode.children.collect { "addons/\${name}/scripts/${it.plainText}" })
