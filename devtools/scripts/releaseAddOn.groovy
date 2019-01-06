@@ -49,6 +49,11 @@ int updateScripts(Proxy.Node root) {
         errors << "The root node ${root.plainText} has no 'scripts' child. Please create it or better run 'Check Add-on'"
         return 0
     }
+    Proxy.Node englishTranslationsNode = root.children.find{ it.plainText == 'translations' }?.children?.find{ it.plainText == 'en' }
+    if (!englishTranslationsNode) {
+        errors << "There are no English translations. Please create them or better run 'Check Add-on'"
+        return 0
+    }
     scriptsNode.children.findAll{ it.plainText.matches('.*\\.\\w+') }.each {
         File scriptFile = new File(scriptsDir, expand(root, it.plainText))
         if (!scriptFile.exists()) {
@@ -60,6 +65,9 @@ int updateScripts(Proxy.Node root) {
             count++
         }
         it.folded = true
+        def menuTitleKey = it.attributes.getFirst('menuTitleKey')
+        if (!englishTranslationsNode.attributes.getFirst(menuTitleKey))
+            errors << "Missing English translation for '${menuTitleKey}'. 'Check Add-on' may help."
     }
     return count
 }
