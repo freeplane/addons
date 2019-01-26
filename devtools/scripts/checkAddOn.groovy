@@ -256,8 +256,16 @@ findOrCreate(root, 'preferences.xml', LEFT).note = withBody '''
 //
 findOrCreate(root, 'default.properties', LEFT).note = withBody '''
     <p>
-      These properties play together with the preferences: Each property defined in the preferences should have a default value in the attributes of this node.
+      These properties are used for:
     </p>
+    <ul>
+      <li>
+        Each property defined in the preferences should have a default value in the attributes of this node.
+      </li>
+      <li>
+        For each menu item with an icon add an attribute with the icon key (use developer tool menuItemInfo) as key and the icon path as value. Example: '${name}.icon': '/images/${name}-icon.png'
+      </li>
+    </ul>
 '''
 
 //
