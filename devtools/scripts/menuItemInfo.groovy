@@ -58,6 +58,7 @@ if (menuEntry != null) {
     def displayMessage = """
 Menu item: $menuEntry
 Key: ${menuEntry.key}
+Icon Key: ${menuEntry.iconKey}
 Command line option (copied to clipboard): -X${menuEntry.key}
 Path: ${menuPath}
 Shortcut: ${ui.keyStrokeToString(menuEntry.keyStroke)}
