@@ -1,9 +1,9 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Pack &apos;n Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1549844234330" LINK="https://sourceforge.net/projects/freeplane/files/addons/packAndGo/" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Pack &apos;n Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1549844465722" LINK="https://sourceforge.net/projects/freeplane/files/addons/packAndGo/" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -150,8 +150,9 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
-<node TEXT="description" POSITION="left" ID="ID_952130767" CREATED="1329845648096" MODIFIED="1450729929048"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="left" ID="ID_952130767" CREATED="1329845648096" MODIFIED="1549844465754"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -169,10 +170,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="Pack and Go provides a function to pack a map with all its dependencies into one zip file." ID="ID_611222763" CREATED="1329847323523" MODIFIED="1329847430461"/>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_1862116628" CREATED="1329845648140" MODIFIED="1450729929054"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="left" ID="ID_1862116628" CREATED="1329845648140" MODIFIED="1549844465758"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -184,6 +186,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="v0.1" FOLDED="true" ID="ID_204002014" CREATED="1329935618318" MODIFIED="1329935625842">
 <node TEXT="initial release" ID="ID_473183113" CREATED="1329935626944" MODIFIED="1329935630724"/>
@@ -206,7 +209,7 @@
 <node TEXT="rename to avoid translation problems with ampersand" ID="ID_1215813770" CREATED="1549844328016" MODIFIED="1549844363313"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1450729929060"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1549844465760"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -224,10 +227,11 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1392544058" CREATED="1329845648172" MODIFIED="1329845648173"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1747749272" CREATED="1329845648198" MODIFIED="1450729929067"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="left" ID="ID_1747749272" CREATED="1329845648198" MODIFIED="1549844465763"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -242,9 +246,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1549824678721"><richcontent TYPE="NOTE">
+<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1549844465766"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -252,14 +257,23 @@
   </head>
   <body>
     <p>
-      These properties play together with the preferences: Each property defined in the preferences should have a default value in the attributes of this node.
+      These properties are used for:
     </p>
+    <ul>
+      <li>
+        Each property defined in the preferences should have a default value in the attributes of this node.
+      </li>
+      <li>
+        For each menu item with an icon add an attribute with the icon key (use developer tool menuItemInfo) as key and the icon path as value. Example: '${name}.icon': '/images/${name}-icon.png'
+      </li>
+    </ul>
   </body>
 </html>
+
 </richcontent>
 <attribute NAME="addons.packAndGo_on_single_node.icon" VALUE="/images/packAndGo-icon.png"/>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_595866025" CREATED="1329845648220" MODIFIED="1450729929081"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="left" ID="ID_595866025" CREATED="1329845648220" MODIFIED="1549844465769"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -282,6 +296,7 @@
     </ul>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="en" ID="ID_415116147" CREATED="1329845648231" MODIFIED="1549844076061">
 <attribute NAME="addons.${name}" VALUE="Pack &apos;n Go"/>
@@ -290,7 +305,7 @@
 <attribute NAME="addons.${name}" VALUE="Pack &apos;n Go"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_1581740825" CREATED="1329845648270" MODIFIED="1450731139525"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_1581740825" CREATED="1329845648270" MODIFIED="1549844465774"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -302,6 +317,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="36.72000140075689 pt" VALUE_WIDTH="317.5200121124272 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
@@ -310,7 +326,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/packAndGo-screenshot-1.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/packAndGo.groovy"/>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_1887702609" CREATED="1329845648312" MODIFIED="1450729929107"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_1887702609" CREATED="1329845648312" MODIFIED="1549844465781"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -318,7 +334,7 @@
   </head>
   <body>
     <p>
-      An add-on may contain multiple scripts. The node text defines the script name (e.g. inserInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
+      An add-on may contain multiple scripts. The node text defines the script name (e.g. insertInlineImage.groovy). The name must have a suffix of a supported script language like .groovy or .js and may only consist of letters and digits. The script properties have to be configured via attributes:
     </p>
     <p>
       
@@ -327,13 +343,10 @@
       * menuLocation: &lt;locationkey&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Defines where the menu location.
+      &#160;&#160;&#160;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
     </p>
     <p>
-      &#160;&#160;&#160;-&#160;See mindmapmodemenu.xml for how the menu locations look like.
-    </p>
-    <p>
-      &#160;&#160;&#160;- http://freeplane.bzr.sf.net/bzr/freeplane/freeplane_program/trunk/annotate/head%3A/freeplane/resources/xml/mindmapmodemenu.xml
+      &#160;&#160;&#160;-&#160;Use developer tool menuItemInfo to inspect menu location keys.
     </p>
     <p>
       &#160;&#160;&#160;- This attribute is mandatory
@@ -430,6 +443,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="packAndGo.groovy" ID="ID_323069032" CREATED="1329845923536" MODIFIED="1329847710801">
 <attribute_layout NAME_WIDTH="192.96000736084014 pt" VALUE_WIDTH="192.96000736084014 pt"/>
@@ -444,7 +458,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_139231412" CREATED="1329845648349" MODIFIED="1450729929198"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_139231412" CREATED="1329845648349" MODIFIED="1549844465814"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -480,9 +494,10 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_40703410" CREATED="1329845648371" MODIFIED="1450729929208"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_40703410" CREATED="1329845648371" MODIFIED="1549844465818"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -514,11 +529,12 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="packAndGo-icon.png" ID="ID_1362932968" CREATED="1330623574964" MODIFIED="1330623574964"/>
 <node TEXT="packAndGo-screenshot-1.png" ID="ID_183902495" CREATED="1330623574964" MODIFIED="1330623687988"/>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_553709855" CREATED="1450729929156" MODIFIED="1450729929184"><richcontent TYPE="NOTE">
+<node TEXT="lib" POSITION="right" ID="ID_553709855" CREATED="1450729929156" MODIFIED="1549844465811"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -554,6 +570,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 </node>
