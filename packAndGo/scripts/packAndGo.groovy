@@ -36,16 +36,13 @@ private MapModel loadMap(URL url) {
     final ModeController modeController = Controller.getCurrentController().getModeController(MModeController.MODENAME)
     final MFileManager fileManager = (MFileManager) MFileManager.getController(modeController)
     MapModel newMap
-    if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.2.12'))) {
-        newMap = modeController.getMapController().newModel(null);
-        // ugly - no check possible
-        fileManager.loadImpl(url, newMap)
-    }
-    else {
+    if (c.freeplaneVersion.isOlderThan(FreeplaneVersion.getVersion('1.7.0'))) {
         newMap = new MMapModel();
         if (!fileManager.loadImpl(url, newMap)) {
             return null
         }
+    } else {
+        newMap = c.load(url).getMap().delegate
     }
     return newMap
 }

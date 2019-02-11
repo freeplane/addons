@@ -1,17 +1,21 @@
-<map version="freeplane 1.3.0">
+<map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Pack &amp; Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1450731369210" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/packAndGo/">
+<node TEXT="Pack &apos;n Go" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1549844234330" LINK="https://sourceforge.net/projects/freeplane/files/addons/packAndGo/" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node">
-<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
-<stylenode LOCALIZED_TEXT="default" COLOR="#000000" STYLE="fork" MAX_WIDTH="600">
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="default" COLOR="#000000" STYLE="fork" MAX_WIDTH="600.0 px">
 <font NAME="SansSerif" SIZE="12" BOLD="false" ITALIC="false"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="9"/>
+</stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.note"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.floating">
 <edge STYLE="hide_edge"/>
@@ -80,7 +84,7 @@
 <font NAME="Liberation Sans" SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000">
 <font SIZE="20"/>
 </stylenode>
@@ -97,18 +101,18 @@
 <font SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
 <stylenode TEXT="red" COLOR="#ff0300"/>
 <stylenode TEXT="green" COLOR="#00cd00"/>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
-<attribute_layout NAME_WIDTH="149" VALUE_WIDTH="108"/>
+<attribute_layout NAME_WIDTH="107.28000409240738 pt" VALUE_WIDTH="77.7600029663087 pt"/>
 <attribute NAME="name" VALUE="packAndGo"/>
-<attribute NAME="version" VALUE="v0.5"/>
+<attribute NAME="version" VALUE="v1.0"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="1.2.11"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="v1.7.2" OBJECT="org.freeplane.features.format.FormattedObject|java.lang.String&amp;#x7c;v1.7.2|date:date:yyyy-MM-dd"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -146,7 +150,6 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="description" POSITION="left" ID="ID_952130767" CREATED="1329845648096" MODIFIED="1450729929048"><richcontent TYPE="NOTE">
 
@@ -166,7 +169,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="Pack and Go provides a function to pack a map with all its dependencies into one zip file." ID="ID_611222763" CREATED="1329847323523" MODIFIED="1329847430461"/>
 </node>
@@ -182,7 +184,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="v0.1" FOLDED="true" ID="ID_204002014" CREATED="1329935618318" MODIFIED="1329935625842">
 <node TEXT="initial release" ID="ID_473183113" CREATED="1329935626944" MODIFIED="1329935630724"/>
@@ -196,8 +197,13 @@
 <node TEXT="v0.4" FOLDED="true" ID="ID_187731644" CREATED="1330623275097" MODIFIED="1330623280921">
 <node TEXT="Added great icons from Predrag Cuklin - thanks!" ID="ID_65873411" CREATED="1330623282238" MODIFIED="1330623316683"/>
 </node>
-<node TEXT="v0.5" ID="ID_505302355" CREATED="1450731153904" MODIFIED="1450731159364">
+<node TEXT="v0.5" FOLDED="true" ID="ID_505302355" CREATED="1450731153904" MODIFIED="1450731159364">
 <node TEXT="add homepage" ID="ID_978981560" CREATED="1450731162101" MODIFIED="1450731174076"/>
+</node>
+<node TEXT="v1.0" ID="ID_405796738" CREATED="1549816617804" MODIFIED="1549816627288">
+<node TEXT="Freeplane 1.7 compatibility" ID="ID_649380307" CREATED="1549816628327" MODIFIED="1549816644116"/>
+<node TEXT="set menu icon" ID="ID_1155208622" CREATED="1549843204476" MODIFIED="1549843225585"/>
+<node TEXT="rename to avoid translation problems with ampersand" ID="ID_1215813770" CREATED="1549844328016" MODIFIED="1549844363313"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_795412324" CREATED="1329845648147" MODIFIED="1450729929060"><richcontent TYPE="NOTE">
@@ -218,7 +224,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="&#xa;This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&#xa0;&#xa0;See the&#xa;GNU General Public License for more details.&#xa;" ID="ID_1392544058" CREATED="1329845648172" MODIFIED="1329845648173"/>
 </node>
@@ -237,10 +242,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1450729929071"><richcontent TYPE="NOTE">
+<node TEXT="default.properties" POSITION="left" ID="ID_1101678417" CREATED="1329845648209" MODIFIED="1549824678721"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -252,8 +256,8 @@
     </p>
   </body>
 </html>
-
 </richcontent>
+<attribute NAME="addons.packAndGo_on_single_node.icon" VALUE="/images/packAndGo-icon.png"/>
 </node>
 <node TEXT="translations" POSITION="left" ID="ID_595866025" CREATED="1329845648220" MODIFIED="1450729929081"><richcontent TYPE="NOTE">
 
@@ -278,13 +282,12 @@
     </ul>
   </body>
 </html>
-
 </richcontent>
-<node TEXT="en" ID="ID_415116147" CREATED="1329845648231" MODIFIED="1329857835110">
-<attribute NAME="addons.${name}" VALUE="Pack &amp; Go"/>
+<node TEXT="en" ID="ID_415116147" CREATED="1329845648231" MODIFIED="1549844076061">
+<attribute NAME="addons.${name}" VALUE="Pack &apos;n Go"/>
 </node>
-<node TEXT="de" ID="ID_1425604023" CREATED="1329845648231" MODIFIED="1329857843375">
-<attribute NAME="addons.${name}" VALUE="Pack &amp; Go"/>
+<node TEXT="de" ID="ID_1425604023" CREATED="1329845648231" MODIFIED="1549844069123">
+<attribute NAME="addons.${name}" VALUE="Pack &apos;n Go"/>
 </node>
 </node>
 <node TEXT="deinstall" POSITION="left" ID="ID_1581740825" CREATED="1329845648270" MODIFIED="1450731139525"><richcontent TYPE="NOTE">
@@ -299,9 +302,8 @@
     </p>
   </body>
 </html>
-
 </richcontent>
-<attribute_layout NAME_WIDTH="51" VALUE_WIDTH="441"/>
+<attribute_layout NAME_WIDTH="36.72000140075689 pt" VALUE_WIDTH="317.5200121124272 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/packAndGo.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/packAndGo-icon.png"/>
@@ -428,10 +430,9 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="packAndGo.groovy" ID="ID_323069032" CREATED="1329845923536" MODIFIED="1329847710801">
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="192.96000736084014 pt" VALUE_WIDTH="192.96000736084014 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}"/>
 <attribute NAME="menuLocation" VALUE="/menu_bar/file"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -479,7 +480,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="images" POSITION="right" ID="ID_40703410" CREATED="1329845648371" MODIFIED="1450729929208"><richcontent TYPE="NOTE">
@@ -514,7 +514,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="packAndGo-icon.png" ID="ID_1362932968" CREATED="1330623574964" MODIFIED="1330623574964"/>
 <node TEXT="packAndGo-screenshot-1.png" ID="ID_183902495" CREATED="1330623574964" MODIFIED="1330623687988"/>
@@ -555,7 +554,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
