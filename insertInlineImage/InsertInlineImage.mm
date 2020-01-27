@@ -108,7 +108,7 @@
 <attribute NAME="name" VALUE="insertInlineImage"/>
 <attribute NAME="version" VALUE="v1.0"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers, Rickenbroc"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="1.2.10"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="1.8.0"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">

@@ -11,6 +11,7 @@ import groovy.beans.Bindable
 import java.awt.FlowLayout as FL
 
 import javax.swing.BoxLayout as BXL
+import javax.swing.Icon
 import javax.swing.ImageIcon
 import javax.swing.JFileChooser
 import javax.swing.SwingUtilities
@@ -84,8 +85,8 @@ MyImage currentImage = new MyImage()
 
 def locationMap = [1:'text',2:'details',3:'note',4:'imagePlaceHolder']
 
-def ImageIcon getIcon(String path) {
-new ImageIcon(ResourceController.getResourceController().getResource(path))
+def Icon getIcon(String path) {
+ResourceController.getResourceController().getIcon(path)
 }
 
 
@@ -260,7 +261,7 @@ previewPane.visible = true
 logger.warn("invalid image file", e)
 }
 }
-}, icon:getIcon("/images/fileopen.png"))
+}, icon:getIcon("/images/fileopen.svg"))
 }
 
 /*
