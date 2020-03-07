@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
-<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1403110421578" BACKGROUND_COLOR="#97c7dc" LINK="http://freeplane.sourceforge.net/addons/insertInlineImage">
+<!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1403110421578" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/insertInlineImage">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true"/>
@@ -106,7 +106,7 @@
 </hook>
 <attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
 <attribute NAME="name" VALUE="insertInlineImage"/>
-<attribute NAME="version" VALUE="v1.0"/>
+<attribute NAME="version" VALUE="v1.1"/>
 <attribute NAME="author" VALUE="Volker B&#xf6;rchers, Rickenbroc"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="1.8.0"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
@@ -207,6 +207,9 @@
 </node>
 <node TEXT="v1.0" ID="ID_763858700" CREATED="1403107287421" MODIFIED="1403107294359">
 <node TEXT="by Rickenbroc&#xa;- correction of a bug with relative paths&#xa;- new : if the path of an image is copied in the clipboard, the image is previewed at the add-on launch&#xa;New icon from Alexander Moore (http://www.famfamfam.com)" ID="ID_1231279373" CREATED="1403107294375" MODIFIED="1403112339656"/>
+</node>
+<node TEXT="v1.1" ID="ID_763858398">
+<node TEXT="by Dimitry&#xa;- fix for Freeplane 1.8.x" ID="ID_1231279373" CREATED="1403107294375" MODIFIED="1403112339656"/>
 </node>
 </node>
 <node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1403110421640" HGAP="60" VSHIFT="40"><richcontent TYPE="NOTE">
