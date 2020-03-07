@@ -215,7 +215,7 @@ boxLayout(axis:BXL.Y_AXIS)
 */
 panel(alignmentX:0f) {
 flowLayout(alignment:FL.LEFT)
-comboBox(id: 'cb', items: urlList, visible:(urlList.size>1), actionPerformed:{
+comboBox(id: 'cb', items: urlList, visible:(urlList.size()>1), actionPerformed:{
 currentImage.imgFromUrl(findAbsolutePath(cb.selectedItem))
 //logger.info("url image : "+findAbsolutePath(cb.selectedItem))
 getImageDimensions(currentImage.curImg)
