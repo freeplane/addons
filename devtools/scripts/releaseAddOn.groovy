@@ -16,6 +16,7 @@
 import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
+import java.nio.charset.StandardCharsets
 
 import javax.swing.JOptionPane
 
@@ -169,7 +170,7 @@ private byte[] getBytes(MapModel map) {
     BufferedWriter out = new BufferedWriter(stringWriter)
     Controller.getCurrentModeController().getMapController().getMapWriter()
         .writeMapAsXml(map, out, Mode.FILE, true, false)
-    return stringWriter.buffer.toString().bytes
+    return stringWriter.buffer.toString().getBytes(StandardCharsets.UTF_8)
 }
 
 private boolean saveOrCancel() {
