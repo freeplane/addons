@@ -1,9 +1,9 @@
-<map version="freeplane 1.7.0">
+<map version="freeplane 1.8.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1548536233412" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -117,8 +117,8 @@
 </hook>
 <attribute_layout NAME_WIDTH="95.99999713897714 pt" VALUE_WIDTH="95.99999713897714 pt"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.25"/>
-<attribute NAME="author" VALUE="Volker B&#xf6;rchers"/>
+<attribute NAME="version" VALUE="v0.9.26"/>
+<attribute NAME="author" VALUE="Volker Börchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.7.4"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
@@ -622,11 +622,14 @@
 </node>
 <node TEXT="#2642 Devtools creates wrong menuTitleKey for scripts" ID="ID_1374600909" CREATED="1548536422939" MODIFIED="1548536425085"/>
 </node>
-<node TEXT="v0.9.25" ID="ID_1823309527" CREATED="1545222338001" MODIFIED="1548536445091">
+<node TEXT="v0.9.25" FOLDED="true" ID="ID_1823309527" CREATED="1545222338001" MODIFIED="1548536445091">
 <attribute_layout VALUE_WIDTH="100.0 pt"/>
 <node TEXT="#2643 Devtools does not display its add-on name in menu" ID="ID_1184303114" CREATED="1548536744615" MODIFIED="1548536766123"/>
 <node TEXT="#2464 test for missing English translations for scripts" ID="ID_1596709901" CREATED="1548536589892" MODIFIED="1548536627896"/>
 <node TEXT="Set icon for devtools sub menu" ID="ID_265129237" CREATED="1548533999679" MODIFIED="1548534026969"/>
+</node>
+<node TEXT="v0.9.26" FOLDED="true" ID="ID_497897109" CREATED="1593032987738" MODIFIED="1593032997005">
+<node TEXT="Fix for #2798 : Menu Item Info error" ID="ID_1640195555" CREATED="1593033040682" MODIFIED="1593033857920"/>
 </node>
 </node>
 <node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1548535421625"><richcontent TYPE="NOTE">
