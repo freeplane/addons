@@ -1,17 +1,21 @@
-<map version="freeplane 1.3.0">
-<!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1403110421578" BACKGROUND_COLOR="#97c7dc" LINK="https://sourceforge.net/projects/freeplane/files/addons/insertInlineImage">
+<map version="freeplane 1.8.0">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<node TEXT="Insert Inline Image" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1598703942524" LINK="https://sourceforge.net/projects/freeplane/files/addons/insertInlineImage" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node">
-<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="default" COLOR="#000000" STYLE="fork">
 <font NAME="SansSerif" SIZE="12" BOLD="false" ITALIC="false"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="9"/>
+</stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.note"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.floating">
 <edge STYLE="hide_edge"/>
@@ -80,7 +84,7 @@
 <font NAME="Liberation Sans" SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000">
 <font SIZE="20"/>
 </stylenode>
@@ -97,18 +101,18 @@
 <font SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
 <stylenode TEXT="red" COLOR="#ff0300"/>
 <stylenode TEXT="green" COLOR="#00cd00"/>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
-<attribute_layout NAME_WIDTH="128" VALUE_WIDTH="128"/>
+<attribute_layout NAME_WIDTH="58.70063622953772 pt" VALUE_WIDTH="58.70063622953772 pt"/>
 <attribute NAME="name" VALUE="insertInlineImage"/>
-<attribute NAME="version" VALUE="v1.1"/>
-<attribute NAME="author" VALUE="Volker B&#xf6;rchers, Rickenbroc"/>
-<attribute NAME="freeplaneVersionFrom" VALUE="1.8.0"/>
+<attribute NAME="version" VALUE="v1.2"/>
+<attribute NAME="author" VALUE="Volker Börchers, Rickenbroc"/>
+<attribute NAME="freeplaneVersionFrom" VALUE="1.8.6"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
 <richcontent TYPE="NOTE">
@@ -166,7 +170,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="This add-on is a convenient mean to add images on the fly in your maps. The images can come from :&#xa;- a file from your computer,&#xa;- the clipboard : image file path or a copy (like a screenshot),&#xa;- an url from the internet.&#xa;&#xa;You can resize the display (with a preview pane) and put it in :&#xa;- node core&#xa;- node details&#xa;- note&#xa;- node extension&#xa;&#xa;You can even decorate the image inserted with a link which point wherever you would want." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1403110633984" BACKGROUND_COLOR="#ffff75" HGAP="-430" VSHIFT="-94">
+<node TEXT="This add-on is a convenient mean to add images on the fly in your maps. The images can come from :&#xa;- a file from your computer,&#xa;- the clipboard : image file path or a copy (like a screenshot),&#xa;- an url from the internet.&#xa;&#xa;You can resize the display (with a preview pane) and put it in :&#xa;- node core&#xa;- node details&#xa;- note&#xa;- node extension&#xa;&#xa;You can even decorate the image inserted with a link which point wherever you would want." ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1403110633984" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-430.0 px" VSHIFT_QUANTITY="-94.0 px">
 <font SIZE="16"/>
 </node>
 </node>
@@ -208,11 +212,14 @@
 <node TEXT="v1.0" ID="ID_763858700" CREATED="1403107287421" MODIFIED="1403107294359">
 <node TEXT="by Rickenbroc&#xa;- correction of a bug with relative paths&#xa;- new : if the path of an image is copied in the clipboard, the image is previewed at the add-on launch&#xa;New icon from Alexander Moore (http://www.famfamfam.com)" ID="ID_1231279373" CREATED="1403107294375" MODIFIED="1403112339656"/>
 </node>
-<node TEXT="v1.1" ID="ID_763858398">
-<node TEXT="by Dimitry&#xa;- fix for Freeplane 1.8.x" ID="ID_1231279373" CREATED="1403107294375" MODIFIED="1403112339656"/>
+<node TEXT="v1.1" ID="ID_763858398" CREATED="1598703774880" MODIFIED="1598703774880">
+<node TEXT="by Dimitry&#xa;- fix for Freeplane 1.8.x" ID="ID_729493465" CREATED="1403107294375" MODIFIED="1403112339656"/>
+</node>
+<node TEXT="v1.2" ID="ID_1973009499" CREATED="1598703774880" MODIFIED="1598703935161">
+<node TEXT="by Dimitry&#xa;- fix for Freeplane 1.8.x" ID="ID_1580989474" CREATED="1403107294375" MODIFIED="1403112339656"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1403110421640" HGAP="60" VSHIFT="40"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1403110421640" HGAP_QUANTITY="60.0 px" VSHIFT_QUANTITY="40.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -333,7 +340,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1403111258437"><richcontent TYPE="NOTE">
+<node TEXT="${name}.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1598703913191"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -352,9 +359,9 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="268" VALUE_WIDTH="268"/>
+<attribute_layout NAME_WIDTH="122.9044571055946 pt" VALUE_WIDTH="122.9044571055946 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}"/>
-<attribute NAME="menuLocation" VALUE="/menu_bar/edit/menu_extensions"/>
+<attribute NAME="menuLocation" VALUE="/main_menu/insert/menu_image"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
 <attribute NAME="keyboardShortcut" VALUE="control shift I"/>
 <attribute NAME="execute_scripts_without_asking" VALUE="true"/>
@@ -403,7 +410,7 @@
 </richcontent>
 </node>
 <node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1403110421625">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute_layout NAME_WIDTH="84.84076330050374 pt" VALUE_WIDTH="84.84076330050374 pt"/>
 <richcontent TYPE="NOTE">
 
 <html>
@@ -443,22 +450,22 @@
 </html>
 </richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1319485185475">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="185"/>
+<attribute_layout NAME_WIDTH="84.84076330050374 pt" VALUE_WIDTH="84.84076330050374 pt"/>
 <attribute NAME="addons.${name}" VALUE="Insert Inline Image"/>
 <attribute NAME="addons.${name}.url.invalid" VALUE="Invalid URL"/>
 </node>
 <node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1319485179345">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="343"/>
-<attribute NAME="addons.${name}" VALUE="Inline-Grafik einf&#xfc;gen"/>
-<attribute NAME="addons.${name}.url.invalid" VALUE="Ung&#xfc;ltige URL"/>
+<attribute_layout NAME_WIDTH="84.84076330050374 pt" VALUE_WIDTH="157.29936114633935 pt"/>
+<attribute NAME="addons.${name}" VALUE="Inline-Grafik einfügen"/>
+<attribute NAME="addons.${name}.url.invalid" VALUE="Ungültige URL"/>
 </node>
 <node TEXT="fr" ID="ID_1247799679" CREATED="1313166602328" MODIFIED="1371747210546">
-<attribute_layout NAME_WIDTH="185" VALUE_WIDTH="343"/>
-<attribute NAME="addons.${name}" VALUE="Image &#xe0; la vol&#xe9;e"/>
+<attribute_layout NAME_WIDTH="84.84076330050374 pt" VALUE_WIDTH="157.29936114633935 pt"/>
+<attribute NAME="addons.${name}" VALUE="Image à la volée"/>
 <attribute NAME="addons.${name}.url.invalid" VALUE="URL invalide"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1403111592015" HGAP="50" VSHIFT="-100"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1403111592015" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -471,7 +478,7 @@
   </body>
 </html>
 </richcontent>
-<attribute_layout NAME_WIDTH="40" VALUE_WIDTH="446"/>
+<attribute_layout NAME_WIDTH="18.34394882173054 pt" VALUE_WIDTH="204.5350293622955 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml "/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/${name}.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/insertInlineImage.png"/>
@@ -479,7 +486,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/insertInlineImage-screenshot-1.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/${name}.groovy"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1403110985625" HGAP="60" VSHIFT="-30"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1403110985625" HGAP_QUANTITY="60.0 px" VSHIFT_QUANTITY="-30.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
@@ -517,7 +524,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1403110985640" HGAP="50" VSHIFT="-240"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1403110985640" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-240.0 px"><richcontent TYPE="NOTE">
 
 <html>
   <head>
