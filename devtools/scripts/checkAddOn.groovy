@@ -417,15 +417,22 @@ scriptsNode.note = withBody '''
     </p>
 '''
 if (node.map.file != null) {
-    def filesToExclude = ['.classpath', '.project', 'freeplane.dsld']
-    def scriptsDir = new File(node.map.file.parent, 'scripts')
-    if (scriptsDir.exists()) {
-        scriptsDir.eachFile(FileType.FILES) { file ->
-            def fileName = file.name
-            if (filesToExclude.indexOf(fileName) == -1
-                && scriptsNode.children.find { it.text.contains(fileName) } == null)
-            {
-                scriptsNode.createChild(fileName)
+    def filesToExclude = ['.classpath', '.project', 'freeplane.dsld', 'freeplane.gdsl']
+    def scriptsDirs = []
+    scriptsDirs << new File(node.map.file.parent, 'scripts')
+    // includes scripts locations in case of Gradle plugin
+    if (node.map.file.parentFile.parentFile.name == 'src') {
+        scriptsDirs << new File(node.map.file.parentFile.parent, 'scripts')
+    }
+    scriptsDirs.each {
+        if (it.exists()) {
+            it.eachFileRecurse(FileType.FILES) { file ->
+                def fileName = file.name
+                if (filesToExclude.indexOf(fileName) == -1
+                    && scriptsNode.children.find { it.text.contains(fileName) } == null)
+                {
+                    scriptsNode.createChild(fileName)
+                }
             }
         }
     }
