@@ -421,9 +421,13 @@ if (node.map.file != null) {
     def scriptsDirs = []
     scriptsDirs << new File(node.map.file.parent, 'scripts')
     // includes scripts locations in case of Gradle plugin
-    if (node.map.file.parentFile.parentFile.name == 'src') {
-        scriptsDirs << new File(node.map.file.parentFile.parent, 'scripts')
-    }
+	try {
+	    if (node.map.file.parentFile.parentFile.name == 'src') {
+	        scriptsDirs << new File(node.map.file.parentFile.parent, 'scripts')
+	    }
+	} catch (Exception e) {
+		logger.warn('Why do you store your add-on definition mind map in a root directory?\n', e)
+	}
     scriptsDirs.each {
         if (it.exists()) {
             it.eachFileRecurse(FileType.FILES) { file ->
