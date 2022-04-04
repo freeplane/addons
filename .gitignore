@@ -1,9 +1,14 @@
 *-v[0-9]*.mm
 *.bak
+.classpath
+.gitignore
+.gradle
+.groovy
+.project
+.settings
 addons.zip
 bin
+commitmessage.txt
 packAndGo/*.zip
 packAndGo/test/zipMap.zip
-.groovy
 version.properties
-.settings/org.eclipse.jdt.groovy.core.prefs
