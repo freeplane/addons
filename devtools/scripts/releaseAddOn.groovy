@@ -207,11 +207,14 @@ private createLatestVersionFile(Proxy.Node releaseMapRoot) {
     def file = new File(mapFile.parent, "version.properties")
     def version = releaseMapRoot['version']
     def freeplaneVersionFrom = releaseMapRoot['freeplaneVersionFrom']
-    def homepage = toUrl(releaseMapRoot, releaseMapRoot.link.text)
-    def releaseMapFileName = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm").name
-    def downloadFile = new File(homepage.path, releaseMapFileName)
-    def downloadFilePath = downloadFile.path.replace(File.separator, '/')
-    def downloadUrl = new URL(homepage.protocol, homepage.host, homepage.port, downloadFilePath)
+    def downloadUrl = toUrl(releaseMapRoot, releaseMapRoot['downloadUrl']?.text)
+    if(downloadUrl == null) {
+        def homepage = toUrl(releaseMapRoot, releaseMapRoot.link.text)
+        def releaseMapFileName = new File(mapFile.path.replaceFirst("(\\.addon)?\\.mm", "") + "-${version}.addon.mm").name
+        def downloadFile = new File(homepage.path, releaseMapFileName)
+        def downloadFilePath = downloadFile.path.replace(File.separator, '/')
+        downloadUrl = new URL(homepage.protocol, homepage.host, homepage.port, downloadFilePath)
+    }
     file.text = """version=${version}
 downloadUrl=${downloadUrl}
 freeplaneVersionFrom=${freeplaneVersionFrom}
