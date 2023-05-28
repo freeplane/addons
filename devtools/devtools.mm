@@ -1,14 +1,14 @@
-<map version="freeplane 1.8.0">
-<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1548536233412" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
+<map version="freeplane 1.11.1">
+<!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1685276972955" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
-<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
 <font SIZE="24"/>
-<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="bottom_or_right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="default"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
 <stylenode LOCALIZED_TEXT="defaultstyle.attributes">
@@ -19,7 +19,9 @@
 <edge STYLE="hide_edge"/>
 <cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
 </stylenode>
-<stylenode LOCALIZED_TEXT="default" COLOR="#000000" STYLE="fork">
+<stylenode LOCALIZED_TEXT="defaultstyle.selection" BACKGROUND_COLOR="#4e85f8" BORDER_COLOR_LIKE_EDGE="false" BORDER_COLOR="#4e85f8"/>
+<stylenode LOCALIZED_TEXT="default" ID="ID_934923629" COLOR="#000000" STYLE="fork">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" DASH="" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_934923629" STARTARROW="NONE" ENDARROW="DEFAULT"/>
 <font NAME="SansSerif" SIZE="12" BOLD="false" ITALIC="false"/>
 </stylenode>
 <stylenode LOCALIZED_TEXT="defaultstyle.details"/>
@@ -91,7 +93,7 @@
 <font NAME="Liberation Sans" SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="bottom_or_right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000">
 <font SIZE="20"/>
 </stylenode>
@@ -108,22 +110,22 @@
 <font SIZE="12"/>
 </stylenode>
 </stylenode>
-<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="bottom_or_right" STYLE="bubble">
 <stylenode TEXT="red" COLOR="#ff0300"/>
 <stylenode TEXT="green" COLOR="#00cd00"/>
 </stylenode>
 </stylenode>
 </map_styles>
 </hook>
-<attribute_layout NAME_WIDTH="95.99999713897714 pt" VALUE_WIDTH="95.99999713897714 pt"/>
+<attribute_layout NAME_WIDTH="96 pt" VALUE_WIDTH="96 pt"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.26"/>
+<attribute NAME="version" VALUE="v0.9.27"/>
 <attribute NAME="author" VALUE="Volker Börchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.7.4"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
-<richcontent TYPE="NOTE">
-
+<attribute NAME="downloadUrl" VALUE=""/>
+<richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -156,10 +158,8 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
-<node TEXT="description" POSITION="left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1548535421619"><richcontent TYPE="NOTE">
-
+</html></richcontent>
+<node TEXT="description" POSITION="top_or_left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1548535421619"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -175,10 +175,9 @@
       To translate the description you have to define a translation for the key 'addons.${name}.description'.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
-<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1546724580355" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482.0 px" VSHIFT_QUANTITY="-152.0 px"><richcontent TYPE="NODE">
+</html></richcontent>
+<attribute_layout VALUE_WIDTH="100 pt"/>
+<node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1546724580355" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482 px" VSHIFT_QUANTITY="-152 px"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -221,11 +220,10 @@
 </html>
 </richcontent>
 <font SIZE="16"/>
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1548535421643" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-10.0 px"><richcontent TYPE="NOTE">
-
+<node TEXT="scripts" POSITION="bottom_or_right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1548535421643" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-10 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -340,10 +338,8 @@
       &#160;&#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
   </body>
-</html>
-</richcontent>
-<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
-
+</html></richcontent>
+<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -365,9 +361,8 @@
       &#160;- Tools-&gt;Scripts-&gt;Dev Tools-&gt;Check Add-on
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.checkAddOn"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -378,8 +373,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225"><richcontent TYPE="NOTE">
-
+<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -404,9 +398,8 @@
       Zips are generated from directories or files residing in a subdirectory 'zips' of the parent directory of the current map.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.releaseAddOn"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -417,8 +410,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1323993328104"><richcontent TYPE="NOTE">
-
+<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1323993328104"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -428,9 +420,8 @@
       Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.addOnDoc"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -441,8 +432,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1324456004959"><richcontent TYPE="NOTE">
-
+<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1324456004959"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -452,9 +442,8 @@
       Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.menuItemInfo"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -465,8 +454,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE">
-
+<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -476,9 +464,8 @@
       Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.insertBinary"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -489,8 +476,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE">
-
+<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -500,9 +486,8 @@
       Asks for a file and sets the current node's text to the BASE64 encoded content of the file.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="200.99999400973337 pt" VALUE_WIDTH="200.99999400973337 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="200.99999 pt" VALUE_WIDTH="200.99999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.extractBinary"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -514,7 +499,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 <node TEXT="encodeTranslations.groovy" ID="ID_699413298" CREATED="1390064741916" MODIFIED="1390064775019">
-<attribute_layout NAME_WIDTH="209.24999376386424 pt" VALUE_WIDTH="192.74999425560253 pt"/>
+<attribute_layout NAME_WIDTH="209.24999 pt" VALUE_WIDTH="192.74999 pt"/>
 <attribute NAME="menuTitleKey" VALUE="addons.${name}.encodeTranslations"/>
 <attribute NAME="menuLocation" VALUE="main_menu_scripting/devtools"/>
 <attribute NAME="executionMode" VALUE="on_single_node"/>
@@ -526,8 +511,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" POSITION="left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1548535421622"><richcontent TYPE="NOTE">
-
+<node TEXT="changes" POSITION="top_or_left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1548535421622"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -537,8 +521,7 @@
       Change log of this add-on: append one node for each noteworthy version and put the details for each version into a child node.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
 </node>
@@ -593,12 +576,12 @@
 <node TEXT="Fix bug in checkAddOn.groovy that prevented uninstall node from being updated." ID="ID_1125811540" CREATED="1404459375469" MODIFIED="1404500423490"/>
 </node>
 <node TEXT="v0.9.19" FOLDED="true" ID="ID_166560259" CREATED="1404459366184" MODIFIED="1405864648315">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <node TEXT="added Dutch translation - thanks to Haai Henkie!" ID="ID_214157042" CREATED="1404459375469" MODIFIED="1405878837338"/>
 <node TEXT="checkAddOn.groovy: ignore classpath, .project and freeplane.dsld from scripts/" ID="ID_758381956" CREATED="1405878837767" MODIFIED="1405878912184"/>
 </node>
 <node TEXT="v0.9.20" FOLDED="true" ID="ID_1518536148" CREATED="1404459366184" MODIFIED="1427741686416">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <node TEXT="fix path to version.properties" ID="ID_1713135491" CREATED="1404459375469" MODIFIED="1427743639121"/>
 <node TEXT="#2234 dealing with spaces in filenames leads releaseAddOn.groovy to crash" ID="ID_1164336874" CREATED="1434841185897" MODIFIED="1434841185897"/>
 </node>
@@ -612,18 +595,18 @@
 <node TEXT="added extractBinary" ID="ID_1578685543" CREATED="1460905356948" MODIFIED="1460905368928"/>
 </node>
 <node TEXT="v0.9.23" FOLDED="true" ID="ID_1514294620" CREATED="1450739820676" MODIFIED="1542049951569">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <node TEXT="Fix for Freeplane 1.7.x" ID="ID_38718626" CREATED="1460905356948" MODIFIED="1542049974854"/>
 </node>
 <node TEXT="v0.9.24" FOLDED="true" ID="ID_1948756218" CREATED="1545222338001" MODIFIED="1545222374213">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <node TEXT="Fix for #2386 Special characters in add-on translations wrongly displayed" ID="ID_457885988" CREATED="1545222815394" MODIFIED="1545222846948">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 <node TEXT="#2642 Devtools creates wrong menuTitleKey for scripts" ID="ID_1374600909" CREATED="1548536422939" MODIFIED="1548536425085"/>
 </node>
 <node TEXT="v0.9.25" FOLDED="true" ID="ID_1823309527" CREATED="1545222338001" MODIFIED="1548536445091">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 <node TEXT="#2643 Devtools does not display its add-on name in menu" ID="ID_1184303114" CREATED="1548536744615" MODIFIED="1548536766123"/>
 <node TEXT="#2464 test for missing English translations for scripts" ID="ID_1596709901" CREATED="1548536589892" MODIFIED="1548536627896"/>
 <node TEXT="Set icon for devtools sub menu" ID="ID_265129237" CREATED="1548533999679" MODIFIED="1548534026969"/>
@@ -631,9 +614,11 @@
 <node TEXT="v0.9.26" FOLDED="true" ID="ID_497897109" CREATED="1593032987738" MODIFIED="1593032997005">
 <node TEXT="Fix for #2798 : Menu Item Info error" ID="ID_1640195555" CREATED="1593033040682" MODIFIED="1593033857920"/>
 </node>
+<node TEXT="v0.9.27" FOLDED="true" ID="ID_393508121" CREATED="1593032987738" MODIFIED="1685276419198">
+<node TEXT="Use downloadUrl property if set on the Root node" ID="ID_1576637720" CREATED="1593033040682" MODIFIED="1685276441402"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1548535421625"><richcontent TYPE="NOTE">
-
+</node>
+<node TEXT="license" FOLDED="true" POSITION="top_or_left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1548535421625"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -649,12 +634,10 @@
       The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1548535421628"><richcontent TYPE="NOTE">
-
+<node TEXT="preferences.xml" POSITION="top_or_left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1548535421628"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -667,14 +650,12 @@
       <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
-<node TEXT="default.properties" POSITION="left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1548535421630">
-<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
+<node TEXT="default.properties" POSITION="top_or_left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1548535421630">
+<attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="${name}.icon" VALUE="/images/${name}-icon.png"/>
-<richcontent TYPE="NOTE">
-
+<richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -692,11 +673,9 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
-<node TEXT="translations" POSITION="left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1548535421633"><richcontent TYPE="NOTE">
-
+<node TEXT="translations" POSITION="top_or_left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1548535421633"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -717,10 +696,9 @@
       </li>
     </ul>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1546724768521">
-<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
+<attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Build add-on"/>
 <attribute NAME="addons.${name}.releaseAddOn" VALUE="Package add-on for publication"/>
@@ -731,7 +709,7 @@
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Encode translations"/>
 </node>
 <node TEXT="de" ID="ID_1406372206" CREATED="1313166602328" MODIFIED="1546724772558">
-<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
+<attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="addons.${name}" VALUE="Entwicklungswerkzeuge"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Komplettiere Add-on"/>
 <attribute NAME="addons.${name}.releaseAddOn" VALUE="Add-on-Package erzeugen"/>
@@ -742,7 +720,7 @@
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="\u00DCbersetzungen kodieren"/>
 </node>
 <node TEXT="nl" ID="ID_1871441757" CREATED="1313166602328" MODIFIED="1546724776569">
-<attribute_layout NAME_WIDTH="138.74999586492788 pt" VALUE_WIDTH="138.74999586492788 pt"/>
+<attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="addons.${name}" VALUE="Ontwikkeltools"/>
 <attribute NAME="addons.${name}.checkAddOn" VALUE="Add-on opbouwen"/>
 <attribute NAME="addons.${name}.releaseAddOn" VALUE="Add-on package genereren"/>
@@ -752,8 +730,7 @@
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1548535421638" HGAP_QUANTITY="50.0 px" VSHIFT_QUANTITY="-100.0 px"><richcontent TYPE="NOTE">
-
+<node TEXT="deinstall" POSITION="top_or_left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1548535421638" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-100 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -763,9 +740,8 @@
       List of files and/or directories to remove on uninstall
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout NAME_WIDTH="38.249998860061204 pt" VALUE_WIDTH="350.9999895393851 pt"/>
+</html></richcontent>
+<attribute_layout NAME_WIDTH="38.25 pt" VALUE_WIDTH="350.99999 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools-icon.png"/>
@@ -779,8 +755,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1548535421682" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="-20.0 px"><richcontent TYPE="NOTE">
-
+<node TEXT="zips" POSITION="bottom_or_right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1548535421682" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-20 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -814,14 +789,12 @@
       &#160;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="scripts" ID="ID_875490853" CREATED="1545222247205" MODIFIED="1545222247206">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1548535421679" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="10.0 px"><richcontent TYPE="NOTE">
-
+<node TEXT="lib" POSITION="bottom_or_right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1548535421679" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="10 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -855,12 +828,10 @@
       &#160;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html>
-</richcontent>
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+</html></richcontent>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
-<node TEXT="images" POSITION="right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1548535421696" HGAP_QUANTITY="70.0 px" VSHIFT_QUANTITY="-180.0 px"><richcontent TYPE="NOTE">
-
+<node TEXT="images" POSITION="bottom_or_right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1548535421696" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-180 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -890,14 +861,13 @@
       Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 <node TEXT="${name}-screenshot-1.png" ID="ID_1150955427" CREATED="1322728032545" MODIFIED="1322954458469">
-<attribute_layout VALUE_WIDTH="100.0 pt"/>
+<attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
 </node>
