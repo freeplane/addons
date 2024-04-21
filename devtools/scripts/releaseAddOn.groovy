@@ -23,6 +23,7 @@ import javax.swing.JOptionPane
 import org.apache.commons.lang.StringUtils
 import org.apache.commons.lang.WordUtils
 import org.freeplane.core.util.LogUtils
+import org.freeplane.features.map.clipboard.MapClipboardController.CopiedNodeSet
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
 import org.freeplane.features.map.mindmapmode.MMapModel
@@ -169,7 +170,7 @@ private byte[] getBytes(MapModel map) {
     StringWriter stringWriter = new StringWriter(4*1024)
     BufferedWriter out = new BufferedWriter(stringWriter)
     Controller.getCurrentModeController().getMapController().getMapWriter()
-        .writeMapAsXml(map, out, Mode.FILE, true, false)
+        .writeMapAsXml(map, out, Mode.FILE, CopiedNodeSet.ALL_NODES, false)
     return stringWriter.buffer.toString().getBytes(StandardCharsets.UTF_8)
 }
 
