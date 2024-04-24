@@ -1,9 +1,9 @@
 <map version="freeplane 1.11.5">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1713656880048" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1713924993865" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -163,7 +163,7 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="description" POSITION="top_or_left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1713656857250"><richcontent TYPE="NOTE">
+<node TEXT="description" POSITION="top_or_left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1713924993911"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -228,7 +228,7 @@
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="bottom_or_right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1713656857282" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-10 px"><richcontent TYPE="NOTE">
+<node TEXT="scripts" POSITION="bottom_or_right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1713924993958" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-10 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -517,7 +517,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" POSITION="top_or_left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1713656857253"><richcontent TYPE="NOTE">
+<node TEXT="changes" POSITION="top_or_left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1713924993919"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -628,7 +628,7 @@
 <node TEXT="Fixed MapWriter.writeMapAsXml() problem in releaseAddon&#xa;Enabled running checkAddon from src/addon directory" ID="ID_573705184" CREATED="1713656975280" MODIFIED="1713657309102"/>
 </node>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="top_or_left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1713656857255"><richcontent TYPE="NOTE">
+<node TEXT="license" FOLDED="true" POSITION="top_or_left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1713924993923"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -648,7 +648,7 @@
 </richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="top_or_left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1713656857259"><richcontent TYPE="NOTE">
+<node TEXT="preferences.xml" POSITION="top_or_left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1713924993928"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -664,7 +664,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="default.properties" POSITION="top_or_left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1713656857262">
+<node TEXT="default.properties" POSITION="top_or_left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1713924993933">
 <attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="${name}.icon" VALUE="/images/${name}-icon.png"/>
 <richcontent TYPE="NOTE">
@@ -688,7 +688,7 @@
 </html>
 </richcontent>
 </node>
-<node TEXT="translations" POSITION="top_or_left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1713656857265"><richcontent TYPE="NOTE">
+<node TEXT="translations" POSITION="top_or_left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1713924993940"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -744,7 +744,7 @@
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="top_or_left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1713656857277" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-100 px"><richcontent TYPE="NOTE">
+<node TEXT="deinstall" POSITION="top_or_left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1713924993948" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-100 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -770,7 +770,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="bottom_or_right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1713656857425" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-20 px"><richcontent TYPE="NOTE">
+<node TEXT="zips" POSITION="bottom_or_right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1713924994030" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-20 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -810,7 +810,7 @@
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="bottom_or_right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1713656857410" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="10 px"><richcontent TYPE="NOTE">
+<node TEXT="lib" POSITION="bottom_or_right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1713924994021" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="10 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -848,7 +848,7 @@
 </richcontent>
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
-<node TEXT="images" POSITION="bottom_or_right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1713656857451" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-180 px"><richcontent TYPE="NOTE">
+<node TEXT="images" POSITION="bottom_or_right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1713924994052" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-180 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     

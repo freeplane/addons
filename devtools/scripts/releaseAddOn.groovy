@@ -23,7 +23,7 @@ import javax.swing.JOptionPane
 import org.apache.commons.lang.StringUtils
 import org.apache.commons.lang.WordUtils
 import org.freeplane.core.util.LogUtils
-import org.freeplane.features.map.clipboard.MapClipboardController.CopiedNodeSet
+import org.freeplane.features.map.clipboard.MapClipboardController
 import org.freeplane.features.map.MapModel
 import org.freeplane.features.map.MapWriter.Mode
 import org.freeplane.features.map.mindmapmode.MMapModel
@@ -169,8 +169,12 @@ byte[] getZipBytes(File topDir) {
 private byte[] getBytes(MapModel map) {
     StringWriter stringWriter = new StringWriter(4*1024)
     BufferedWriter out = new BufferedWriter(stringWriter)
-    Controller.getCurrentModeController().getMapController().getMapWriter()
-        .writeMapAsXml(map, out, Mode.FILE, CopiedNodeSet.ALL_NODES, false)
+	def mapWriter = Controller.getCurrentModeController().getMapController().getMapWriter()
+	    try { // since 1.11.8 (2f8e7017)
+	        mapWriter.writeMapAsXml(map, out, Mode.FILE, MapClipboardController.CopiedNodeSet.ALL_NODES, false)
+	    } catch (MissingMethodException) { // till 1.11.8 (2f8e7017)
+	        mapWriter.writeMapAsXml(map, out, Mode.FILE, true, false)
+	    }
     return stringWriter.buffer.toString().getBytes(StandardCharsets.UTF_8)
 }
 
