@@ -1,6 +1,6 @@
-<map version="freeplane 1.11.1">
+<map version="freeplane 1.11.5">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1685276972955" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
+<node TEXT="Developer Tools" FOLDED="false" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1713924993865" LINK="https://sourceforge.net/projects/freeplane/files/addons/devtools" BACKGROUND_COLOR="#97c7dc">
 <font SIZE="16" BOLD="true" ITALIC="true"/>
 <hook NAME="MapStyle">
     <properties show_icon_for_attributes="true" show_note_icons="true" fit_to_viewport="false"/>
@@ -119,13 +119,13 @@
 </hook>
 <attribute_layout NAME_WIDTH="96 pt" VALUE_WIDTH="96 pt"/>
 <attribute NAME="name" VALUE="devtools"/>
-<attribute NAME="version" VALUE="v0.9.27"/>
+<attribute NAME="version" VALUE="v0.9.28"/>
 <attribute NAME="author" VALUE="Volker Börchers"/>
 <attribute NAME="freeplaneVersionFrom" VALUE="v1.7.4"/>
 <attribute NAME="freeplaneVersionTo" VALUE=""/>
 <attribute NAME="updateUrl" VALUE=""/>
 <attribute NAME="downloadUrl" VALUE=""/>
-<richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -156,10 +156,14 @@
       <li>
         updateUrl: URL of the file containing information (version, download url) on the latest version of this add-on. By default: &quot;${homepage}/version.properties&quot;
       </li>
+      <li>
+        downloadUrl: add-on file download URL added to version.properties, by default ${homepage}/$name-$version.addon.mm&quot;
+      </li>
     </ul>
   </body>
-</html></richcontent>
-<node TEXT="description" POSITION="top_or_left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1548535421619"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+</html>
+</richcontent>
+<node TEXT="description" POSITION="top_or_left" ID="ID_328053546" CREATED="1313183947316" MODIFIED="1713924993911"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -169,13 +173,14 @@
       Description would be awkward to edit as an attribute.
     </p>
     <p>
-      So you have to put the add-on description as a child of the <i>'description'</i>&#160;node.
+      So you have to put the add-on description as a child of the <i>'description'</i>&#xa0;node.
     </p>
     <p>
       To translate the description you have to define a translation for the key 'addons.${name}.description'.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout VALUE_WIDTH="100 pt"/>
 <node ID="ID_1187826020" CREATED="1313183969546" MODIFIED="1546724580355" BACKGROUND_COLOR="#ffff75" HGAP_QUANTITY="-482 px" VSHIFT_QUANTITY="-152 px"><richcontent TYPE="NODE">
 
@@ -223,7 +228,7 @@
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="scripts" POSITION="bottom_or_right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1548535421643" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-10 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="scripts" POSITION="bottom_or_right" ID="ID_788417856" CREATED="1316303875303" MODIFIED="1713924993958" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-10 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -239,13 +244,13 @@
       * menuLocation: &lt;locationkey&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
+      &#xa0;&#xa0;&#xa0;- Defines the menu location, defaults a sub menu 'main_menu_scripting/addons.${name}'.
     </p>
     <p>
-      &#160;&#160;&#160;-&#160;Use developer tool menuItemInfo to inspect menu location keys.
+      &#xa0;&#xa0;&#xa0;-&#xa0;Use developer tool menuItemInfo to inspect menu location keys.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &#xa0;&#xa0;&#xa0;- This attribute is mandatory
     </p>
     <p>
       
@@ -254,10 +259,10 @@
       * menuTitleKey: &lt;key&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- The menu item title will be looked up under the translation key &lt;key&gt; - don't forget to define its translation.
+      &#xa0;&#xa0;&#xa0;- The menu item title will be looked up under the translation key &lt;key&gt; - don't forget to define its translation.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &#xa0;&#xa0;&#xa0;- This attribute is mandatory
     </p>
     <p>
       
@@ -266,22 +271,22 @@
       * executionMode: &lt;mode&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- The execution mode as described in the Freeplane wiki (http://freeplane.sourceforge.net/wiki/index.php/Scripting)
+      &#xa0;&#xa0;&#xa0;- The execution mode as described in the Freeplane wiki (http://freeplane.sourceforge.net/wiki/index.php/Scripting)
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SINGLE_NODE: Execute the script once. The <i>node</i>&#160;variable is set to the selected node.
+      &#xa0;&#xa0;&#xa0;- ON_SINGLE_NODE: Execute the script once. The <i>node</i>&#xa0;variable is set to the selected node.
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SELECTED_NODE: Execute the script n times for n selected nodes, once for each node.
+      &#xa0;&#xa0;&#xa0;- ON_SELECTED_NODE: Execute the script n times for n selected nodes, once for each node.
     </p>
     <p>
-      &#160;&#160;&#160;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
+      &#xa0;&#xa0;&#xa0;- ON_SELECTED_NODE_RECURSIVELY: Execute the script on every selected node and recursively on all of its children.
     </p>
     <p>
-      &#160;&#160;&#160;- In doubt use ON_SINGLE_NODE.
+      &#xa0;&#xa0;&#xa0;- In doubt use ON_SINGLE_NODE.
     </p>
     <p>
-      &#160;&#160;&#160;- This attribute is mandatory
+      &#xa0;&#xa0;&#xa0;- This attribute is mandatory
     </p>
     <p>
       
@@ -290,56 +295,57 @@
       * keyboardShortcut: &lt;shortcut&gt;
     </p>
     <p>
-      &#160;&#160;&#160;- Optional: keyboard combination / accelerator for this script, e.g. control alt I
+      &#xa0;&#xa0;&#xa0;- Optional: keyboard combination / accelerator for this script, e.g. control alt I
     </p>
     <p>
-      &#160;&#160;&#160;- Use lowercase letters for modifiers and uppercase for letters. Use no + signs.
+      &#xa0;&#xa0;&#xa0;- Use lowercase letters for modifiers and uppercase for letters. Use no + signs.
     </p>
     <p>
-      &#160;&#160;&#160;- The available key names are listed at http://download.oracle.com/javase/1.4.2/docs/api/java/awt/event/KeyEvent.html#VK_0
+      &#xa0;&#xa0;&#xa0;- The available key names are listed at http://download.oracle.com/javase/1.4.2/docs/api/java/awt/event/KeyEvent.html#VK_0
     </p>
     <p>
-      &#160;&#160;&#160;&#160;&#160;In the list only entries with a 'VK_' prefix count. Omit the prefix in the shortcut definition.
+      &#xa0;&#xa0;&#xa0;&#xa0;&#xa0;In the list only entries with a 'VK_' prefix count. Omit the prefix in the shortcut definition.
     </p>
     <p>
       
     </p>
     <p>
-      * Permissions&#160;that the script(s) require, each either false or true:
+      * Permissions&#xa0;that the script(s) require, each either false or true:
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_asking
+      &#xa0;&#xa0;&#xa0;- execute_scripts_without_asking
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_file_restriction: permission to read files
+      &#xa0;&#xa0;&#xa0;- execute_scripts_without_file_restriction: permission to read files
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_write_restriction: permission to create/change/delete files
+      &#xa0;&#xa0;&#xa0;- execute_scripts_without_write_restriction: permission to create/change/delete files
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_exec_restriction: permission to execute other programs
+      &#xa0;&#xa0;&#xa0;- execute_scripts_without_exec_restriction: permission to execute other programs
     </p>
     <p>
-      &#160;&#160;&#160;- execute_scripts_without_network_restriction: permission to access the network
+      &#xa0;&#xa0;&#xa0;- execute_scripts_without_network_restriction: permission to access the network
     </p>
     <p>
-      &#160;&#160;Notes:
+      &#xa0;&#xa0;Notes:
     </p>
     <p>
-      &#160;&#160;- The set of permissions is fixed.
+      &#xa0;&#xa0;- The set of permissions is fixed.
     </p>
     <p>
-      &#160;&#160;- Don't change the attribute names, don't omit one.
+      &#xa0;&#xa0;- Don't change the attribute names, don't omit one.
     </p>
     <p>
-      &#160;&#160;- Set the values either to true or to false
+      &#xa0;&#xa0;- Set the values either to true or to false
     </p>
     <p>
-      &#160;&#160;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
+      &#xa0;&#xa0;- In any case set execute_scripts_without_asking to true unless you want to annoy users.
     </p>
   </body>
-</html></richcontent>
-<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+</html>
+</richcontent>
+<node TEXT="checkAddOn.groovy" ID="ID_1651569668" CREATED="1313132482683" MODIFIED="1319845300346"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -373,7 +379,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="releaseAddOn.groovy" ID="ID_1385129437" CREATED="1313132482683" MODIFIED="1319323172225"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -410,7 +416,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1323993328104"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="addOnDoc.groovy" ID="ID_263539694" CREATED="1313132482683" MODIFIED="1323993328104"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -432,7 +438,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1324456004959"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="menuItemInfo.groovy" ID="ID_1073334594" CREATED="1313132482683" MODIFIED="1324456004959"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -454,7 +460,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="insertBinary.groovy" ID="ID_1004069036" CREATED="1313132482683" MODIFIED="1321898268207"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -476,7 +482,7 @@
 <attribute NAME="execute_scripts_without_exec_restriction" VALUE="false"/>
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
-<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="extractBinary.groovy" ID="ID_1968141643" CREATED="1313132482683" MODIFIED="1460905316847"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -511,7 +517,7 @@
 <attribute NAME="execute_scripts_without_network_restriction" VALUE="false"/>
 </node>
 </node>
-<node TEXT="changes" POSITION="top_or_left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1548535421622"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="changes" POSITION="top_or_left" ID="ID_309963735" CREATED="1321572498798" MODIFIED="1713924993919"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -521,7 +527,8 @@
       Change log of this add-on: append one node for each noteworthy version and put the details for each version into a child node.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="v0.9" FOLDED="true" ID="ID_781192802" CREATED="1321572503553" MODIFIED="1321572999172">
 <node TEXT="Initial version" ID="ID_1996473369" CREATED="1321572540042" MODIFIED="1323905894953"/>
 </node>
@@ -617,8 +624,11 @@
 <node TEXT="v0.9.27" FOLDED="true" ID="ID_393508121" CREATED="1593032987738" MODIFIED="1685276419198">
 <node TEXT="Use downloadUrl property if set on the Root node" ID="ID_1576637720" CREATED="1593033040682" MODIFIED="1685276441402"/>
 </node>
+<node TEXT="v0.9.28" ID="ID_1432554392" CREATED="1713656924427" MODIFIED="1713656950865">
+<node TEXT="Fixed MapWriter.writeMapAsXml() problem in releaseAddon&#xa;Enabled running checkAddon from src/addon directory" ID="ID_573705184" CREATED="1713656975280" MODIFIED="1713657309102"/>
 </node>
-<node TEXT="license" FOLDED="true" POSITION="top_or_left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1548535421625"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+</node>
+<node TEXT="license" FOLDED="true" POSITION="top_or_left" ID="ID_770036552" CREATED="1319814596814" MODIFIED="1713924993923"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -631,31 +641,33 @@
       
     </p>
     <p>
-      The License text has to be entered as a child of the <i>'license'</i>&#160;node, either as plain text or as HTML.
+      The License text has to be entered as a child of the <i>'license'</i>&#xa0;node, either as plain text or as HTML.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="This add-on is free software: you can redistribute it and/or modify&#xa;it under the terms of the GNU General Public License as published by&#xa;the Free Software Foundation, either version 2 of the License, or&#xa;(at your option) any later version.&#xa;&#xa;This program is distributed in the hope that it will be useful,&#xa;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xa;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xa;GNU General Public License for more details." ID="ID_1912443753" CREATED="1319814828201" MODIFIED="1319814831174"/>
 </node>
-<node TEXT="preferences.xml" POSITION="top_or_left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1548535421628"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="preferences.xml" POSITION="top_or_left" ID="ID_1267015903" CREATED="1313132482700" MODIFIED="1713924993928"><richcontent TYPE="NOTE">
 <html>
   <head>
     
   </head>
   <body>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </font>
+      <span style="color: #000000; font-family: SansSerif, sans-serif;">The child node contains the add-on configuration as an extension to mindmapmodemenu.xml (in Tools-&gt;Preferences-&gt;Add-ons). </span>
     </p>
     <p>
-      <font color="#000000" face="SansSerif, sans-serif">Every property in the configuration should receive a default value in <i>default.properties</i>&#160;node.</font>
+      <span style="color: #000000; font-family: SansSerif, sans-serif;">Every property in the configuration should receive a default value in <i>default.properties</i>&#xa0;node.</span>
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
-<node TEXT="default.properties" POSITION="top_or_left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1548535421630">
+<node TEXT="default.properties" POSITION="top_or_left" ID="ID_1363888784" CREATED="1313132482695" MODIFIED="1713924993933">
 <attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="${name}.icon" VALUE="/images/${name}-icon.png"/>
-<richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -673,9 +685,10 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
-<node TEXT="translations" POSITION="top_or_left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1548535421633"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="translations" POSITION="top_or_left" ID="ID_1289155258" CREATED="1313166589769" MODIFIED="1713924993940"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -696,7 +709,8 @@
       </li>
     </ul>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="en" ID="ID_306398849" CREATED="1313166602328" MODIFIED="1546724768521">
 <attribute_layout NAME_WIDTH="138.75 pt" VALUE_WIDTH="138.75 pt"/>
 <attribute NAME="addons.${name}" VALUE="Developer Tools"/>
@@ -730,7 +744,7 @@
 <attribute NAME="addons.${name}.encodeTranslations" VALUE="Vertalingen coderen"/>
 </node>
 </node>
-<node TEXT="deinstall" POSITION="top_or_left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1548535421638" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-100 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="deinstall" POSITION="top_or_left" ID="ID_26194671" CREATED="1313133194687" MODIFIED="1713924993948" HGAP_QUANTITY="50 px" VSHIFT_QUANTITY="-100 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -740,7 +754,8 @@
       List of files and/or directories to remove on uninstall
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout NAME_WIDTH="38.25 pt" VALUE_WIDTH="350.99999 pt"/>
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}.script.xml"/>
 <attribute NAME="delete" VALUE="${installationbase}/resources/images/devtools.png"/>
@@ -755,7 +770,7 @@
 <attribute NAME="delete" VALUE="${installationbase}/addons/${name}/scripts/releaseAddOn.groovy"/>
 <attribute NAME="delete" VALUE="${installationbase}/scripts/freeplane.dsld"/>
 </node>
-<node TEXT="zips" POSITION="bottom_or_right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1548535421682" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-20 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="zips" POSITION="bottom_or_right" ID="ID_482322757" CREATED="1316303875303" MODIFIED="1713924994030" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-20 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -768,33 +783,34 @@
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
+      &#xa0;- The immediate child nodes contain a description of the zip. The devtools script releaseAddOn.groovy allows automatic zip creation if the name of this node matches a directory in the current directory.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The child nodes of these nodes contain the actual zip files.
+      &#xa0;- The child nodes of these nodes contain the actual zip files.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
+      &#xa0;- Any zip file will be extracted in the &lt;installationbase&gt;. Currently, &lt;installationbase&gt; is always Freeplane's &lt;userhome&gt;, e.g. ~/.freeplane/1.3.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The files will be processed in the sequence as seen in the map.
+      &#xa0;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="scripts" ID="ID_875490853" CREATED="1545222247205" MODIFIED="1545222247206">
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
 </node>
-<node TEXT="lib" POSITION="bottom_or_right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1548535421679" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="10 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="lib" POSITION="bottom_or_right" ID="ID_492204493" CREATED="1388064707053" MODIFIED="1713924994021" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="10 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -807,31 +823,32 @@
       
     </p>
     <p>
-      &#160;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
+      &#xa0;- The immediate child nodes contain the name of the file, e.g. 'mysql-connector-java-5.1.25.jar'). Put the file into a 'lib' subdirectory of the add-on base directory.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The child nodes of these nodes contain the actual files.
+      &#xa0;- The child nodes of these nodes contain the actual files.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
+      &#xa0;- Any lib file will be extracted in &lt;installationbase&gt;/&lt;addonname&gt;/lib.
     </p>
     <p>
       
     </p>
     <p>
-      &#160;- The files will be processed in the sequence as seen in the map.
+      &#xa0;- The files will be processed in the sequence as seen in the map.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <attribute_layout VALUE_WIDTH="100 pt"/>
 </node>
-<node TEXT="images" POSITION="bottom_or_right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1548535421696" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-180 px"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="images" POSITION="bottom_or_right" ID="ID_723709077" CREATED="1322727983867" MODIFIED="1713924994052" HGAP_QUANTITY="70 px" VSHIFT_QUANTITY="-180 px"><richcontent TYPE="NOTE">
 <html>
   <head>
     
@@ -841,7 +858,7 @@
       An add-on may define any number of images as child nodes of the images node. The actual image data has to be placed as base64 encoded binary data into the text of a subnode.
     </p>
     <p>
-      The images are saved to the <i>${installationbase}/resources/images</i>&#160;directory.
+      The images are saved to the <i>${installationbase}/resources/images</i>&#xa0;directory.
     </p>
     <p>
       
@@ -858,10 +875,11 @@
       </li>
     </ul>
     <p>
-      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#160;since they have to be (base64) encoded as simple strings.
+      Images can be added automatically by releaseAddOn.groovy or must be uploaded into the map via the script <i>Tools-&gt;Scripts-&gt;Insert Binary</i>&#xa0;since they have to be (base64) encoded as simple strings.
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 <node TEXT="${name}.png" ID="ID_1002402838" CREATED="1322728032545" MODIFIED="1322728042835"/>
 <node TEXT="${name}-icon.png" ID="ID_1000617651" CREATED="1322728032545" MODIFIED="1322728054646">
 <attribute_layout VALUE_WIDTH="100 pt"/>
