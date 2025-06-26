@@ -26,7 +26,6 @@ import javax.swing.JFrame
 import org.freeplane.core.resources.ResourceController
 import org.freeplane.features.link.LinkController;
 import org.freeplane.features.mode.Controller
-import org.freeplane.features.url.UrlManager
 
 import java.awt.*;
 
@@ -96,8 +95,7 @@ def Icon getIcon(String path) {
 
 
 JFileChooser createFileChooser() {
-    final UrlManager urlManager = Controller.currentModeController.getExtension(UrlManager.class);
-    return urlManager.getFileChooser(false);
+    return ui.newFileChooser();
 }
 
 iWidth = 1.0
@@ -284,9 +282,14 @@ def dialogue = builder.dialog(title: 'Insert/Mofify Image', id: 'insertImage', m
                         Clipboard clipboard = tool.getSystemClipboard() //get ClipBoard
                         try {
                             if (clipboard.isDataFlavorAvailable(DataFlavor.imageFlavor)) { //contains an image
-                                image = clipboard.getData(DataFlavor.imageFlavor) //get the image
                                 if (System.getProperty("os.name").toLowerCase().indexOf("mac") >= 0) { //if mac
-                                    image = getBufferedImage(image); //convert into something it understands
+                                    /* In macOS we cannot cast clipboard.getData() to BufferedImage directly,
+                                    so we need to cast to Image first */
+                                    Image macImage = (Image) clipboard.getData(DataFlavor.imageFlavor) //get the image
+                                    image = getBufferedImage(macImage); //convert into BufferedImage
+                                } else {
+                                    //In other OS we can cast to BufferedImage directly
+                                    image = (BufferedImage) clipboard.getData(DataFlavor.imageFlavor) //get the image
                                 }
                                 getImageDimensions(image) //filling the image dimensions fields
                                 currentImage.welcomeImg(image)

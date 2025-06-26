@@ -1,0 +1,12 @@
+rootProject.name = 'addons'
+include 'devtools',
+	'insertInlineImage',
+	'oldicons-theme',
+	'packAndGo',
+	'translation',
+	'userIcons'
+/* In case Freeplane repository is present, include it to the build */
+File freeplaneRepository = new File('../freeplane_root')
+if (freeplaneRepository.exists()) {
+	includeBuild('../freeplane_root')
+}

@@ -1,0 +1,114 @@
+// Dependencies for Gradle Plugin for Freeplane Script and Add-on Development
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.freeplane:gradle-freeplane-plugin:0.8'
+    }
+}
+
+plugins {
+    // Apply the groovy Plugin to add support for Groovy.
+    id 'groovy'
+}
+
+// Java 8 compatibility with java toolchain
+java {
+    targetCompatibility=JavaVersion.VERSION_1_8
+    sourceCompatibility=JavaVersion.VERSION_1_8
+    // toolchain {
+    //     languageVersion = JavaLanguageVersion.of(8)
+    // }
+}
+/* Supposed location of Freeplane repository*/
+File freeplaneRepository = new File('../../freeplane_root')
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+    /* In case Freeplane repository is present, include maven repository for knopflerfish */
+    if (freeplaneRepository.exists()) {
+        maven { url 'https://resources.knopflerfish.org/repo/maven2/release/' }
+    }
+}
+
+/* In case Freeplane repository is present, ... */
+if (freeplaneRepository.exists()) {
+    /* ... include dependencies to Freeplane API to the project ... */
+    dependencies {
+        implementation 'freeplane_root:freeplane'
+        implementation 'freeplane_root:freeplane_api'
+        implementation 'freeplane_root:freeplane_framework'
+        implementation 'freeplane_root:freeplane_plugin_script'
+    }
+    /* ... and exclude unnecessary transitive dependencies. */
+    configurations.implementation {
+        exclude group: 'com.formdev', module: 'flatlaf'
+        exclude group: 'com.github.robtimus', module: 'data-url'
+        exclude group: 'com.jgoodies', module: 'jgoodies-common'
+        exclude group: 'com.jgoodies', module: 'jgoodies-forms'
+        exclude group: 'com.sun.activation', module: 'javax.activation'
+        exclude group: 'com.twelvemonkeys.common'
+        exclude group: 'com.twelvemonkeys.imageio'
+        exclude group: 'commons-codec', module: 'commons-codec'
+        exclude group: 'de.sciss', module: 'syntaxpane'
+        exclude group: 'io.github.gitbucket', module: 'markedj'
+        exclude group: 'org.apache.pdfbox', module: 'fontbox'
+        exclude group: 'org.apache.xmlgraphics'
+        exclude group: 'org.freeplane.lightdev', module: 'simplyhtml'
+        exclude group: 'org.freeplane.dpolivaev.mnemonicsetter', module: 'mnemonicsetter'
+        exclude group: 'org.jsoup', module: 'jsoup'
+        exclude group: 'org.openstreetmap.jmapviewer', module: 'jmapviewer'
+        exclude group: 'org.scilab.forge'
+        exclude group: 'org.violetlib'
+        exclude module: 'idw-gpl-1.6.1'
+        exclude module: 'kitfox-svg-salamander-1.1.1-p1'
+    }
+
+}
+
+apply plugin: 'org.freeplane.gradle-freeplane-plugin'
+
+freeplane {
+    // mandatory, freeplane installation directory.
+    // (Freeplane.app directory on MacOS)
+    // In this example it is taken from system environment.
+    /* In case Freeplane repository is present, use its BIN directory ... */
+    if (freeplaneRepository.exists()) {
+        freeplaneDirectory = '../../freeplane_root/BIN'
+    /* ... else use directory defined by environment variable FREEPLANE_DIR */
+    } else {
+        freeplaneDirectory = System.env.FREEPLANE_DIR
+    }
+
+    // recommended, freeplane user setting directory.
+    // It should be specified without the version number suffix.
+    // The value used by default can be different from your OS default.
+    userDirectory = System.env.HOME + '/.freeplane'
+
+    // optional, addon source directory
+    // addonSourceDirectory = 'src/addon'
+
+    // optional, to be set only if more then one mind map file in the addon source directory
+    addonDefinitionMindMapFileName = 'InsertInlineImage.mm'
+
+    // optional, includes
+    // includes = ['**/*']
+
+    // optional, excludes
+    // excludes = ['**/*.bak', '**/~*', '**/$~*.mm~', '**/*.gdsl', '**/*.dsld']
+
+    // optional, max heap size for freeplane
+    // maxHeapSize = '1024m'
+
+    // optional, additional Java Runtime options
+    // jvmArgs = []
+
+}
+
+// Rename archiveFileName to the lib that you build as part of your add-on
+// If you do not build your own lib, comment the next 3 lines out or delete them
+// jar {
+//     archiveFileName = 'InsertInlineImage.jar'
+// }
